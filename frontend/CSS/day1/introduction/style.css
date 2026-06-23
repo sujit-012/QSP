@@ -1,0 +1,15 @@
+div{
+    background: red; 
+    color: white; 
+    height: 200px; 
+    width: 200px;
+}
+
+#ele2{
+    background: blue;
+}
+
+.divs{
+    color: black;
+    border-radius: 50% ;
+}

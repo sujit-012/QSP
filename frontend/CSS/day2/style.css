@@ -1,0 +1,50 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+/* main{
+    height: 300px;
+    border: 2px solid;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-wrap: wrap;
+}
+
+div{
+    background: red;
+    min-width: 50%;
+}
+
+span{
+    background: mediumturquoise;
+    min-width: 50%;
+}
+
+section{
+    background: magenta;
+    min-width: 50%;
+} */
+
+main{
+    border: 2px solid;
+    width: 7%;
+    height: 100vh;
+    background: grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.div1{
+    border: 2px solid red;
+    height: 60%;
+}
+
+.div2{
+    border: 2px solid red;
+    height: 20%;
+}
