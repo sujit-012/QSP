@@ -1,0 +1,58 @@
+#box{
+    height: 200px;
+    width: 200px;
+    background-color: red;
+    /* position: static; This is comes with by default we cant move
+    top: 100px; */
+    position: absolute;
+    top: 100px;
+    left: 100px;
+}
+
+#box2{
+    height: 200px;
+    width: 200px;
+    background-color: green;
+    position: absolute;
+    top: 150px;
+    left: 150px;
+}
+
+#box3{
+    height: 200px;
+    width: 200px;
+    background-color: blue;
+    position: absolute;
+    left: 250px;
+    top: 200px;
+    z-index: 1;
+}
+
+#box4{
+    height: 200px;
+    width: 200px;
+    background-color: red;
+    position: absolute;
+    left: 425px;
+    top: 100px;
+}
+
+#box5{
+    height: 200px;
+    width: 200px;
+    background-color: green;
+    position: absolute;
+    left: 375px;
+    top: 150px;
+}
+
+article{
+    height: 100px;
+    background-color: black;
+}
+
+#main{
+    border: 2px solid;
+    height: 500px;
+    width: 100%;
+}
