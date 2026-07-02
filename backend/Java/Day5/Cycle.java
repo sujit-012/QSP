@@ -1,0 +1,15 @@
+class Cycle 
+{
+	public static void main(String[] args) 
+	{
+		int a = (int) (30*2147483648l);
+		System.out.println(a);
+			
+		//byte b1 = (byte) 128;
+		//System.out.println(b1);
+		
+		long b = (long) (30*9223372036854775808l);
+		System.out.println(b);
+		
+	}
+}

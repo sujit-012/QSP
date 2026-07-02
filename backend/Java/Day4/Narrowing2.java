@@ -1,0 +1,102 @@
+class Narrowing2 
+{
+	public static void main(String args[])
+	{
+		System.out.println("Double to smaller: - ");
+		double d1 = 97.09236889798779778979798;
+		System.out.println(d1);
+		
+		float f1 = (float) d1;
+		System.out.println(f1);
+		
+		long l1 = (long) d1;
+		System.out.println(l1);
+		
+		int i1 = (int) d1;
+		System.out.println(i1);
+		
+		char ch = (char) d1;
+		System.out.println(ch);
+		
+		short s1 = (short) d1;
+		System.out.println(s1);
+		
+		byte b1 = (byte) d1;
+		System.out.println(b1);
+		
+		System.out.println();
+		
+		System.out.println("float to smaller -");
+		float f2 = 110.098878f;
+		System.out.println(f2);	
+		
+		long l2 = (long) f2;
+		System.out.println(l2);
+		
+		int i2 = (int) f2;
+		System.out.println(i2);
+		
+		char ch2 = (char) f2;
+		System.out.println(ch2);
+		
+		short s2 = (short) f2;
+		System.out.println(s2);
+		
+		byte b2 = (byte) f2;
+		System.out.println(b2);
+		
+		System.out.println();
+		
+		System.out.println("long to smaller -");
+		long l3 = 187327297217821l;
+		System.out.println(l3);
+		
+		int i3 = (int)l3;
+		System.out.println(i3);
+		
+		char ch3 = (char) l3;
+		System.out.println(ch3);
+		
+		short s3 = (short) l3;
+		System.out.println(s3);
+		
+		byte b3 = (byte) l3;
+		System.out.println(b3);
+		
+		System.out.println();
+		
+		System.out.println("int to smaller -");
+		int i4 = 2397216;
+		System.out.println(i3);
+		
+		char ch4 = (char) i4;
+		System.out.println(ch4);
+		
+		short s4 = (short) i4;
+		System.out.println(s4);
+		
+		byte b4 = (byte) i4;
+		System.out.println(b4);
+		
+		System.out.println();
+		
+		System.out.println("char to smaller -");
+		char ch5 = 'w';
+		System.out.println(ch5);
+		
+		short s5 = (short) ch5;
+		System.out.println(s5);
+		
+		byte b5 = (byte) ch5;
+		System.out.println(b5);
+		
+		System.out.println();
+		
+		System.out.println("Short to Smaller -");
+		short s6 = 8237;
+		System.out.println(s6);
+		
+		byte b6 = (byte) s6;
+		System.out.println(b6);
+	}
+}
