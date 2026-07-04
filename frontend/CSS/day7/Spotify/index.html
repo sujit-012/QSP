@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./style.css">
     <title>Document</title>
 </head>
-<body>
+<body class="scrollbar-none">
     <nav class="h-[7vh] bg-black text-gray-400 flex justify-between items-center">
         <section class="text-white p-2"><i class="fa-brands fa-spotify text-3xl hover:font-bold"></i></section>
-        <section class="flex justify-center items-center h-[6vh] w-[30%] gap-[20px] relative left-[150px]">
+        <section class=" section2 flex justify-center items-center h-[6vh] w-[30%] gap-[20px] relative left-[150px]">
             <div class="h-[45px] w-[45px] bg-[#2a2a2a] rounded-[50%] flex justify-center items-center text-2xl hover:text-white">
                 <i class="fa-solid fa-house"></i>
             </div>
@@ -29,15 +30,15 @@
             </div>
         </section>
         <section class="flex items-center gap-[15px] w-[35%]">
-            <div class="flex justify-evenly w-[45%] border-r-1">
+            <div class=" section3-div1 flex justify-evenly w-[45%] border-r-1">
                 <p class="hover:text-white">Preminum</p>
                 <p class="hover:text-white">Support</p>
                 <p class="hover:text-white">Download</p>
             </div>
-            <div class="flex justify-evenly items-center w-[55%] ">
-                <p class="hover:text-white"><i class="fa-regular fa-circle-down"></i>InstallApp</p>
-                <p class="hover:text-white">SignUp</p>
-                <p class="w-[105px] h-[6vh] bg-white rounded-3xl text-black font-bold flex justify-center items-center "><button>Log In</button></p>
+            <div class="section3-div2 flex justify-evenly items-center w-[55%] ">
+                <p class="section3-div1-ele hover:text-white"><i class="fa-regular fa-circle-down"></i>InstallApp</p>
+                <p class="section3-div2-sign hover:text-white">SignUp</p>
+                <p class="section3-div2-button w-[105px] h-[6vh] bg-white rounded-3xl text-black font-bold flex justify-center items-center "><button>Log In</button></p>
             </div>
         </section>
     </nav>
@@ -73,58 +74,59 @@
                 </div>
             </section>
         </aside>
-        <section  class="w-[74%] h-[84vh] bg-[#121212] rounded-2xl text-white overflow-y-auto">
+        <section  class="main-section w-[74%] h-[84vh] bg-[#121212] rounded-2xl text-white scrollbar-none overflow-auto">
             <div class="flex justify-center items-center mt-[25px] flex-col">
                 <div class="flex justify-between w-[90%]">
                     <p class="font-bold text-2xl">Trending Songs</p>
                     <p class="text-gray-500">Show all</p>
                 </div>
 
-                <div class="flex gap-[20px] mt-[20px]">
-                    <div class="w-[180px] h-[270px] ">
+                <div class="cards-container flex gap-[20px] mt-[20px]">
+                    <div class="cards w-[180px] h-[270px] hover:scale-[1.05] hover:bg-[#1F1F1F] rounded-2xl transition duration-300 ease-in-out">
                         <div class="h-[70%]">
-                            <img src="https://t2.genius.com/unsafe/430x430/https%3A%2F%2Fimages.genius.com%2F92e6406cfa47bde718c15ce9869e357d.1000x1000x1.png" alt="" class="rounded-2xl">
+                            <img src="https://t2.genius.com/unsafe/430x430/https%3A%2F%2Fimages.genius.com%2F92e6406cfa47bde718c15ce9869e357d.1000x1000x1.png" alt="" class="rounded-2xl p-[10px]">
                         </div>
-                        <div class="h-[40%] p-[10px]">
-                            <p class="font-bold">Toh Phir Aao</p>
+                        <div class="card-text h-[40%] p-[10px]">
+                            <p class="font-bold">Arz Kiya hai</p>
+                            <p>Anuv Jain</p>
+                        </div>
+                    </div>
+
+                     <div class="cards w-[180px] h-[270px] hover:scale-[1.03] hover:bg-[#1F1F1F] rounded-2xl transition duration-300 ease-in-out">
+                        <div class="h-[70%]">
+                            <img src="./assets/card2img.jpeg" alt="" class="rounded-2xl p-[10px]">
+                        </div>
+                        <div class="card-text h-[40%] p-[10px]">
+                            <p class="font-bold">Mahiye Jinna Shona</p>
+                            <p>Darshan Raval, Youngveer</p>
+                        </div>
+                    </div>
+
+                     <div class="cards w-[180px] h-[270px] hover:scale-[1.03] hover:bg-[#1F1F1F] rounded-2xl transition duration-300 ease-in-out">
+                        <div class="h-[70%]">
+                            <img src="./assets/card3img.jpeg" alt="" class="rounded-2xl p-[10px]">
+                        </div>
+                        <div class="card-text h-[40%] p-[10px]">
+                            <p class="font-bold">Mere Pass Tun Ho</p>
                             <p>pritam, Mustafa Zahid, Sayeed Quadri</p>
                         </div>
                     </div>
 
-                    <div class="w-[180px] h-[270px]">
+                    <div class="cards w-[180px] h-[270px] hover:scale-[1.03] hover:bg-[#1F1F1F] rounded-2xl transition duration-300 ease-in-out">
                         <div class="h-[70%]">
-                            <img src="https://t2.genius.com/unsafe/430x430/https%3A%2F%2Fimages.genius.com%2F92e6406cfa47bde718c15ce9869e357d.1000x1000x1.png" alt="" class="rounded-2xl">
+                            <img src="./assets/card4img.jpeg" alt="" class="rounded-2xl p-[10px]">
                         </div>
-                        <div class="h-[40%] p-[10px]">
-                            <p class="font-bold">Toh Phir Aao</p>
-                            <p>pritam, Mustafa Zahid, Sayeed Quadri</p>
-                        </div>
-                    </div>
-                    <div class="w-[180px] h-[270px]">
-                        <div class="h-[70%]">
-                            <img src="https://t2.genius.com/unsafe/430x430/https%3A%2F%2Fimages.genius.com%2F92e6406cfa47bde718c15ce9869e357d.1000x1000x1.png" alt="" class="rounded-2xl">
-                        </div>
-                        <div class="h-[40%] p-[10px]">
-                            <p class="font-bold">Toh Phir Aao</p>
+                        <div class="card-text h-[40%] p-[10px]">
+                            <p class="font-bold">Leo</p>
                             <p>pritam, Mustafa Zahid, Sayeed Quadri</p>
                         </div>
                     </div>
 
-                    <div class="w-[180px] h-[270px] ">
+                     <div class="cards w-[180px] h-[270px] hover:scale-[1.03] hover:bg-[#1F1F1F] rounded-2xl transition duration-300 ease-in-out">
                         <div class="h-[70%]">
-                            <img src="https://t2.genius.com/unsafe/430x430/https%3A%2F%2Fimages.genius.com%2F92e6406cfa47bde718c15ce9869e357d.1000x1000x1.png" alt=""  class="rounded-2xl">
+                            <img src="https://t2.genius.com/unsafe/430x430/https%3A%2F%2Fimages.genius.com%2F92e6406cfa47bde718c15ce9869e357d.1000x1000x1.png" alt="" class="rounded-2xl p-[10px]">
                         </div>
-                        <div class="h-[40%] p-[10px]">
-                            <p class="font-bold">Toh Phir Aao</p>
-                            <p>pritam, Mustafa Zahid, Sayeed Quadri</p>
-                        </div>
-                    </div>
-
-                    <div class="w-[180px] h-[270px]">
-                        <div class="h-[70%]">
-                            <img src="https://t2.genius.com/unsafe/430x430/https%3A%2F%2Fimages.genius.com%2F92e6406cfa47bde718c15ce9869e357d.1000x1000x1.png" alt="" class="rounded-2xl">
-                        </div>
-                        <div class="h-[40%] p-[10px]">
+                        <div class="card-text h-[40%] p-[10px]">
                             <p class="font-bold">Toh Phir Aao</p>
                             <p>pritam, Mustafa Zahid, Sayeed Quadri</p>
                         </div>
@@ -132,126 +134,128 @@
                 </div>
             </div>
 
-                <div class="flex justify-center items-center mt-[25px] flex-col">
+            <div class="flex justify-center items-center mt-[25px] flex-col">
                 <div class="flex justify-between w-[90%]">
                     <p class="font-bold text-2xl">Popular Artist</p>
                     <p class="text-gray-500">Show all</p>
                 </div>
 
-                <div class="flex gap-[20px] mt-[20px]">
-                    <div class="w-[180px] h-[270px] ">
+                <div class="cards-container flex gap-[20px] mt-[20px]">
+                    <div class="cards w-[180px] h-[250px] hover:scale-[1.05] hover:bg-[#1F1F1F] rounded-2xl transition duration-300 ease-in-out">
                         <div class="h-[70%]">
-                            <img src="https://t2.genius.com/unsafe/430x430/https%3A%2F%2Fimages.genius.com%2F92e6406cfa47bde718c15ce9869e357d.1000x1000x1.png" alt="" class="rounded-2xl">
+                            <img src="./assets/Anuv jain.webp" alt="" class="rounded-[50%] p-[5px]">
                         </div>
-                        <div class="h-[40%] p-[10px]">
-                            <p class="font-bold">Toh Phir Aao</p>
-                            <p>pritam, Mustafa Zahid, Sayeed Quadri</p>
+                        <div class="card-text h-[40%] p-[10px]">
+                            <p class="font-bold">Anuv Jain</p>
+                            <p class="text-gray-400">Artist</p>
                         </div>
                     </div>
 
-                    <div class="w-[180px] h-[270px]">
+                     <div class="cards w-[180px] h-[250px] hover:scale-[1.03] hover:bg-[#1F1F1F] rounded-2xl transition duration-300 ease-in-out">
                         <div class="h-[70%]">
-                            <img src="https://t2.genius.com/unsafe/430x430/https%3A%2F%2Fimages.genius.com%2F92e6406cfa47bde718c15ce9869e357d.1000x1000x1.png" alt="" class="rounded-2xl">
+                            <img src="./assets/Armaan malik.webp" alt="" class="rounded-[50%] p-[5px]">
                         </div>
-                        <div class="h-[40%] p-[10px]">
-                            <p class="font-bold">Toh Phir Aao</p>
-                            <p>pritam, Mustafa Zahid, Sayeed Quadri</p>
-                        </div>
-                    </div>
-                    <div class="w-[180px] h-[270px]">
-                        <div class="h-[70%]">
-                            <img src="https://t2.genius.com/unsafe/430x430/https%3A%2F%2Fimages.genius.com%2F92e6406cfa47bde718c15ce9869e357d.1000x1000x1.png" alt="" class="rounded-2xl">
-                        </div>
-                        <div class="h-[40%] p-[10px]">
-                            <p class="font-bold">Toh Phir Aao</p>
-                            <p>pritam, Mustafa Zahid, Sayeed Quadri</p>
+                        <div class="card-text h-[40%] p-[10px]">
+                            <p class="font-bold">Arman Malik</p>
+                            <p class="text-gray-400">Artist</p>
                         </div>
                     </div>
 
-                    <div class="w-[180px] h-[270px] ">
+                     <div class="cards w-[180px] h-[250px] hover:scale-[1.03] hover:bg-[#1F1F1F] rounded-2xl transition duration-300 ease-in-out">
                         <div class="h-[70%]">
-                            <img src="https://t2.genius.com/unsafe/430x430/https%3A%2F%2Fimages.genius.com%2F92e6406cfa47bde718c15ce9869e357d.1000x1000x1.png" alt=""  class="rounded-2xl">
+                            <img src="./assets/shreya.webp" alt="" class="rounded-[50%] p-[5px]">
                         </div>
-                        <div class="h-[40%] p-[10px]">
-                            <p class="font-bold">Toh Phir Aao</p>
-                            <p>pritam, Mustafa Zahid, Sayeed Quadri</p>
+                        <div class="card-text h-[40%] p-[10px]">
+                            <p class="font-bold">Shreya Ghosal</p>
+                            <p class="text-gray-400">Artist</p>
                         </div>
                     </div>
 
-                    <div class="w-[180px] h-[270px]">
+                    <div class="cards w-[180px] h-[250px] hover:scale-[1.03] hover:bg-[#1F1F1F] rounded-2xl transition duration-300 ease-in-out">
                         <div class="h-[70%]">
-                            <img src="https://t2.genius.com/unsafe/430x430/https%3A%2F%2Fimages.genius.com%2F92e6406cfa47bde718c15ce9869e357d.1000x1000x1.png" alt="" class="rounded-2xl">
+                            <img src="./assets/Diljit dosanjh.webp" alt="" class="rounded-[50%] p-[5px]">
                         </div>
-                        <div class="h-[40%] p-[10px]">
-                            <p class="font-bold">Toh Phir Aao</p>
-                            <p>pritam, Mustafa Zahid, Sayeed Quadri</p>
+                        <div class="card-text h-[40%] p-[10px]">
+                            <p class="font-bold">Diljit Dosanjh</p>
+                            <p class="text-gray-400">Artist</p>
+                        </div>
+                    </div>
+
+                     <div class="cards w-[180px] h-[250px] hover:scale-[1.03] hover:bg-[#1F1F1F] rounded-2xl transition duration-300 ease-in-out">
+                        <div class="h-[70%]">
+                            <img src="https://t2.genius.com/unsafe/430x430/https%3A%2F%2Fimages.genius.com%2F92e6406cfa47bde718c15ce9869e357d.1000x1000x1.png" alt="" class="rounded-[50%] p-[5px]">
+                        </div>
+                        <div class="card-text h-[40%] p-[10px]">
+                            <p class="font-bold">Anuv Jain</p>
+                            <p class="text-gray-400">Artist</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-                        <div class="flex justify-center items-center mt-[25px] flex-col">
+            <div class="flex justify-center items-center mt-[25px] flex-col">
                 <div class="flex justify-between w-[90%]">
-                    <p class="font-bold text-2xl">Trending Songs</p>
+                    <p class="font-bold text-2xl">Featured Charts</p>
                     <p class="text-gray-500">Show all</p>
                 </div>
 
-                <div class="flex gap-[20px] mt-[20px]">
-                    <div class="w-[180px] h-[270px] ">
+                <div class="cards-container flex gap-[20px] mt-[20px] w-[90%]">
+                    <div class="cards w-[180px] h-[220px] hover:scale-[1.05] hover:bg-[#1F1F1F] rounded-2xl transition duration-300 ease-in-out">
                         <div class="h-[70%]">
-                            <img src="https://t2.genius.com/unsafe/430x430/https%3A%2F%2Fimages.genius.com%2F92e6406cfa47bde718c15ce9869e357d.1000x1000x1.png" alt="" class="rounded-2xl">
+                            <img src="./assets/card5img.jpeg" alt="" class="rounded-2xl p-[10px]">
                         </div>
-                        <div class="h-[40%] p-[10px]">
-                            <p class="font-bold">Toh Phir Aao</p>
-                            <p>pritam, Mustafa Zahid, Sayeed Quadri</p>
+                        <div class="card-text h-[40%] p-[10px] mt-[30px]">
+                            <p class="font-bold">Top Songs - Global</p>
                         </div>
                     </div>
 
-                    <div class="w-[180px] h-[270px]">
+                     <div class="cards w-[180px] h-[220px] hover:scale-[1.05] hover:bg-[#1F1F1F] rounded-2xl transition duration-300 ease-in-out">
                         <div class="h-[70%]">
-                            <img src="https://t2.genius.com/unsafe/430x430/https%3A%2F%2Fimages.genius.com%2F92e6406cfa47bde718c15ce9869e357d.1000x1000x1.png" alt="" class="rounded-2xl">
+                            <img src="./assets/card6img.jpeg" alt="" class="rounded-2xl p-[10px]">
                         </div>
-                        <div class="h-[40%] p-[10px]">
-                            <p class="font-bold">Toh Phir Aao</p>
-                            <p>pritam, Mustafa Zahid, Sayeed Quadri</p>
-                        </div>
-                    </div>
-                    <div class="w-[180px] h-[270px]">
-                        <div class="h-[70%]">
-                            <img src="https://t2.genius.com/unsafe/430x430/https%3A%2F%2Fimages.genius.com%2F92e6406cfa47bde718c15ce9869e357d.1000x1000x1.png" alt="" class="rounded-2xl">
-                        </div>
-                        <div class="h-[40%] p-[10px]">
-                            <p class="font-bold">Toh Phir Aao</p>
-                            <p>pritam, Mustafa Zahid, Sayeed Quadri</p>
+                        <div class="card-text h-[40%] p-[10px] mt-[30px]">
+                            <p class="font-bold">Top Songs - India</p>
                         </div>
                     </div>
 
-                    <div class="w-[180px] h-[270px] ">
+                     <div class="cards w-[180px] h-[220px] hover:scale-[1.05] hover:bg-[#1F1F1F] rounded-2xl transition duration-300 ease-in-out">
                         <div class="h-[70%]">
-                            <img src="https://t2.genius.com/unsafe/430x430/https%3A%2F%2Fimages.genius.com%2F92e6406cfa47bde718c15ce9869e357d.1000x1000x1.png" alt=""  class="rounded-2xl">
+                            <img src="./assets/card1img.jpeg" alt="" class="rounded-2xl p-[10px]">
                         </div>
-                        <div class="h-[40%] p-[10px]">
-                            <p class="font-bold">Toh Phir Aao</p>
-                            <p>pritam, Mustafa Zahid, Sayeed Quadri</p>
+                        <div class="card-text h-[40%] p-[10px] mt-[30px]">
+                            <p class="font-bold">Top 50 - Global</p>
                         </div>
-                    </div>
-
-                    <div class="w-[180px] h-[270px]">
-                        <div class="h-[70%]">
-                            <img src="https://t2.genius.com/unsafe/430x430/https%3A%2F%2Fimages.genius.com%2F92e6406cfa47bde718c15ce9869e357d.1000x1000x1.png" alt="" class="rounded-2xl">
-                        </div>
-                        <div class="h-[40%] p-[10px]">
-                            <p class="font-bold">Toh Phir Aao</p>
-                            <p>pritam, Mustafa Zahid, Sayeed Quadri</p>
-                        </div>
+                     </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
-    <footer class="h-[7vh] flex justify-between items-center p-[20px]">
+    <footer class="laptop-footer h-[7vh] flex justify-between items-center p-[20px]">
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto soluta obcaecati </p>
         <p><i class="fa-solid fa-x"></i></p>
+    </footer>
+
+    <footer class="mobile-footer">
+        <div class="footer-icon">
+                <p><i class="fa-solid fa-house"></i></p>
+                <p>home</p>
+        </div>
+
+        <div class="footer-icon">
+            <p><i class="fa-solid fa-magnifying-glass"></i></p>
+            <p>Search</p>
+        </div>
+
+        <div class="footer-icon">
+            <p><i class="fa-solid fa-book-open"></i></p>
+            <p>Liabrary</p>
+        </div>
+
+        <div class="footer-icon">
+            <p><i class="fa-brands fa-spotify"></i></p>
+            <p>Premium</p>
+        </div>
     </footer>
 </body>
 </html>
