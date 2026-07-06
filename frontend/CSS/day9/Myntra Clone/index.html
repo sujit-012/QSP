@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Myntra</title>
+</head>
+<body>
+     <nav class="fixed top-0 w-full bg-white h-[10vh] flex justify-evenly items-center gap-[15px] shadow-[0_2px_10px_rgba(0,0,0,0.12)] z-50 px-[20px]">
+        <section class="w-[10%] flex justify-center">
+            <img src="./assets/Myntra logo.png" alt="Myntra" class="w-[55px]">
+        </section>
+        <section class="flex w-[70%] h-[40px] justify-center items-center gap-[30px]">
+            <article class="flex w-[55%] justify-evenly font-bold text-black">
+                <p class="cursor-pointer hover:text-[#ff3e6c] transition-colors">Men</p>
+                <p class="cursor-pointer hover:text-[#ff3e6c] transition-colors">Women</p>
+                <p class="cursor-pointer hover:text-[#ff3e6c] transition-colors">Kids</p>
+                <p class="cursor-pointer hover:text-[#ff3e6c] transition-colors">Home</p>
+                <p class="cursor-pointer hover:text-[#ff3e6c] transition-colors">Beauty</p>
+                <p class="cursor-pointer hover:text-[#ff3e6c] transition-colors">GenZ</p>
+                <p class="cursor-pointer hover:text-[#ff3e6c] transition-colors">Studio <sup class="text-red-400">New</sup></p>
+            </article>
+            <article class="flex w-[45%] bg-[#f5f5f6] h-[40px] items-center rounded-md px-[12px] gap-[10px]">
+                <i class="fa-solid fa-magnifying-glass text-gray-500"></i>
+                <input class="w-full h-full bg-transparent outline-none text-sm" type="text" placeholder="Search for products, brands and more">
+            </article>
+        </section>
+        <section class="flex w-[15%] justify-around">
+            <div class="flex justify-center items-center flex-col cursor-pointer hover:text-[#ff3e6c] transition-colors">
+                <p><i class="fa-regular fa-user"></i></p>
+                <p class="text-sm">Profile</p>
+            </div>
+            <div class="flex justify-center items-center flex-col cursor-pointer hover:text-[#ff3e6c] transition-colors">
+                <p><i class="fa-regular fa-heart"></i></p>
+                <p class="text-sm">Wishlist</p>
+            </div>
+            <div class="flex justify-center items-center flex-col cursor-pointer hover:text-[#ff3e6c] transition-colors">
+                <p><i class="fa-solid fa-bag-shopping"></i></p>
+                <p class="text-sm">Bag</p>
+            </div>
+        </section>
+    </nav>
+
+    <main class="pt-[10vh]">
+        <section class="mt-[18px]">
+            <img src="./assets/banner.png" alt="">
+        </section>
+        <section class="flex justify-center flex-col items-center">
+            <div class="flex justify-center">
+                <p class="text-[45px] font-bold text-[#663ae7]">BUDGET BARGAINS</p>
+            </div>
+            <div class="flex gap-2 m-[10px] mt-[45px]">
+                <div class="h-[358px] w-[285px] bg-[url('./assets/kids-footwear.webp')] opacity-[0.9] bg-cover bg-center rounded-2xl flex flex-col">
+                    <div class="h-[75%] w-[100%]"></div>
+                    <div class="h-[25%] text-gray-50 flex flex-col items-center">
+                        <p class="text-[30px] font-bold">UNDER <sup><i class="fa-solid fa-indian-rupee-sign"></i></sup>499</p>
+                        <p class="text-[25px]">Kids Footwear</p>
+                    </div>
+                </div>
+                <div class="h-[358px] w-[285px] bg-[url('./assets/causal-shoes.webp')] opacity-[0.9] bg-cover bg-center rounded-2xl flex flex-col">
+                    <div class="h-[75%] w-[100%]"></div>
+                    <div class="h-[25%] text-gray-50 flex flex-col items-center">
+                        <p class="text-[30px] font-bold">Starting <sup><i class="fa-solid fa-indian-rupee-sign"></i></sup>799</p>
+                        <p class="text-[25px]">Tiny Casual Shoes</p>
+                    </div>
+                </div>
+                <div class="h-[358px] w-[285px] bg-[url('./assets/facewash.jpg')] opacity-[0.9] bg-cover bg-center rounded-2xl flex flex-col">
+                    <div class="h-[75%] w-[100%]"></div>
+                    <div class="h-[25%] text-gray-50 flex flex-col items-center">
+                        <p class="text-[30px] font-bold">UNDER <sup><i class="fa-solid fa-indian-rupee-sign"></i></sup>199</p>
+                        <p class="text-[25px]">Face Wash & Cleanser</p>
+                    </div>
+                </div>
+                <div class="h-[358px] w-[285px] bg-[url('./assets/shampoo.jpg')] opacity-[0.9] bg-cover bg-center rounded-2xl flex flex-col">
+                    <div class="h-[75%] w-[100%]"></div>
+                    <div class="h-[25%] text-gray-50 flex flex-col items-center">
+                        <p class="text-[30px] font-bold">Starting <sup><i class="fa-solid fa-indian-rupee-sign"></i></sup>349</p>
+                        <p class="text-[25px]">Cleansing Shampoo</p>
+                    </div>
+                </div>
+                <div class="h-[358px] w-[285px] bg-[url('./assets/tshirt.jpg')] opacity-[0.9] bg-cover bg-center rounded-2xl flex flex-col">
+                    <div class="h-[75%] w-[100%]"></div>
+                    <div class="h-[25%] text-gray-50 flex flex-col items-center">
+                        <p class="text-[30px] font-bold">UNDER <sup><i class="fa-solid fa-indian-rupee-sign"></i></sup>499</p>
+                        <p class="text-[25px]">Men's T-Shirt</p>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+
+        <section class="mt-[60px]">
+            <div>
+                <img src="./assets/banner2.webp" alt="">
+            </div>
+            <div class="flex justify-center mt-[60px]">
+                <div class="h-[374px] w-[285px] bg-[#663ae4] rounded-2xl flex flex-col justify-center items-center">
+                    <div class="h-[80%] p-[10px] rounded-2xl">
+                        <img src="./assets/branding.png" alt="" class="rounded-2xl">
+                    </div>
+                    <div class="h-[20%] text-white flex flex-col justify-center items-center">
+                        <p class="font-bold text-2xl">Min. 50% OFF</p>
+                        <p class="text-[20px]">Effortless Style</p>
+                    </div>
+                </div>
+                <div class="h-[374px] w-[285px] bg-[#663ae4] rounded-2xl flex flex-col justify-center items-center">
+                    <div class="h-[80%] p-[10px] rounded-2xl">
+                        <img src="./assets/branding2.png" alt="" class="rounded-2xl">
+                    </div>
+                    <div class="h-[20%] text-white flex flex-col justify-center items-center">
+                        <p class="font-bold text-2xl">Min. 50% OFF</p>
+                        <p class="text-[20px]">Effortless Style</p>
+                    </div>
+                </div>
+                <div class="h-[374px] w-[285px] bg-[#663ae4] rounded-2xl flex flex-col justify-center items-center">
+                    <div class="h-[80%] p-[10px] rounded-2xl">
+                        <img src="./assets/branding3.png" alt="" class="rounded-2xl">
+                    </div>
+                    <div class="h-[20%] text-white flex flex-col justify-center items-center">
+                        <p class="font-bold text-2xl">Min. 50% OFF</p>
+                        <p class="text-[20px]">Effortless Style</p>
+                    </div>
+                </div>
+                <div class="h-[374px] w-[285px] bg-[#663ae4] rounded-2xl flex flex-col justify-center items-center">
+                    <div class="h-[80%] p-[10px] rounded-2xl">
+                        <img src="./assets/branding4.jpg" alt="" class="rounded-2xl">
+                    </div>
+                    <div class="h-[20%] text-white flex flex-col justify-center items-center">
+                        <p class="font-bold text-2xl">Min. 50% OFF</p>
+                        <p class="text-[20px]">Effortless Style</p>
+                    </div>
+                </div>
+                <div class="h-[374px] w-[285px] bg-[#663ae4] rounded-2xl flex flex-col justify-center items-center">
+                    <div class="h-[80%] p-[10px] rounded-2xl">
+                        <img src="./assets/branding5.png" alt="" class="rounded-2xl">
+                    </div>
+                    <div class="h-[20%] text-white flex flex-col justify-center items-center">
+                        <p class="font-bold text-2xl">Min. 50% OFF</p>
+                        <p class="text-[20px]">Effortless Style</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mt-[50px] flex items-center flex-col">
+            <div>
+                <p class="text-5xl font-extrabold">SHOP BY CATAGORY</p>
+            </div>
+            <div class="flex flex-wrap gap-[30px] justify-center mt-[50px] mb-[50px]">
+                <div class="bg-[#fbe3c4] h-[330px] w-[218px] border-4 border-[#8541ff]">
+                    <div class="h-[70%] flex justify-center">
+                        <img src="./assets/branding.png" alt="" class="p-[5px] h-[100%]">
+                    </div>
+                    <div class="h-[30%] flex flex-col items-center p-[5px]">
+                        <p class="text-[18px]">Ethnic Wear</p>
+                        <p class="font-bold text-3xl">50-80% OFF</p>
+                        <p class="font-bold text-[20px]">Shop Now</p>
+                    </div>
+                </div>
+                <div class="bg-[#fbe3c4] h-[330px] w-[218px] border-4 border-[#8541ff]">
+                    <div class="h-[70%] flex justify-center">
+                        <img src="./assets/branding.png" alt="" class="p-[5px] h-[100%]">
+                    </div>
+                    <div class="h-[30%] flex flex-col items-center p-[5px]">
+                        <p class="text-[18px]">Ethnic Wear</p>
+                        <p class="font-bold text-3xl">50-80% OFF</p>
+                        <p class="font-bold text-[20px]">Shop Now</p>
+                    </div>
+                </div>
+                <div class="bg-[#fbe3c4] h-[330px] w-[218px] border-4 border-[#8541ff]">
+                    <div class="h-[70%] flex justify-center">
+                        <img src="./assets/branding.png" alt="" class="p-[5px] h-[100%]">
+                    </div>
+                    <div class="h-[30%] flex flex-col items-center p-[5px]">
+                        <p class="text-[18px]">Ethnic Wear</p>
+                        <p class="font-bold text-3xl">50-80% OFF</p>
+                        <p class="font-bold text-[20px]">Shop Now</p>
+                    </div>
+                </div>
+                <div class="bg-[#fbe3c4] h-[330px] w-[218px] border-4 border-[#8541ff]">
+                    <div class="h-[70%] flex justify-center">
+                        <img src="./assets/branding.png" alt="" class="p-[5px] h-[100%]">
+                    </div>
+                    <div class="h-[30%] flex flex-col items-center p-[5px]">
+                        <p class="text-[18px]">Ethnic Wear</p>
+                        <p class="font-bold text-3xl">50-80% OFF</p>
+                        <p class="font-bold text-[20px]">Shop Now</p>
+                    </div>
+                </div>
+                <div class="bg-[#fbe3c4] h-[330px] w-[218px] border-4 border-[#8541ff]">
+                    <div class="h-[70%] flex justify-center">
+                        <img src="./assets/branding.png" alt="" class="p-[5px] h-[100%]">
+                    </div>
+                    <div class="h-[30%] flex flex-col items-center p-[5px]">
+                        <p class="text-[18px]">Ethnic Wear</p>
+                        <p class="font-bold text-3xl">50-80% OFF</p>
+                        <p class="font-bold text-[20px]">Shop Now</p>
+                    </div>
+                </div>
+                <div class="bg-[#fbe3c4] h-[330px] w-[218px] border-4 border-[#8541ff]">
+                    <div class="h-[70%] flex justify-center">
+                        <img src="./assets/branding.png" alt="" class="p-[5px] h-[100%]">
+                    </div>
+                    <div class="h-[30%] flex flex-col items-center p-[5px]">
+                        <p class="text-[18px]">Ethnic Wear</p>
+                        <p class="font-bold text-3xl">50-80% OFF</p>
+                        <p class="font-bold text-[20px]">Shop Now</p>
+                    </div>
+                </div>
+                <div class="bg-[#fbe3c4] h-[330px] w-[218px] border-4 border-[#8541ff]">
+                    <div class="h-[70%] flex justify-center">
+                        <img src="./assets/branding.png" alt="" class="p-[5px] h-[100%]">
+                    </div>
+                    <div class="h-[30%] flex flex-col items-center p-[5px]">
+                        <p class="text-[18px]">Ethnic Wear</p>
+                        <p class="font-bold text-3xl">50-80% OFF</p>
+                        <p class="font-bold text-[20px]">Shop Now</p>
+                    </div>
+                </div>
+                <div class="bg-[#fbe3c4] h-[330px] w-[218px] border-4 border-[#8541ff]">
+                    <div class="h-[70%] flex justify-center">
+                        <img src="./assets/branding.png" alt="" class="p-[5px] h-[100%]">
+                    </div>
+                    <div class="h-[30%] flex flex-col items-center p-[5px]">
+                        <p class="text-[18px]">Ethnic Wear</p>
+                        <p class="font-bold text-3xl">50-80% OFF</p>
+                        <p class="font-bold text-[20px]">Shop Now</p>
+                    </div>
+                </div>
+                <div class="bg-[#fbe3c4] h-[330px] w-[218px] border-4 border-[#8541ff]">
+                    <div class="h-[70%] flex justify-center">
+                        <img src="./assets/branding.png" alt="" class="p-[5px] h-[100%]">
+                    </div>
+                    <div class="h-[30%] flex flex-col items-center p-[5px]">
+                        <p class="text-[18px]">Ethnic Wear</p>
+                        <p class="font-bold text-3xl">50-80% OFF</p>
+                        <p class="font-bold text-[20px]">Shop Now</p>
+                    </div>
+                </div>
+                <div class="bg-[#fbe3c4] h-[330px] w-[218px] border-4 border-[#8541ff]">
+                    <div class="h-[70%] flex justify-center">
+                        <img src="./assets/branding.png" alt="" class="p-[5px] h-[100%]">
+                    </div>
+                    <div class="h-[30%] flex flex-col items-center p-[5px]">
+                        <p class="text-[18px]">Ethnic Wear</p>
+                        <p class="font-bold text-3xl">50-80% OFF</p>
+                        <p class="font-bold text-[20px]">Shop Now</p>
+                    </div>
+                </div>
+                <div class="bg-[#fbe3c4] h-[330px] w-[218px] border-4 border-[#8541ff]">
+                    <div class="h-[70%] flex justify-center">
+                        <img src="./assets/branding.png" alt="" class="p-[5px] h-[100%]">
+                    </div>
+                    <div class="h-[30%] flex flex-col items-center p-[5px]">
+                        <p class="text-[18px]">Ethnic Wear</p>
+                        <p class="font-bold text-3xl">50-80% OFF</p>
+                        <p class="font-bold text-[20px]">Shop Now</p>
+                    </div>
+                </div>
+                <div class="bg-[#fbe3c4] h-[330px] w-[218px] border-4 border-[#8541ff]">
+                    <div class="h-[70%] flex justify-center">
+                        <img src="./assets/branding.png" alt="" class="p-[5px] h-[100%]">
+                    </div>
+                    <div class="h-[30%] flex flex-col items-center p-[5px]">
+                        <p class="text-[18px]">Ethnic Wear</p>
+                        <p class="font-bold text-3xl">50-80% OFF</p>
+                        <p class="font-bold text-[20px]">Shop Now</p>
+                    </div>
+                </div>
+                <div class="bg-[#fbe3c4] h-[330px] w-[218px] border-4 border-[#8541ff]">
+                    <div class="h-[70%] flex justify-center">
+                        <img src="./assets/branding.png" alt="" class="p-[5px] h-[100%]">
+                    </div>
+                    <div class="h-[30%] flex flex-col items-center p-[5px]">
+                        <p class="text-[18px]">Ethnic Wear</p>
+                        <p class="font-bold text-3xl">50-80% OFF</p>
+                        <p class="font-bold text-[20px]">Shop Now</p>
+                    </div>
+                </div>
+                <div class="bg-[#fbe3c4] h-[330px] w-[218px] border-4 border-[#8541ff]">
+                    <div class="h-[70%] flex justify-center">
+                        <img src="./assets/branding.png" alt="" class="p-[5px] h-[100%]">
+                    </div>
+                    <div class="h-[30%] flex flex-col items-center p-[5px]">
+                        <p class="text-[18px]">Ethnic Wear</p>
+                        <p class="font-bold text-3xl">50-80% OFF</p>
+                        <p class="font-bold text-[20px]">Shop Now</p>
+                    </div>
+                </div>
+                <div class="bg-[#fbe3c4] h-[330px] w-[218px] border-4 border-[#8541ff]">
+                    <div class="h-[70%] flex justify-center">
+                        <img src="./assets/branding.png" alt="" class="p-[5px] h-[100%]">
+                    </div>
+                    <div class="h-[30%] flex flex-col items-center p-[5px]">
+                        <p class="text-[18px]">Ethnic Wear</p>
+                        <p class="font-bold text-3xl">50-80% OFF</p>
+                        <p class="font-bold text-[20px]">Shop Now</p>
+                    </div>
+                </div>
+                <div class="bg-[#fbe3c4] h-[330px] w-[218px] border-4 border-[#8541ff]">
+                    <div class="h-[70%] flex justify-center">
+                        <img src="./assets/branding.png" alt="" class="p-[5px] h-[100%]">
+                    </div>
+                    <div class="h-[30%] flex flex-col items-center p-[5px]">
+                        <p class="text-[18px]">Ethnic Wear</p>
+                        <p class="font-bold text-3xl">50-80% OFF</p>
+                        <p class="font-bold text-[20px]">Shop Now</p>
+                    </div>
+                </div>
+                <div class="bg-[#fbe3c4] h-[330px] w-[218px] border-4 border-[#8541ff]">
+                    <div class="h-[70%] flex justify-center">
+                        <img src="./assets/branding.png" alt="" class="p-[5px] h-[100%]">
+                    </div>
+                    <div class="h-[30%] flex flex-col items-center p-[5px]">
+                        <p class="text-[18px]">Ethnic Wear</p>
+                        <p class="font-bold text-3xl">50-80% OFF</p>
+                        <p class="font-bold text-[20px]">Shop Now</p>
+                    </div>
+                </div>
+                <div class="bg-[#fbe3c4] h-[330px] w-[218px] border-4 border-[#8541ff]">
+                    <div class="h-[70%] flex justify-center">
+                        <img src="./assets/branding.png" alt="" class="p-[5px] h-[100%]">
+                    </div>
+                    <div class="h-[30%] flex flex-col items-center p-[5px]">
+                        <p class="text-[18px]">Ethnic Wear</p>
+                        <p class="font-bold text-3xl">50-80% OFF</p>
+                        <p class="font-bold text-[20px]">Shop Now</p>
+                    </div>
+                </div>
+                <div class="bg-[#fbe3c4] h-[330px] w-[218px] border-4 border-[#8541ff]">
+                    <div class="h-[70%] flex justify-center">
+                        <img src="./assets/branding.png" alt="" class="p-[5px] h-[100%]">
+                    </div>
+                    <div class="h-[30%] flex flex-col items-center p-[5px]">
+                        <p class="text-[18px]">Ethnic Wear</p>
+                        <p class="font-bold text-3xl">50-80% OFF</p>
+                        <p class="font-bold text-[20px]">Shop Now</p>
+                    </div>
+                </div>
+                <div class="bg-[#fbe3c4] h-[330px] w-[218px] border-4 border-[#8541ff]">
+                    <div class="h-[70%] flex justify-center">
+                        <img src="./assets/branding.png" alt="" class="p-[5px] h-[100%]">
+                    </div>
+                    <div class="h-[30%] flex flex-col items-center p-[5px]">
+                        <p class="text-[18px]">Ethnic Wear</p>
+                        <p class="font-bold text-3xl">50-80% OFF</p>
+                        <p class="font-bold text-[20px]">Shop Now</p>
+                    </div>
+                </div>
+                <div class="bg-[#fbe3c4] h-[330px] w-[218px] border-4 border-[#8541ff]">
+                    <div class="h-[70%] flex justify-center">
+                        <img src="./assets/branding.png" alt="" class="p-[5px] h-[100%]">
+                    </div>
+                    <div class="h-[30%] flex flex-col items-center p-[5px]">
+                        <p class="text-[18px]">Ethnic Wear</p>
+                        <p class="font-bold text-3xl">50-80% OFF</p>
+                        <p class="font-bold text-[20px]">Shop Now</p>
+                    </div>
+                </div>
+                <div class="bg-[#fbe3c4] h-[330px] w-[218px] border-4 border-[#8541ff]">
+                    <div class="h-[70%] flex justify-center">
+                        <img src="./assets/branding.png" alt="" class="p-[5px] h-[100%]">
+                    </div>
+                    <div class="h-[30%] flex flex-col items-center p-[5px]">
+                        <p class="text-[18px]">Ethnic Wear</p>
+                        <p class="font-bold text-3xl">50-80% OFF</p>
+                        <p class="font-bold text-[20px]">Shop Now</p>
+                    </div>
+                </div>
+                <div class="bg-[#fbe3c4] h-[330px] w-[218px] border-4 border-[#8541ff]">
+                    <div class="h-[70%] flex justify-center">
+                        <img src="./assets/branding.png" alt="" class="p-[5px] h-[100%]">
+                    </div>
+                    <div class="h-[30%] flex flex-col items-center p-[5px]">
+                        <p class="text-[18px]">Ethnic Wear</p>
+                        <p class="font-bold text-3xl">50-80% OFF</p>
+                        <p class="font-bold text-[20px]">Shop Now</p>
+                    </div>
+                </div>
+                <div class="bg-[#fbe3c4] h-[330px] w-[218px] border-4 border-[#8541ff]">
+                    <div class="h-[70%] flex justify-center">
+                        <img src="./assets/branding.png" alt="" class="p-[5px] h-[100%]">
+                    </div>
+                    <div class="h-[30%] flex flex-col items-center p-[5px]">
+                        <p class="text-[18px]">Ethnic Wear</p>
+                        <p class="font-bold text-3xl">50-80% OFF</p>
+                        <p class="font-bold text-[20px]">Shop Now</p>
+                    </div>
+                </div>
+                <div class="bg-[#fbe3c4] h-[330px] w-[218px] border-4 border-[#8541ff]">
+                    <div class="h-[70%] flex justify-center">
+                        <img src="./assets/branding.png" alt="" class="p-[5px] h-[100%]">
+                    </div>
+                    <div class="h-[30%] flex flex-col items-center p-[5px]">
+                        <p class="text-[18px]">Ethnic Wear</p>
+                        <p class="font-bold text-3xl">50-80% OFF</p>
+                        <p class="font-bold text-[20px]">Shop Now</p>
+                    </div>
+                </div>
+                <div class="bg-[#fbe3c4] h-[330px] w-[218px] border-4 border-[#8541ff]">
+                    <div class="h-[70%] flex justify-center">
+                        <img src="./assets/branding.png" alt="" class="p-[5px] h-[100%]">
+                    </div>
+                    <div class="h-[30%] flex flex-col items-center p-[5px]">
+                        <p class="text-[18px]">Ethnic Wear</p>
+                        <p class="font-bold text-3xl">50-80% OFF</p>
+                        <p class="font-bold text-[20px]">Shop Now</p>
+                    </div>
+                </div>
+                <div class="bg-[#fbe3c4] h-[330px] w-[218px] border-4 border-[#8541ff]">
+                    <div class="h-[70%] flex justify-center">
+                        <img src="./assets/branding.png" alt="" class="p-[5px] h-[100%]">
+                    </div>
+                    <div class="h-[30%] flex flex-col items-center p-[5px]">
+                        <p class="text-[18px]">Ethnic Wear</p>
+                        <p class="font-bold text-3xl">50-80% OFF</p>
+                        <p class="font-bold text-[20px]">Shop Now</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
