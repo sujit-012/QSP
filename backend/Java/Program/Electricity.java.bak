@@ -1,0 +1,45 @@
+import java.util.Scanner;
+class Electricity 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("Enter a units you have used : ");;
+		int units = sc.nextInt();
+		
+		double totalBill = 0;
+		
+		if(units < 0)
+		{
+			System.out.println("Enter a Valid units");
+		}
+		else if(units >=0 && units <= 100)
+		{
+			totalBill = units * 4.43f;
+		}
+		else if(units >= 101 && units <= 300)
+		{
+			totalBill = 100 * 4.43f;
+			units = units - 100;
+			totalBill = totalBill + units * 9.64f;
+		}
+		else if(units >= 301 && units <= 500)
+		{
+			totalBill = 100 * 4.43f;
+			totalBill = totalBill + 200 * 9.64f;
+			units = units - 300;
+			totalBill = totalBill + units * 12.83f;
+		}
+		else
+		{
+			totalBill = 100 * 4.43f;
+			totalBill = totalBill + 200 * 9.64f;
+			totalBill = totalBill + 200 * 12.83f;
+			units = units - 500;
+			totalBill = totalBill + units * 14.33f;
+		}
+		
+		System.out.println("Your total electricity bill on the unit " + units + " is " + totalBill );
+	}
+}

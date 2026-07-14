@@ -1,0 +1,17 @@
+import java.util.Scanner;
+class VowelsConsonents2 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter a Character : ");
+		char ch = sc.next().charAt(0);
+		
+		String result = (ch == 'a' || ch == 'A' || ch == 'e' || ch == 'E' || 
+						ch == 'i' || ch == 'I' || ch == 'o' || ch == 'O' || 
+						ch == 'u' || ch == 'U') ? "Character is Vowel" : "Character is Consonent";
+		
+		System.out.println(result);
+	}
+}

@@ -1,0 +1,375 @@
+import java.util.Scanner;
+class DistPlaces
+{
+	public static void main(String[] args) 
+	{
+	Scanner sc = new Scanner(System.in);
+	
+	System.out.println("Enter the District Name");
+	String district = sc.next();
+	
+		switch (district){
+			
+			case "Nagpur" :
+			{
+				System.out.println(" 1) Ram Mandir, Ramtek");
+				System.out.println(" 2) Seven Sister Hills");
+				System.out.println(" 3) Iscon Temple");
+				System.out.println(" 4) Khindsi Lake");
+			}
+			break ;
+			case "Pune":
+			{
+				System.out.println("1) FC Road");
+				System.out.println("2) Sihgad fort");
+				System.out.println("2) Shaniwar Wada");
+				System.out.println("3) Aga Khan Palace");
+                System.out.println("4) Dagdusheth Halwai Ganpati Temple");
+			}
+			break;
+			case "Ahmednagar":
+            {
+                System.out.println("1) Shirdi Sai Baba Temple");
+                System.out.println("2) Shani Shingnapur");
+                System.out.println("3) Ahmednagar Fort");
+                System.out.println("4) Meherabad");
+                System.out.println("5) Harishchandragad Fort");
+                       }
+                        break;
+           
+           case "Akola":
+           {
+               System.out.println("1) Raj Rajeshwar Temple");
+               System.out.println("2) Narnala Fort");
+               System.out.println("3) Balapur Fort");
+               System.out.println("4) Katepurna Wildlife Sanctuary");
+               System.out.println("5) Akola Fort");
+           }
+           break;
+           
+           case "Amravati":
+           {
+               System.out.println("1) Ambadevi Temple");
+               System.out.println("2) Chikhaldara Hill Station");
+               System.out.println("3) Melghat Tiger Reserve");
+               System.out.println("4) Gavilgad Fort");
+               System.out.println("5) Wadali Talao");
+           }
+           break;
+           
+           case "Aurangabad":
+           {
+               System.out.println("1) Ajanta Caves");
+               System.out.println("2) Ellora Caves");
+               System.out.println("3) Bibi Ka Maqbara");
+               System.out.println("4) Daulatabad Fort");
+               System.out.println("5) Panchakki");
+           }
+           break;
+           
+           case "Beed":
+           {
+               System.out.println("1) Kankaleshwar Temple");
+               System.out.println("2) Kapildhar Waterfall");
+               System.out.println("3) Yogeshwari Temple");
+               System.out.println("4) Dnyaneshwar Udyan");
+               System.out.println("5) Beed Fort");
+           }
+           break;
+           
+           case "Bhandara":
+           {
+               System.out.println("1) Ambagad Fort");
+               System.out.println("2) Chulband Dam");
+               System.out.println("3) Wainganga River");
+               System.out.println("4) Gosekhurd Dam");
+               System.out.println("5) Bhandara Lake");
+           }
+           break;
+           
+           case "Buldhana":
+           {
+               System.out.println("1) Lonar Lake");
+               System.out.println("2) Sindkhed Raja");
+               System.out.println("3) Gajanan Maharaj Temple");
+               System.out.println("4) Anand Sagar");
+               System.out.println("5) Lonar Wildlife Sanctuary");
+           }
+           break;
+           
+           case "Chandrapur":
+           {
+               System.out.println("1) Tadoba National Park");
+               System.out.println("2) Mahakali Temple");
+               System.out.println("3) Anchaleshwar Temple");
+               System.out.println("4) Chandrapur Fort");
+               System.out.println("5) Erai Dam");
+           }
+           break;
+           
+           case "Dhule":
+           {
+               System.out.println("1) Songir Fort");
+               System.out.println("2) Laling Fort");
+               System.out.println("3) Ekvira Devi Temple");
+               System.out.println("4) Bhamer Fort");
+               System.out.println("5) Aner Dam");
+           }
+           break;
+           
+           case "Gadchiroli":
+           {
+               System.out.println("1) Markanda Temple");
+               System.out.println("2) Chaprala Wildlife Sanctuary");
+               System.out.println("3) Bhamragarh Sanctuary");
+               System.out.println("4) Dhanora Forest");
+               System.out.println("5) Pranhita River");
+           }
+           break;
+           
+           case "Gondia":
+           {
+               System.out.println("1) Navegaon National Park");
+               System.out.println("2) Nagzira Wildlife Sanctuary");
+               System.out.println("3) Kachargadh Caves");
+               System.out.println("4) Hazra Falls");
+               System.out.println("5) Itiadoh Dam");
+           }
+           break;
+           
+           case "Hingoli":
+           {
+               System.out.println("1) Aundha Nagnath Temple");
+               System.out.println("2) Mallinath Digambar Jain Temple");
+               System.out.println("3) Siddheshwar Dam");
+               System.out.println("4) Sant Namdev Temple");
+               System.out.println("5) Hingoli Fort");
+           }
+           break;
+		   case "Jalgaon":
+         {
+             System.out.println("1) Ajanta Caves");
+             System.out.println("2) Unapdev Hot Water Spring");
+             System.out.println("3) Mehrun Lake");
+             System.out.println("4) Gandhi Teerth");
+             System.out.println("5) Padmalaya Ganpati Temple");
+         }
+         break;
+         
+         case "Jalna":
+         {
+             System.out.println("1) Matsyodari Devi Temple");
+             System.out.println("2) Jalna Fort");
+             System.out.println("3) Anand Sagar");
+             System.out.println("4) Guru Ganesh Bhavan");
+             System.out.println("5) Jamb Samarth");
+         }
+         break;
+         
+         case "Kolhapur":
+         {
+             System.out.println("1) Mahalaxmi Temple");
+             System.out.println("2) Panhala Fort");
+             System.out.println("3) Rankala Lake");
+             System.out.println("4) New Palace Museum");
+             System.out.println("5) Jyotiba Temple");
+         }
+         break;
+         
+         case "Latur":
+         {
+             System.out.println("1) Kharosa Caves");
+             System.out.println("2) Udgir Fort");
+             System.out.println("3) Ganj Golai");
+             System.out.println("4) Ashtavinayak Temple");
+             System.out.println("5) Siddheshwar Temple");
+         }
+         break;
+         
+         case "Mumbai":
+         {
+             System.out.println("1) Gateway of India");
+             System.out.println("2) Marine Drive");
+             System.out.println("3) Juhu Beach");
+             System.out.println("4) Siddhivinayak Temple");
+             System.out.println("5) Elephanta Caves");
+         }
+         break;
+         
+         case "Mumbai Suburban":
+         {
+             System.out.println("1) Juhu Beach");
+             System.out.println("2) Sanjay Gandhi National Park");
+             System.out.println("3) Kanheri Caves");
+             System.out.println("4) Powai Lake");
+             System.out.println("5) Versova Beach");
+         }
+         break;
+      
+         case "Nanded":
+         {
+             System.out.println("1) Hazur Sahib Gurudwara");
+             System.out.println("2) Kandhar Fort");
+             System.out.println("3) Sahastrakund Waterfall");
+             System.out.println("4) Unkeshwar Hot Springs");
+             System.out.println("5) Nanded Fort");
+         }
+         break;
+         
+         case "Nandurbar":
+         {
+             System.out.println("1) Toranmal Hill Station");
+             System.out.println("2) Yashwant Lake");
+             System.out.println("3) Lotus Lake");
+             System.out.println("4) Sita Khai");
+             System.out.println("5) Goraknath Temple");
+         }
+         break;
+         
+         case "Nashik":
+         {
+             System.out.println("1) Trimbakeshwar Temple");
+             System.out.println("2) Sula Vineyards");
+             System.out.println("3) Pandavleni Caves");
+             System.out.println("4) Ramkund");
+             System.out.println("5) Anjaneri Hills");
+         }
+         break;
+         
+         case "Osmanabad":
+         {
+             System.out.println("1) Tulja Bhavani Temple");
+             System.out.println("2) Dharashiv Caves");
+             System.out.println("3) Naldurg Fort");
+             System.out.println("4) Yedshi Ramling Sanctuary");
+             System.out.println("5) Paranda Fort");
+         }
+         break;
+         
+         case "Palghar":
+         {
+             System.out.println("1) Kelva Beach");
+             System.out.println("2) Arnala Fort");
+             System.out.println("3) Tungareshwar Wildlife Sanctuary");
+             System.out.println("4) Jawhar Hill Station");
+             System.out.println("5) Shirgaon Fort");
+         }
+         break;
+		 
+		 case "Parbhani":
+         {
+             System.out.println("1) Shri Sai Jansthan Temple");
+             System.out.println("2) Jintur Jain Temples");
+             System.out.println("3) Mudgal Fort");
+             System.out.println("4) Parbhani Fort");
+             System.out.println("5) Selu Fort");
+         }
+         break;
+         
+         case "Raigad":
+         {
+             System.out.println("1) Raigad Fort");
+             System.out.println("2) Alibaug Beach");
+             System.out.println("3) Murud-Janjira Fort");
+             System.out.println("4) Kashid Beach");
+             System.out.println("5) Korlai Fort");
+         }
+         break;
+         
+         case "Ratnagiri":
+         {
+             System.out.println("1) Ganpatipule Temple");
+             System.out.println("2) Ratnadurg Fort");
+             System.out.println("3) Thiba Palace");
+             System.out.println("4) Jaigad Fort");
+             System.out.println("5) Aare Ware Beach");
+         }
+         break;
+         
+         case "Sangli":
+         {
+             System.out.println("1) Ganapati Temple");
+             System.out.println("2) Dandoba Hills");
+             System.out.println("3) Sagareshwar Wildlife Sanctuary");
+             System.out.println("4) Sangli Fort");
+             System.out.println("5) Krishna River");
+         }
+         break;
+         
+         case "Satara":
+         {
+             System.out.println("1) Kaas Plateau");
+             System.out.println("2) Thoseghar Waterfall");
+             System.out.println("3) Sajjangad Fort");
+             System.out.println("4) Ajinkyatara Fort");
+             System.out.println("5) Kas Lake");
+         }
+         break;
+         
+         case "Sindhudurg":
+         {
+             System.out.println("1) Sindhudurg Fort");
+             System.out.println("2) Tarkarli Beach");
+             System.out.println("3) Devbag Beach");
+             System.out.println("4) Vijaydurg Fort");
+             System.out.println("5) Malvan Beach");
+         }
+         break;
+         
+         case "Solapur":
+         {
+             System.out.println("1) Siddheshwar Temple");
+             System.out.println("2) Solapur Fort");
+             System.out.println("3) Great Indian Bustard Sanctuary");
+             System.out.println("4) Hipparga Lake");
+             System.out.println("5) Bhuikot Fort");
+         }
+         break;
+         
+         case "Thane":
+         {
+             System.out.println("1) Upvan Lake");
+             System.out.println("2) Yeoor Hills");
+             System.out.println("3) Suraj Water Park");
+             System.out.println("4) Tansa Wildlife Sanctuary");
+             System.out.println("5) Kelva Dam");
+         }
+         break;
+         
+         case "Wardha":
+         {
+             System.out.println("1) Sevagram Ashram");
+             System.out.println("2) Bor Wildlife Sanctuary");
+             System.out.println("3) Magan Sangrahalaya");
+             System.out.println("4) Gitai Mandir");
+             System.out.println("5) Vishwa Shanti Stupa");
+         }
+         break;
+         
+         case "Washim":
+         {
+             System.out.println("1) Balaji Temple");
+             System.out.println("2) Padmatirth");
+             System.out.println("3) Karanja Jain Temple");
+             System.out.println("4) Washim Fort");
+             System.out.println("5) Chintamani Temple");
+         }
+         break;
+         
+         case "Yavatmal":
+         {
+             System.out.println("1) Tipeshwar Wildlife Sanctuary");
+             System.out.println("2) Sahastrakund Waterfall");
+             System.out.println("3) Painganga Wildlife Sanctuary");
+             System.out.println("4) Waghadi Dam");
+             System.out.println("5) Chintamani Ganesh Temple");
+         }
+         break;
+         default :
+          {
+           System.out.println("You Enter Wrong Input");
+           }
+		   
+           	}
+        }
+   }

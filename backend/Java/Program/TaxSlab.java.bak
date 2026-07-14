@@ -1,0 +1,48 @@
+import java.util.Scanner;
+class TaxSlab 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter a amount : ");
+		long amount = sc.nextLong();
+		
+		long tax = 0;
+		
+		if(amount < 0)
+		{
+			System.out.println("Please Enter a Valid amount");
+		}
+		else if(amount >= 0 && amount <= 400000)
+		{
+			tax = amount * 0;
+		}
+		else if(amount >= 400001 && amount <= 800000)
+		{
+			tax = amount * 0.05;
+		}
+		else if(amount >= 800001 && amount <= 1200000)
+		{
+			tax = amount * 0.1;
+		}
+		else if(amount >= 1200001 && amount <= 1600000)
+		{
+			tax = amount * 0.15;
+		}
+		else if(amount >= 1600001 && amount <= 2000000)
+		{
+			tax = amount * 0.2;
+		}
+		else if(amount >= 2000001 && amount <= 2400000)
+		{
+			tax = amount * 0.25;
+		}
+		else
+		{
+			tax = amount * 0.3;
+		}
+		
+		System.out.println("Total tax pay on the amount of " + amount + " is " + tax);
+	}
+}
