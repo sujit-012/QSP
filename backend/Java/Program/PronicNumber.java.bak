@@ -1,0 +1,39 @@
+import java.util.Scanner;
+class PronicNumber 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter a number : ");
+		int num = sc.nextInt();
+		
+		if(num < 0)
+		{
+			System.out.println("Not a pronic number");
+		}
+		else if(num == 0)
+		{
+			System.out.println(" 0 is the pronic number for 0 ");
+		else
+		{
+			int temp = 0;
+			for(int i = 0; i <= num; i++)
+			{
+				if(i * (i + 1) == num)
+				{
+					temp = i;
+					break;
+				}
+			}
+			
+			if(temp != 0)
+			{
+				System.out.println(temp + " is a pronic number for " + num);
+			}
+			else
+			{
+				System.out.println("None of the pronic number for" + num);
+			}
+		}
+	}
+}

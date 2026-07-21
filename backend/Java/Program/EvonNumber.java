@@ -1,0 +1,32 @@
+import java.util.Scanner;
+class EvonNumber 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter a number : ");
+		int num = sc.nextInt();
+		
+		boolean isEvon = true;
+		
+		while(num != 0)
+		{
+			int last = num % 10;
+			if(last % 2 != 0)
+			{
+				isEvon = false;
+			}
+			
+			num = num / 10;
+		}
+		
+		if(isEvon)
+		{
+			System.out.println("Number is evon");
+		}
+		else 
+		{
+			System.out.println("Number is not a evon Number ");
+		}
+	}
+}

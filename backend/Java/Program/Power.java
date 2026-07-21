@@ -1,0 +1,36 @@
+import java.util.Scanner;
+class Power 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter a base number :");
+		int base = sc.nextInt();
+		
+		System.out.println("Enter a raise number : ");
+		int raise = sc.nextInt();
+		
+		int ans = 1;
+		
+		if(raise >= 0)
+		{
+			for(int i = raise; i > 0; i--)
+			{
+				ans = ans * base;
+			}
+		}
+		else
+		{
+			raise = -(raise);
+			for(int i = raise; i < 0; i++)
+			{
+				ans = ans * base;
+			}
+			
+			ans = 1 / ans;
+		}
+		
+		System.out.println(base + " ^ " + raise + " : " + ans);
+			
+	}
+}
