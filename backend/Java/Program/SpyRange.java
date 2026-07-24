@@ -1,0 +1,36 @@
+class SpyRange 
+{
+	public static void main(String[] args) 
+	{
+		for(int i = 1; i <= 1000; i++)
+		{
+			if(isSpy(i))
+			{
+				System.out.println(i);
+			}
+		}
+	}
+	
+	public static boolean isSpy(int num)
+	{
+		int sum = 0;
+		int product = 1;
+		
+		while(num != 0)
+		{
+			int dig = num % 10;
+			sum = sum + dig;
+			product = product * dig;
+			num = num / 10;
+		}
+		
+		if(sum == product)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+}
