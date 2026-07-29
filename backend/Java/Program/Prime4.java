@@ -1,0 +1,31 @@
+import java.util.Scanner;
+class Prime4 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter a number : ");
+		int num = sc.nextInt();
+		
+		int den = 2;
+		
+		while(den < num)
+		{
+			if(num % den == 0)
+			{
+				break;
+			}
+			
+			den++;
+		}
+		
+		if(den == num)
+		{
+			System.out.println("Number is a prime number ");
+		}
+		else
+		{
+			System.out.println("number is not a prime number ");
+		}
+	}
+}

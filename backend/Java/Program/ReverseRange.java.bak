@@ -1,0 +1,21 @@
+class ReverseRange 
+{
+	public static void main(String[] args) 
+	{
+		for(int i = 200; i <= 500; i++)
+		{
+			int num = i;
+			int rev = 0;
+			
+			while(num != 0)
+			{
+				int dig = num % 10;
+				int rev = rev * 10 + dig;
+				num = num / 10;
+			}
+			
+			System.out.println(rev);
+		}
+				
+	}
+}

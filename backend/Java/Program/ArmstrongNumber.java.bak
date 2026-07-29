@@ -1,0 +1,50 @@
+import java.util.Scanner;
+class ArmstrongNumber 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.pritn("Enter a number : ");
+		int num = sc.nextInt();
+		
+		if(num >= 0 && num <= 9)
+		{
+			System.out.println(num + " is a Armstrong number ");
+		}
+		else
+		{
+			int count = 0;
+			
+			for(int i = num; i != 0; i = i / 10)
+			{
+				count++;
+			}
+			
+			int sum = 0;
+			
+			for(int i = num; i != 0; i = i / 10)
+			{
+				int last = i % 10;
+				int pow = 1;
+				
+				for(int j = 0; j < count; j++)
+				{
+					pow = pow * last;
+				}
+				
+				sum = sum + pow;
+			}
+			
+			if(sum == num)
+			{
+				System.out.println(num + " is Armstrong number ");
+			}
+			else
+			{
+				System.out.println(num + " is not Armstrong number ");
+			}
+		}
+				
+				
+	}
+}

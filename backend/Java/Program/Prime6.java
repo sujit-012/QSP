@@ -1,0 +1,30 @@
+import java.util.Scanner;
+class Prime6 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter a number : ");
+		int num = sc.nextInt();
+		
+		int den = 2;
+		
+		while(den * den <= num)
+		{
+			if(num % den == 0)
+			{
+				break;
+			}
+			den++;
+		}
+		
+		if(den * den > num)
+		{
+			System.out.println("Prime number");
+		}
+		else
+		{
+			System.out.println("Not a prime number");
+		}
+	}
+}
