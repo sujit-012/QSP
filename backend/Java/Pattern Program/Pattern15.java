@@ -1,0 +1,35 @@
+class Pattern15 
+{
+	public static void main(String[] args) 
+	{
+		int n = 6;
+		
+		for(int i = 1; i <= n; i++)
+		{
+			int a = i;
+			int b = n - 1;
+			int c = n - i  + 1;
+			for(int j = 1; j <= n; j++, a++)
+			{
+				if(i==1 || j== 1)
+				{
+					System.out.print(a + " ");
+				}
+				else if(i == n)
+				{
+					System.out.print(b-- + " ");
+				}
+				else if(j == n)
+				{
+					System.out.print(c-- + " ");
+				}
+					
+				else
+				{
+					System.out.print(" " + " ");
+				}
+			}
+			System.out.println();
+		}
+	}
+}

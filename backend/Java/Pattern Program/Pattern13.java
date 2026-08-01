@@ -1,0 +1,34 @@
+import java.util.Scanner;
+class Pattern13 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter a number of rows : ");
+		int n = sc.nextInt();
+		
+		int b = (n*2) - 1;
+		int c = 1;
+		
+		for(int i = 1; i <= n; i++)
+		{
+			int a = i;
+			for(int j = 1; j <= n; j++)
+			{
+				System.out.print(a + " ");
+				if(a <= 9) System.out.print(" ");
+				if( (j%2) != 0)
+				{
+					a = a+b;
+				}
+				else
+				{
+					a = a + c;
+				}
+			}
+			b-=2;
+			c+=2;
+			System.out.println();
+		}
+	}
+}

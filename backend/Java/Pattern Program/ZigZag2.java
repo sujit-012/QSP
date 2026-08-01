@@ -1,0 +1,30 @@
+import java.util.Scanner;
+class ZigZag2 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter a number of Row : ");
+		int n = sc.nextInt();
+		
+		for(int i = 1; i <= n; i++)
+		{
+			int num = (i%2) != 0 ? (i*n - (n-1)) : i*n;
+			for(int j = 1; j <= n; j++)
+			{
+				if(i%2 != 0)
+				{
+					System.out.print(num++ + " ");
+					if (num <= 10) System.out.print(" ") ;
+				}
+				else
+				{
+					System.out.print(num-- + " ");
+					if(num < 9) System.out.print(" ");
+				}
+			}
+			
+			System.out.println();
+		}
+	}
+}
