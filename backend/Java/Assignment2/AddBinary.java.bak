@@ -1,0 +1,64 @@
+import java.util.Scanner;
+class AddBinary 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter a first number");
+		String a = sc.next()
+			
+		System.out.print("Enter a second number : ");
+		String b = sc.next();
+		
+		Systen.out.println(addBinay(a, b));
+	}
+	
+	public static String addBinary(String a, String b) 
+	{
+        if((a.length() == 1 && b.length() == 1) && (((int)(a.charAt(0) - '0') == 0) && ((int) (b.charAt(0) - '0')) == 0)) return "0";
+
+        int sum1 = 0;
+        for( int i = a.length()-1, j = 0; i >= 0; i--, j++)
+        {
+            int dig = a.charAt(i) - '0';
+            int pow = power(2, j);
+
+            sum1 = sum1  + dig*pow;
+        }
+
+        int sum2= 0;
+        for(int i = b.length() - 1, j = 0; i >= 0; i--, j++)
+        {
+            int dig = b.charAt(i) - '0';
+            int pow = power(2, j);
+            
+            sum2 = sum2 + dig*pow;
+        }
+
+        int ans = sum1 + sum2;
+
+        String bin = "";
+
+        while(ans != 0)
+        {
+            int dig = ans%2;
+            bin = dig + bin;
+            ans = ans/2;
+        }
+
+        return bin;
+    }
+
+    public int power(int num, int pow)
+    {
+        int ans = 1;
+        for(int i = 1; i <= pow; i++)
+        {
+            ans = ans*num;
+        }
+
+        return ans;
+    }
+	
+	
+}
