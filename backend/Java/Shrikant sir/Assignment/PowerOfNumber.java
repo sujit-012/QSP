@@ -1,0 +1,36 @@
+import java.util.Scanner;
+class PowerOfNumber 
+{
+	static double num;
+	static int pow;
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter a number : ");
+		num = sc.nextDouble();
+		
+		System.out.print("Enter a power : ");
+		pow = sc.nextInt();
+		
+		power();
+	}
+	
+	public static void power()
+	{
+		double ans = 1;
+		
+		if(pow < 0)
+		{
+			pow *= -1;
+			
+			num = 1/num;
+		}
+		
+		for(int i = 1; i <= pow; i++)
+		{
+			ans *= num;
+		}
+		
+		System.out.println("Power of a number : " + ans);
+	}
+}

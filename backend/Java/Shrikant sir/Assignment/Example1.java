@@ -1,0 +1,86 @@
+import java.util.Scanner;
+class Example1 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter a word : ");
+		String str = sc.nextLine();
+		
+		System.out.println("Built in");
+		String str1 = new String(str);
+		System.out.println(str1.toString());
+		System.out.println(str1.toLowerCase());
+		System.out.println(str1.toUpperCase());
+		
+		System.out.println();
+		
+		System.out.println("User define");
+		MyString str2 = new MyString(str);
+		System.out.println(str2.toString());
+		System.out.println(str2.toLowerCase());
+		System.out.println(str2.toUpperCase());	
+	}
+}
+
+class MyString
+{
+	private int idx;
+	private char [] arr;
+	
+	MyString(String str)
+	{
+		arr = new char[str.length()];
+		for(int i = 0; i < arr.length; i++)
+		{
+			arr[idx++] = str.charAt(i);
+		}
+	}
+	
+	@Override
+	public String toString()
+	{
+		return new String(arr);
+	}
+	
+	public String toLowerCase()
+	{
+		String newStr = "";
+		
+		for(int i = 0; i < arr.length; i++)
+		{
+			char ch = arr[i];
+			
+			if(ch >='A' && ch <='Z')
+			{
+				newStr += (char) (ch + 32);
+			}
+			else
+			{
+				newStr += ch;
+			}
+		}
+		return newStr;
+	}
+	
+	public String toUpperCase()
+	{
+		String newStr = "";
+		
+		for(int i = 0; i < arr.length; i++)
+		{
+			char ch = arr[i];
+			
+			if(ch >= 'a' && ch <= 'z')
+			{
+				newStr += (char) (ch - 32);
+			}
+			else
+			{
+				newStr += ch;
+			}
+		}
+		
+		return newStr;
+	}
+}

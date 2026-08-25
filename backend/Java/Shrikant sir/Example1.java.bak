@@ -1,0 +1,10 @@
+class Example1
+{
+	public static void main(String args[]){
+		m1(10, 'A');
+	}
+	
+	public static void m1(int a, byte b){
+		System.out.println("Hello from m1()");
+	}
+}

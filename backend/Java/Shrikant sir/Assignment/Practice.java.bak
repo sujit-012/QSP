@@ -1,0 +1,29 @@
+class Practice 
+{
+	public static void main(String[] args) 
+	{
+		Demo1 obj = new Demo1();
+		
+		System.out.println(obj.display());
+	}
+}
+
+class Demo1
+{
+	class innerClass
+	{
+		public int num = 10;
+	}
+	
+	public void display()
+	{
+		System.out.println(num);
+	}
+}
+
+//class Demo2
+//{
+//	public void display()
+//	{
+//	}
+//}

@@ -1,0 +1,61 @@
+import java.util.Scanner;
+class EmirphNumber 
+{
+	static int num;
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter a number : ");
+		num = sc.nextInt();
+		
+		emirphNumber();
+	}
+	
+	public static void emirphNumber()
+	{
+		boolean isPrime = true;
+		
+		for(int i = 2; i <= num/2; i++)
+		{
+			if(num % i == 0)
+			{
+				isPrime = false;
+				break;
+			}
+		}
+		
+		if(isPrime)
+		{
+			int rev = 0;
+			boolean isRevPrime = true;
+			
+			while(num != 0)
+			{
+				rev = rev * 10 + num % 10;
+				num /= 10;
+			}
+			
+			for(int i = 2; i <= rev/2; i++)
+			{
+				if(rev % i == 0)
+				{
+					isRevPrime = false;
+					break;
+				}
+			}
+			
+			if(isRevPrime)
+			{
+				System.out.println("Number is emiprh number ");
+			}
+			else
+			{
+				System.out.println("Number is not a emirph number ");
+			}
+		}
+		else
+		{
+			System.out.println("Number is not emirph number");
+		}
+	}
+}

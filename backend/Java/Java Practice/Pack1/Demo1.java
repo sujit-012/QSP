@@ -1,0 +1,27 @@
+class Demo1 
+{
+	static String str = "Static variable";
+	
+	static{
+		System.out.println("Static-block");
+	}
+	
+	public static void m1(){
+		System.out.println("m1() OuterClass");
+	}
+	
+	public static void main(String[] args) 
+	{
+		InnerClass.m2();
+	}
+	
+	static class InnerClass
+	{
+		public static void m2(){
+			System.out.println("m2() InnerClass");
+			m1();
+			System.out.println(str);
+
+		}
+	}
+}

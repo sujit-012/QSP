@@ -1,0 +1,47 @@
+class Volatile 
+{
+	public static void main(String[] args) 
+	{
+		Ramesh t1 = new Ramesh();
+		t1.start();
+		
+		Suresh t2 = new Suresh();
+		t2.start();
+	}
+}
+
+class SharedResources
+{
+	static int a = 10;
+}
+
+class Ramesh extends Thread
+{
+	@Override
+		public void run(){
+		System.out.println("Ramesh Excution starts");
+		while(SharedResources.a <= 10)
+		{
+		}
+		System.out.println("Ramesh Excution ends");
+			
+}
+}
+
+class Suresh extends Thread
+{
+	@Override
+		public void run(){
+		System.out.println("Suresh Excution starts");
+		 try{
+			  SharedResources.a = 20;
+			  System.out.println("Suresh went to sleep");
+			  Thread.sleep(5000);
+		 }
+		 catch(Exception e){
+			 System.out.println("Something went Wrong");
+		 }
+		 
+		 System.out.println("Suresh Ends");
+	}
+}

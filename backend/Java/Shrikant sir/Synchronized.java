@@ -1,0 +1,47 @@
+class Synchronized 
+{
+	public static void main(String[] args) 
+	{
+		Task task = new Task();
+		Mythread t1 = new Mythread("Sheth", task);
+		t1.start();
+		
+		Mythread t2 = new Mythread("Shabbo", task);
+		t2.start();
+	}
+}
+
+class Mythread extends Thread
+{
+	String threadName;
+	Task task;
+	
+	Mythread(String threadName, Task task){
+		this.threadName = threadName;
+		this.task = task;
+	}
+	
+	@Override
+    public void run()
+    {
+        try
+        {
+            task.printNumber(threadName);
+        }
+        catch(InterruptedException e)
+        {
+            System.out.println("Something went Wrong");
+        }
+    }
+}
+
+class Task
+{
+	public synchronized void printNumber(String threadName) throws InterruptedException{
+		for(int i = 1; i <= 10; i++)
+		{
+			System.out.println(threadName + " : " + i);
+			Thread.sleep(1000);
+		}
+	}
+}
