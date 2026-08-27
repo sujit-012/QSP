@@ -1,0 +1,21 @@
+import java.util.Scanner;
+class Power 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter a base number : ");
+		int base = sc.nextInt();
+		System.out.print("Enter a power number : ");
+		int pow = sc.nextInt();
+		
+		int ans = 1;
+		
+		for(int i = 1; i <= pow; i++)
+		{
+			ans *= base;
+		}
+		
+		System.out.println("Power : "  + ans);
+	}
+}
