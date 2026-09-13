@@ -1,0 +1,9 @@
+class P62 
+{
+	public static void main(String[] args) 
+	{
+		int a = 2, b = 3;
+		boolean x = a++>2 || ++b>3 && a>2;
+		System.out.println(a+ " " + b + " " + x);ja
+	}
+}
