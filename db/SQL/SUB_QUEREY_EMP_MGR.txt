@@ -1,0 +1,250 @@
+1.
+SQL> SELECT ENAME
+  2  FROM EMP
+  3  WHERE EMPNO IN (SELECT MGR
+  4                  FROM EMP
+  5                  WHERE ENAME = 'SMITH');
+
+ENAME
+----------
+FORD
+
+
+2.
+SQL> SELECT SAL
+  2  FROM EMP
+  3  WHERE EMPNO IN (SELECT MGR
+  4                  FROM EMP
+  5                  WHERE ENAME = 'MILLER');
+
+       SAL
+----------
+      2450
+
+
+3.
+SQL> SELECT ENAME
+  2  FROM EMP
+  3  WHERE EMPNO IN (SELECT MGR
+  4                  FROM EMP
+  5                  WHERE ENAME = 'ALLEN');
+
+ENAME
+----------
+BLAKE
+
+
+4.
+SQL> SELECT SAL
+  2  FROM EMP
+  3  WHERE EMPNO IN (SELECT MGR
+  4                  FROM EMP
+  5                  WHERE ENAME = 'ADAMS');
+
+       SAL
+----------
+      3000
+
+
+5.
+SQL> SELECT ENAME
+  2  FROM EMP
+  3  WHERE EMPNO IN (SELECT MGR
+  4                  FROM EMP
+  5                  WHERE EMPNO IN (SELECT MGR
+  6                                  FROM EMP
+  7                                  WHERE ENAME = 'ADAMS'));
+
+ENAME
+----------
+JONES
+
+
+
+6.
+SQL> SELECT LOC
+  2  FROM DEPT
+  3  WHERE DEPTNO IN (SELECT DEPTNO
+  4                   FROM EMP
+  5                   WHERE EMPNO IN (SELECT MGR
+  6                                    FROM EMP
+  7                                    WHERE EMPNO IN (SELECT MGR
+  8                                                     FROM EMP
+  9                                                     WHERE ENAME = 'SMITH')));
+
+LOC
+-------------
+DALLAS
+
+7.
+SQL> SELECT COUNT(*)
+  2  FROM EMP
+  3  WHERE MGR IN (SELECT EMPNO
+  4                FROM EMP
+  5                WHERE ENAME = 'KING');
+
+  COUNT(*)
+----------
+         3
+
+8.
+SQL> SELECT ENAME
+  2  FROM EMP
+  3  WHERE MGR IN (SELECT EMPNO
+  4                FROM EMP
+  5                WHERE ENAME = 'BLAKE');
+
+ENAME
+----------
+ALLEN
+WARD
+MARTIN
+TURNER
+JAMES
+
+9.
+SQL> SELECT *
+  2  FROM EMP
+  3  WHERE MGR IN (SELECT EMPNO
+  4                FROM EMP
+  5                WHERE ENAME = 'JONES');
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+
+
+10.
+SQL> SELECT LOC
+  2  FROM DEPT
+  3  WHERE DEPTNO IN (SELECT DEPTNO
+  4                   FROM EMP
+  5                   WHERE EMPNO IN (SELECT MGR
+  6                                   FROM EMP
+  7                                   WHERE ENAME = 'MARTIN'));
+
+LOC
+-------------
+CHICAGO
+
+11.
+SQL> SELECT COUNT(*)
+  2  FROM EMP
+  3  WHERE MGR IN (SELECT EMPNO
+  4                FROM EMP
+  5                WHERE ENAME = 'FORD');
+
+  COUNT(*)
+----------
+         1
+
+12.
+SQL> SELECT COMM
+  2  FROM EMP
+  3  WHERE EMPNO IN (SELECT MGR
+  4                  FROM EMP
+  5                  WHERE EMPNO IN (SELECT MGR
+  6                                  FROM EMP
+  7                                  WHERE ENAME = 'BLAKE'));
+
+no rows selected
+
+	
+13.
+SQL> SELECT DNAME
+  2  FROM DEPT
+  3  WHERE DEPTNO IN (SELECT DEPTNO
+  4                   FROM EMP
+  5                   WHERE EMPNO IN (SELECT MGR
+  6                                   FROM EMP
+  7                                   WHERE ENAME = 'CLARK'));
+
+DNAME
+--------------
+ACCOUNTING
+
+
+
+14.
+SQL> SELECT LOC
+  2  FROM DEPT
+  3  WHERE DEPTNO IN (SELECT DEPTNO 
+  4                   FROM EMP
+  5                   WHERE EMPNO IN (SELECT MGR
+  6                                   FROM EMP
+  7                                   WHERE ENAME = 'SCOTT'));
+
+LOC
+-------------
+DALLAS
+
+
+15.
+SQL> SELECT DEPTNO
+  2  FROM EMP
+  3  WHERE EMPNO IN (SELECT MGR
+  4                  FROM EMP
+  5                  WHERE ENAME = 'MILLER');
+
+    DEPTNO
+----------
+        10
+
+	
+16.
+SQL> SELECT SUM(SAL)
+  2  FROM EMP
+  3  WHERE DEPTNO IN (SELECT DEPTNO 
+  4                   FROM EMP
+  5                   WHERE EMPNO IN (SELECT MGR
+  6                                   FROM EMP
+  7                                   WHERE ENAME = 'WARD'));
+
+  SUM(SAL)
+----------
+      9400
+
+
+17.
+SQL> SELECT MIN(SAL)
+  2  FROM EMP
+  3  WHERE DEPTNO IN (SELECT DEPTNO
+  4                   FROM EMP
+  5                   WHERE EMPNO IN (SELECT MGR
+  6                                   FROM EMP
+  7                                   WHERE ENAME = 'TURNER'));
+
+  MIN(SAL)
+----------
+       950
+
+18.
+SQL> SELECT AVG(SAL)
+  2  FROM EMP
+  3  WHERE DEPTNO IN (SELECT DEPTNO
+  4                   FROM EMP
+  5                     WHERE EMPNO IN (SELECT MGR
+  6                                     FROM EMP
+  7                                      WHERE ENAME = 'JONES'));
+
+  AVG(SAL)
+----------
+2916.66667
+
+
+19.
+SQL> SELECT COUNT(*)
+  2  FROM EMP
+  3  WHERE DEPTNO IN (SELECT DEPTNO
+  4                    FROM EMP
+  5                    WHERE EMPNO IN (SELECT MGR
+  6                                    FROM EMP
+  7                                    WHERE ENAME = 'JAMES'));
+
+  COUNT(*)
+----------
+         6
+
+	
+20

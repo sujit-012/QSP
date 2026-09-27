@@ -1,0 +1,9 @@
+class Mobile 
+{
+	String brand;
+	int RAM;
+	double price;
+	int memSize;
+	int batcapa;
+	String os;
+}

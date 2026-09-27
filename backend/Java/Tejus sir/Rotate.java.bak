@@ -1,0 +1,24 @@
+import java.util.Scanner;
+class Rotate 
+{
+	static int temp;
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter a number : ");
+		int num = sc.nextInt();
+		temp = num;
+		System.out.println(rotate(num, 1));
+	}
+	
+	public static int rotate(int num, int div)
+	{
+		if(num == 0)
+		{
+			return (temp%10 * div) + temp/10;
+		}
+		
+		return rotate(num/10, div*10);
+	}
+		
+}

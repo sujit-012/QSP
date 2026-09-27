@@ -1,0 +1,408 @@
+1.
+SQL> SELECT *
+  2  FROM EMP
+  3  WHERE SAL < (SELECT SAL
+  4               FROM EMP
+  5               WHERE ENAME = 'KING');
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+
+13 rows selected.
+
+2.
+SQL> SELECT *
+  2  FROM EMP
+  3  WHERE JOB IN (SELECT JOB
+  4                 FROM EMP 
+  5                WHERE ENAME = 'FORD');
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+
+SQL> 
+3.
+SQL> SELECT *
+  2  FROM EMP
+  3  WHERE DEPTNO IN (SELECT DEPTNO
+  4      FROM EMP
+  5      WHERE ENAME = 'KING');
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+
+4.
+SQL> SELECT *
+  2  FROM EMP
+  3  WHERE HIREDATE > (SELECT HIREDATE
+  4  FROM EMP
+  5  WHERE ENAME = 'WARD');
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+
+5.
+SQL> SELECT ENAME
+  2  FROM EMP
+  3  WHERE JOB = 'SALESMAN' AND SAL < (SELECT SAL FROM EMP WHERE ENAME = 'MARTIN');
+
+
+6.
+SQL> SELECT *
+  2  FROM EMP
+  3  WHERE SAL > (SELECT SAL 
+  4              FROM EMP
+  5              WHERE ENAME = 'JAMES')
+  6  AND SAL < (SELECT SAL
+  7             FROM EMP
+  8             WHERE ENAME = 'JONES');
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+
+
+7.
+SQL> SELECT ENAME, SAL
+  2  FROM EMP
+  3  WHERE SAL < (SELECT SAL
+  4               FROM EMP
+  5               WHERE ENAME = 'KING');
+
+ENAME             SAL
+---------- ----------
+SMITH             800
+ALLEN            1600
+WARD             1250
+JONES            2975
+MARTIN           1250
+BLAKE            2850
+CLARK            2450
+SCOTT            3000
+TURNER           1500
+ADAMS            1100
+JAMES             950
+FORD             3000
+MILLER           1300
+
+8.
+SQL> SELECT ENAME, SAL
+  2  FROM EMP
+  3  WHERE SAL < (SELECT SAL
+  4               FROM EMP
+  5               WHERE ENAME = 'ADAMS');
+
+ENAME             SAL
+---------- ----------
+SMITH             800
+JAMES             950
+
+
+9.
+SQL> SELECT ENAME, DEPTNO
+  2  FROM EMP
+  3  WHERE DEPTNO IN (SELECT DEPTNO
+  4                FROM EMP
+  5                WHERE ENAME = 'JONES')
+  6  /
+
+ENAME          DEPTNO
+---------- ----------
+FORD               20
+ADAMS              20
+SCOTT              20
+JONES              20
+SMITH              20
+
+10.
+SQL> SELECT ENAME, JOB
+  2  FROM EMP
+  3  WHERE JOB IN (SELECT JOB
+  4                FROM EMP
+  5                WHERE ENAME = 'JAMES');
+
+ENAME      JOB
+---------- ---------
+MILLER     CLERK
+JAMES      CLERK
+ADAMS      CLERK
+SMITH      CLERK
+
+
+11.
+SQL> SELECT EMPNO, ENAME, SAL*12 ANN_SAL
+  2  FROM EMP
+  3  WHERE SAL*12 > (SELECT SAL*12
+  4                  FROM EMP
+  5                  WHERE ENAME = 'WARD');
+
+     EMPNO ENAME         ANN_SAL
+---------- ---------- ----------
+      7499 ALLEN           19200
+      7566 JONES           35700
+      7698 BLAKE           34200
+      7782 CLARK           29400
+      7788 SCOTT           36000
+      7839 KING            60000
+      7844 TURNER          18000
+      7902 FORD            36000
+      7934 MILLER          15600
+
+
+12.
+SQL> SELECT ENAME, HIREDATE
+  2  FROM EMP
+  3  WHERE HIREDATE < (SELECT HIREDATE
+  4                    FROM EMP
+  5                    WHERE ENAME = 'TURNER');
+
+ENAME      HIREDATE
+---------- ---------
+SMITH      17-DEC-80
+ALLEN      20-FEB-81
+WARD       22-FEB-81
+JONES      02-APR-81
+BLAKE      01-MAY-81
+CLARK      09-JUN-81
+
+
+13.
+SQL> SELECT ENAME, HIREDATE
+  2  FROM EMP
+  3  WHERE HIREDATE > (SELECT HIREDATE
+  4                    FROM EMP
+  5                    WHERE JOB = 'PRESIDENT');
+
+ENAME      HIREDATE
+---------- ---------
+SCOTT      19-APR-87
+ADAMS      23-MAY-87
+JAMES      03-DEC-81
+FORD       03-DEC-81
+MILLER     23-JAN-82
+
+
+14.
+SQL> SELECT ENAME, SAL
+  2  FROM EMP
+  3  WHERE SAL < (SELECT SAL
+  4               FROM EMP
+  5               WHERE EMPNO = 7839);
+
+ENAME             SAL
+---------- ----------
+SMITH             800
+ALLEN            1600
+WARD             1250
+JONES            2975
+MARTIN           1250
+BLAKE            2850
+CLARK            2450
+SCOTT            3000
+TURNER           1500
+ADAMS            1100
+JAMES             950
+FORD             3000
+MILLER           1300
+
+
+15.
+SQL> SELECT *
+  2  FROM EMP
+  3  WHERE HIREDATE < (SELECT HIREDATE
+  4                    FROM EMP
+  5                    WHERE ENAME = 'MILLER');
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+
+
+16.
+SQL> SELECT *
+  2  FROM EMP
+  3  WHERE SAL > (SELECT SAL
+  4               FROM EMP
+  5               WHERE ENAME = 'ALLEN');
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+
+17.
+SQL> SELECT COUNT(*)
+  2  FROM EMP
+  3  WHERE HIREDATE > (SELECT HIREDATE
+  4                    FROM EMP
+  5                    WHERE ENAME = 'KING');
+
+  COUNT(*)
+----------
+         5
+
+
+18.
+SQL> SELECT SUM(SAL)
+  2  FROM EMP
+  3  WHERE DEPTNO IN (SELECT DEPTNO
+  4                   FROM EMP
+  5                   WHERE ENAME = 'WARD');
+
+  SUM(SAL)
+----------
+      9400
+
+
+19.
+SQL> SELECT *
+  2  FROM EMP
+  3  WHERE DEPTNO = 20 AND JOB IN (SELECT JOB
+  4                                FROM EMP
+  5                                WHERE ENAME = 'SMITH');
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+
+
+20.
+SQL> SELECT ENAME, SAL
+  2  FROM EMP
+  3  WHERE SAL < (SELECT SAL
+  4               FROM EMP
+  5               WHERE ENAME = 'ALLEN') AND
+  6  SAL > (SELECT SAL
+  7         FROM EMP
+  8         WHERE ENAME = 'MILLER');
+
+ENAME             SAL
+---------- ----------
+TURNER           1500
+
+
+21.
+SQL> SELECT *
+  2  FROM EMP
+  3  WHERE SAL > 1000 AND SAL < 3000;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+
+22.
+SQL> SELECT *
+  2  FROM EMP
+  3  WHERE DEPTNO = 20 AND JOB IN (SELECT JOB
+  4                                FROM EMP
+  5                                WHERE ENAME = 'SMITH');
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+
+23.
+ SELECT *
+ FROM EMP
+ WHERE JOB  = 'MANAGER' AND DEPTNO IN (SELECT DEPTNO
+ 					FROM EMP
+ 					WHERE ENAME = 'TURNER');
+
+ EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+------ ---------- --------- ---------- --------- ---------- ---------- ----------
+  7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+
+24.
+SQL> SELECT ENAME, HIREDATE
+  2  FROM EMP
+  3  WHERE HIREDATE > '31-DEC-1980' AND HIREDATE < (SELECT HIREDATE FROM EMP WHERE ENAME = 'KING');
+
+ENAME      HIREDATE
+---------- ---------
+ALLEN      20-FEB-81
+WARD       22-FEB-81
+JONES      02-APR-81
+MARTIN     28-SEP-81
+BLAKE      01-MAY-81
+CLARK      09-JUN-81
+TURNER     08-SEP-81
+
+25.
+SQL> SELECT ENAME, SAL, SAL*12 ANN_SAL
+  2  FROM EMP
+  3  WHERE SAL > 3500 OR SAL < (SELECT SAL FROM EMP WHERE ENAME = 'BLAKE');
+
+ENAME             SAL    ANN_SAL
+---------- ---------- ----------
+SMITH             800       9600
+ALLEN            1600      19200
+WARD             1250      15000
+MARTIN           1250      15000
+CLARK            2450      29400
+KING             5000      60000
+TURNER           1500      18000
+ADAMS            1100      13200
+JAMES             950      11400
+MILLER           1300      15600
+
+10 rows selected.

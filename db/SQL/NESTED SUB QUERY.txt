@@ -1,0 +1,229 @@
+1.
+SQL> SELECT ENAME
+  2  FROM EMP
+  3  WHERE SAL IN (SELECT MAX(SAL)
+  4                FROM EMP
+  5                WHERE SAL < (SELECT MAX(SAL)
+  6                             FROM EMP));
+
+ENAME
+----------
+SCOTT
+FORD
+
+2.
+SQL> SELECT ENAME
+  2  FROM EMP
+  3  WHERE SAL > (SELECT SAL
+  4               FROM EMP
+  5               WHERE ENAME = 'WARD') AND
+  6        DEPTNO IN (SELECT DEPTNO
+  7                   FROM EMP
+  8                   WHERE ENAME = 'BLAKE') AND
+  9       HIREDATE < (SELECT HIREDATE
+ 10                   FROM EMP
+ 11                   WHERE ENAME = 'TURNER')
+ 12  /
+
+ENAME
+----------
+BLAKE
+ALLEN
+
+3.
+SQL> SELECT ENAME
+  2  FROM EMP
+  3  WHERE HIREDATE > (SELECT HIREDATE
+  4                    FROM EMP
+  5                    WHERE ENAME = 'SMITH') AND 
+  6        HIREDATE < (SELECT HIREDATE
+  7                    FROM EMP
+  8                    WHERE ENAME = 'MILLER') AND 
+  9        JOB IN (SELECT JOB
+ 10                FROM EMP
+ 11                WHERE ENAME = 'JONES') AND 
+ 12        DEPTNO IN (SELECT DEPTNO
+ 13                   FROM DEPT
+ 14                   WHERE DNAME = 'SALES');
+
+ENAME
+----------
+BLAKE
+
+
+4.
+SQL> SELECT ENAME
+  2  FROM EMP
+  3  WHERE SAL < (SELECT SAL
+  4               FROM EMP
+  5               WHERE ENAME = 'KING') AND
+  6        HIREDATE < (SELECT HIREDATE 
+  7                    FROM EMP
+  8                    WHERE ENAME = 'MILLER') AND
+  9        DEPTNO IN (SELECT DEPTNO
+ 10                   FROM DEPT
+ 11                   WHERE LOC = 'NEW YORK');
+
+ENAME
+----------
+CLARK
+
+
+5.
+SQL> SELECT ENAME
+  2  FROM EMP
+  3  WHERE SAL IN (SELECT MIN(SAL)
+  4                FROM EMP
+  5                WHERE SAL > (SELECT MIN(SAL)
+  6                             FROM EMP
+  7                             WHERE SAL > (SELECT MIN(SAL)
+  8                                          FROM EMP)));
+
+ENAME
+----------
+ADAMS
+
+
+6.
+SQL> SELECT LOC
+  2  FROM DEPT
+  3  WHERE DEPTNO IN (SELECT DEPTNO
+  4                   FROM EMP
+  5                   WHERE SAL IN (SELECT MAX(SAL)
+  6                                 FROM EMP
+  7                                 WHERE SAL < (SELECT MAX(SAL)
+  8                                              FROM EMP
+  9                                              WHERE SAL < (SELECT MAX(SAL)
+ 10                                                           FROM EMP))))
+ 11  /
+
+LOC
+-------------
+DALLAS
+
+
+7.
+SQL> SELECT ENAME
+  2  FROM EMP
+  3  WHERE HIREDATE IN (SELECT MAX(HIREDATE)
+  4                     FROM EMP);
+
+ENAME
+----------
+ADAMS
+
+8.
+SQL> SELECT ENAME
+  2  FROM EMP
+  3  WHERE HIREDATE IN (SELECT MIN(HIREDATE)
+  4                      FROM EMP
+  5                      WHERE HIREDATE >  (SELECT MIN(HIREDATE) FROM EMP));
+
+ENAME
+----------
+ALLEN
+
+
+9.
+SELECT LOC
+FROM EMP
+WHERE DEPTNO IN (SELECT DEPTNO
+                 FROM EMP
+                 WHERE HIREDATE IN (SELECT MAX(HIREDATE)
+                                     FROM EMP
+                                     WHERE HIRDATE < (SELECT HIREDATE
+
+10.
+SQL> SELECT ENAME
+  2  FROM EMP
+  3  WHERE SAL IN (SELECT MIN(SAL)
+  4                FROM EMP
+  5                WHERE SAL > (SELECT MIN(SAL)
+  6                             FROM EMP
+  7                             WHERE SAL > (SELECT MIN(SAL)
+  8                                          FROM EMP
+  9                                          WHERE SAL > (SELECT MIN(SAL) 
+ 10                                                       FROM EMP
+ 11                                                       WHERE SAL > (SELECT MIN(SAL) FROM EMP)))));
+
+ENAME
+----------
+MILLER
+
+11.
+SQL> SELECT LOC
+  2  FROM DEPT
+  3  WHERE DEPTNO IN (SELECT DEPTNO
+  4                   FROM EMP
+  5                   WHERE SAL IN (SELECT MIN(SAL)
+  6                                 FROM EMP
+  7                                 WHERE SAL > (SELECT MIN(SAL) FROM EMP)));
+
+LOC
+-------------
+CHICAGO
+
+
+12.
+SQL> SELECT ENAME
+  2  FROM EMP
+  3  WHERE SAL IN (SELECT MIN(SAL)
+  4                FROM EMP
+  5               WHERE SAL > (SELECT MIN(SAL)
+  6                            FROM EMP 
+  7                            WHERE SAL > (SELECT MIN(SAL)
+  8                                          FROM EMP
+  9                                          WHERE SAL > (SELECT MIN(SAL) FROM EMP))));
+
+ENAME
+----------
+WARD
+MARTIN
+
+
+13.
+SQL> SELECT DNAME
+  2  FROM DEPT
+  3  WHERE DEPTNO IN (SELECT DEPTNO
+  4                   FROM EMP
+  5                   WHERE ENAME = 'SMITH');
+
+DNAME
+--------------
+RESEARCH
+
+14.
+SQL> SELECT DNAME, LOC
+  2  FROM DEPT
+  3  WHERE DEPTNO IN (SELECT DEPTNO 
+  4                   FROM EMP
+  5                   WHERE ENAME = 'KING');
+
+DNAME          LOC
+-------------- -------------
+ACCOUNTING     NEW YORK
+
+15.
+SQL> SELECT LOC
+  2  FROM DEPT
+  3  WHERE DEPTNO IN (SELECT DEPTNO
+  4                    FROM EMP
+  5                    WHERE EMPNO = 7902);
+
+LOC
+-------------
+DALLAS
+
+
+16.SQL> SELECT *
+  2  FROM EMP
+  3  WHERE JOB = 'PRESIDENT' AND SAL > (SELECT SAL
+  4                                     FROM EMP
+  5                                     WHERE ENAME = 'SCOTT') AND 
+  6                              HIREDATE > (SELECT HIREDATE
+  7                                          FROM EMP
+  8                                          WHERE ENAME = 'SMITH');
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
