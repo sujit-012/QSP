@@ -1,0 +1,93 @@
+class DriverEx
+{
+    public static void main(String [] args)
+    {
+        int a[] = {10, 7, 30, 9};
+		System.out.println(sum(a));
+		System.out.println(sumOfEven(a));
+		System.out.println(sumOfOdd(a));
+		System.out.println(proOfele(a));
+		System.out.println(sumOfBuzz(a));
+		System.out.println(proOfBuzz(a));
+    }
+	
+	public static int sum(int [] num)
+	{
+		int sum = 0;
+		for(int i = 0 ; i < num.length; i++)
+		{
+			sum = sum + num[i];
+		}
+		return sum;
+	}
+	
+	public static int sumOfEven(int num[])
+	{
+		int sum = 0;
+		for(int i = 0; i < num.length; i++)
+		{
+			if(num[i] % 2 == 0)
+			{
+				sum = sum + num[i];
+			}
+		}
+		return sum;
+	}
+	
+	public static int sumOfOdd(int num[])
+	{
+		int sum = 0;
+		for(int i = 0; i < num.length; i++)
+		{
+			if(num[i] % 2 == 1)
+			{
+				sum += num[i];
+			}
+		}
+		return sum;
+	}
+	
+	public static int proOfele(int num[])
+	{
+		int pro = 1;
+		for(int i = 0; i < num.length; i++)
+		{
+			pro = pro * num[i];
+		}
+		return pro;
+	}
+	
+	
+	public static int sumOfBuzz(int num[])
+	{
+		int sum = 0;
+		for(int i = 0; i < num.length; i++)
+		{
+			if(isBuzz(num[i]))
+			{
+				sum = sum + num[i];
+			}
+		}
+		return sum;
+	}
+	
+	
+	public static boolean isBuzz(int num)
+	{
+		return num % 7 == 0 || num % 10 == 7;
+	}
+	
+	public static int proOfBuzz(int [] num)
+	{
+		int pro = 1;
+		for(int i = 0; i < num.length; i++)
+		{
+			if(isBuzz(num[i]))
+			{
+				pro = pro * num[i];
+			}
+		}
+		
+		return pro;
+	}
+}

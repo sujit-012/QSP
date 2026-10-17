@@ -1,0 +1,357 @@
+1.
+SQL> SELECT ENAME, DNAME
+  2  FROM EMP E INNER JOIN DEPT D
+  3  ON E.DEPTNO = D.DEPTNO;
+
+ENAME      DNAME
+---------- --------------
+SMITH      RESEARCH
+ALLEN      SALES
+WARD       SALES
+JONES      RESEARCH
+MARTIN     SALES
+BLAKE      SALES
+CLARK      ACCOUNTING
+SCOTT      RESEARCH
+KING       ACCOUNTING
+TURNER     SALES
+ADAMS      RESEARCH
+JAMES      SALES
+FORD       RESEARCH
+MILLER     ACCOUNTING
+
+14 rows selected.
+
+
+2.
+SQL> SELECT ENAME, SAL, LOC
+  2  FROM EMP E INNER JOIN DEPT D
+  3  ON E.DEPTNO = D.DEPTNO;
+
+ENAME             SAL LOC
+---------- ---------- -------------
+SMITH             800 DALLAS
+ALLEN            1600 CHICAGO
+WARD             1250 CHICAGO
+JONES            2975 DALLAS
+MARTIN           1250 CHICAGO
+BLAKE            2850 CHICAGO
+CLARK            2450 NEW YORK
+SCOTT            3000 DALLAS
+KING             5000 NEW YORK
+TURNER           1500 CHICAGO
+ADAMS            1100 DALLAS
+JAMES             950 CHICAGO
+FORD             3000 DALLAS
+MILLER           1300 NEW YORK
+
+14 rows selected.
+
+
+3.
+SQL> SELECT ENAME, E.DEPTNO, DNAME
+  2  FROM EMP E INNER JOIN DEPT D
+  3  ON E.DEPTNO = D.DEPTNO;
+
+ENAME          DEPTNO DNAME
+---------- ---------- --------------
+SMITH              20 RESEARCH
+ALLEN              30 SALES
+WARD               30 SALES
+JONES              20 RESEARCH
+MARTIN             30 SALES
+BLAKE              30 SALES
+CLARK              10 ACCOUNTING
+SCOTT              20 RESEARCH
+KING               10 ACCOUNTING
+TURNER             30 SALES
+ADAMS              20 RESEARCH
+JAMES              30 SALES
+FORD               20 RESEARCH
+MILLER             10 ACCOUNTING
+
+14 rows selected.
+
+
+4.
+
+  1  SELECT ENAME, E.DEPTNO, DNAME
+  2  FROM EMP E INNER JOIN DEPT D
+  3  ON E.DEPTNO = D.DEPTNO
+  4* WHERE E.DEPTNO = 20
+SQL> /
+
+ENAME          DEPTNO DNAME
+---------- ---------- --------------
+SMITH              20 RESEARCH
+JONES              20 RESEARCH
+SCOTT              20 RESEARCH
+ADAMS              20 RESEARCH
+FORD               20 RESEARCH
+
+
+5.
+SQL> SELECT ENAME, DNAME
+  2  FROM EMP E INNER JOIN DEPT D
+  3  ON D.DEPTNO = E.DEPTNO
+  4  WHERE SAL < 2000;
+
+ENAME      DNAME
+---------- --------------
+SMITH      RESEARCH
+ALLEN      SALES
+WARD       SALES
+MARTIN     SALES
+TURNER     SALES
+ADAMS      RESEARCH
+JAMES      SALES
+MILLER     ACCOUNTING
+
+8 rows selected.
+
+
+6.
+SQL> SELECT ENAME, LOC
+  2  FROM EMP E INNER JOIN DEPT D
+  3  ON E.DEPTNO = D.DEPTNO
+  4  WHERE LOC = 'DALLAS';
+
+ENAME      LOC
+---------- -------------
+SMITH      DALLAS
+JONES      DALLAS
+SCOTT      DALLAS
+ADAMS      DALLAS
+FORD       DALLAS
+
+
+7.
+SQL> SELECT ENAME, SAL, DNAME
+  2  FROM EMP E INNER JOIN DEPT D
+  3  ON E.DEPTNO = D.DEPTNO 
+  4  WHERE ENAME LIKE 'A%' AND DNAME LIKE '%S';
+
+ENAME             SAL DNAME
+---------- ---------- --------------
+ALLEN            1600 SALES
+
+
+8.
+SQL> SELECT ENAME, SAL, DNAME
+  2  FROM EMP E INNER JOIN DEPT D
+  3  ON E.DEPTNO = D.DEPTNO
+  4  WHERE SAL > (SELECT SAL
+  5               FROM EMP
+  6               WHERE ENAME = 'SCOTT') AND
+  7        DNAME = 'ACCOUNTING';
+
+ENAME             SAL DNAME
+---------- ---------- --------------
+KING             5000 ACCOUNTING
+
+
+9.
+SQL> SELECT COUNT(*)
+  2  FROM EMP E INNER JOIN DEPT D
+  3  ON E.DEPTNO = D.DEPTNO
+  4  WHERE HIREDATE < (SELECT HIREDATE
+  5                    FROM EMP
+  6                    WHERE ENAME = 'ALLEN') AND DNAME = 'RESEARCH';
+
+  COUNT(*)
+----------
+         1
+
+
+10.
+SQL> SELECT MAX(SAL)
+  2  FROM EMP E INNER JOIN DEPT D
+  3  ON E.DEPTNO = D.DEPTNO 
+  4  WHERE JOB IN (SELECT JOB
+  5                FROM EMP
+  6                WHERE ENAME = 'BLAKE') AND LOC = 'DALLAS';
+
+  MAX(SAL)
+----------
+      2975
+
+
+11.
+SQL> SELECT ENAME, HIREDATE, DNAME
+  2  FROM EMP E INNER JOIN DEPT D
+  3  ON E.DEPTNO = D.DEPTNO
+  4  WHERE HIREDATE LIKE '%FEB%' AND DNAME LIKE '_A%';
+
+ENAME      HIREDATE  DNAME
+---------- --------- --------------
+ALLEN      20-FEB-81 SALES
+WARD       22-FEB-81 SALES
+
+
+12.
+SQL> SELECT ENAME
+  2  FROM EMP E INNER JOIN DEPT D
+  3  ON E.DEPTNO = D.DEPTNO
+  4  WHERE SAL > (SELECT SAL
+  5               FROM EMP
+  6               WHERE ENAME = 'MILLER') AND LOC = 'NEW YORK';
+
+ENAME
+----------
+CLARK
+KING
+
+
+13.
+SQL> SELECT ENAME, DNAME
+  2  FROM EMP E INNER JOIN DEPT D
+  3  ON E.DEPTNO = D.DEPTNO
+  4  WHERE ENAME LIKE '____' AND DNAME LIKE '%CC%';
+
+ENAME      DNAME
+---------- --------------
+KING       ACCOUNTING
+
+
+14.
+SQL> SELECT DNAME, ENAME, LOC
+  2  FROM EMP E INNER JOIN DEPT D
+  3  ON E.DEPTNO = D.DEPTNO
+  4  WHERE HIREDATE < '01-JAN-1981' AND LOC = 'DALLAS';
+
+DNAME          ENAME      LOC
+-------------- ---------- -------------
+RESEARCH       SMITH      DALLAS
+
+
+15.
+  1  SELECT ENAME, JOB, LOC
+  2  FROM EMP E INNER JOIN DEPT D
+  3  ON D.DEPTNO = E.DEPTNO
+  4  WHERE JOB IN (SELECT JOB
+  5                FROM EMP
+  6*               WHERE ENAME = 'JONES') AND LOC = 'CHICAGO'
+SQL> /
+
+ENAME      JOB       LOC
+---------- --------- -------------
+BLAKE      MANAGER   CHICAGO
+
+16.
+SELECT ENAME, LOC
+FROM EMP E INNER JOIN DEPT D
+ON E.DEPTNO = D.DEPTNO
+WHERE SAL IN (SELECT SAL
+             FROM EMP
+             WHERE ENAME = 'SCOTT')
+AND LOC = 'DALLAS'
+AND HIREDATE LIKE '%DEC%';
+
+ENAME      LOC
+---------- -------------
+FORD       DALLAS
+
+17.
+  1   SELECT ENAME, DNAME
+  2   FROM EMP E1 JOIN DEPT D1
+  3   ON E1.DEPTNO = D1.DEPTNO
+  4*  WHERE JOB LIKE '%MAN' AND ENAME LIKE '%LL%'
+SQL> /
+
+ENAME      DNAME
+---------- --------------
+ALLEN      SALES
+
+
+18.
+
+   1  SELECT ENAME, E.DEPTNO, DNAME
+  2  FROM EMP E INNER JOIN DEPT D
+  3  ON E.DEPTNO = D.DEPTNO
+  4  WHERE JOB IN (SELECT JOB
+  5               FROM EMP
+  6*              WHERE ENAME = 'SMITH') AND LOC = 'NEW YORK'
+SQL> /
+
+ENAME          DEPTNO DNAME
+---------- ---------- --------------
+MILLER             10 ACCOUNTING
+
+
+19.
+SQL> SELECT ENAME, DNAME
+  2  FROM EMP E INNER JOIN DEPT D
+  3  ON E.DEPTNO = D.DEPTNO
+  4  WHERE HIREDATE > '31-DEC-1980' AND DNAME = 'RESEARCH' AND JOB = 'ANALYST';
+
+ENAME      DNAME
+---------- --------------
+SCOTT      RESEARCH
+FORD       RESEARCH
+
+20.
+SQL> SELECT ENAME, SAL, LOC
+  2  FROM EMP E INNER JOIN DEPT D
+  3  ON E.DEPTNO = D.DEPTNO
+  4  WHERE TO_CHAR(SAL) LIKE '%50' AND LOC = 'CHICAGO' AND ENAME LIKE 'M%N';
+
+ENAME             SAL LOC
+---------- ---------- -------------
+MARTIN           1250 CHICAGO
+
+21.
+SQL> SELECT ENAME, DNAME
+  2  FROM EMP E INNER JOIN DEPT D
+  3  ON E.DEPTNO = D.DEPTNO
+  4  WHERE SAL < (SELECT SAL
+  5               FROM EMP
+  6               WHERE ENAME = 'JAMES') AND HIREDATE LIKE '%80' AND LOC = 'DALLAS';
+
+ENAME      DNAME
+---------- --------------
+SMITH      RESEARCH
+
+22.
+SQL> SELECT ENAME, E.DEPTNO, DNAME
+  2  FROM EMP E INNER JOIN DEPT D
+  3  ON E.DEPTNO = D.DEPTNO
+  4  WHERE JOB IN ('SALESMAN', 'MANAGER') AND E.DEPTNO IN (20, 30) AND SAL > (SELECT SAL             										FROM EMP             										WHERE ENAME = 'WARD') AND COMM IS NOT NULL AND DNAME IN ('SALES', 'RESEARCH');
+
+ENAME          DEPTNO DNAME
+---------- ---------- --------------
+ALLEN              30 SALES
+TURNER             30 SALES
+
+23.
+SQL> SELECT ENAME, LOC
+  2  FROM EMP E INNER JOIN DEPT D
+  3  ON E.DEPTNO = D.DEPTNO;
+
+ENAME      LOC
+---------- -------------
+SMITH      DALLAS
+ALLEN      CHICAGO
+WARD       CHICAGO
+JONES      DALLAS
+MARTIN     CHICAGO
+BLAKE      CHICAGO
+CLARK      NEW YORK
+SCOTT      DALLAS
+KING       NEW YORK
+TURNER     CHICAGO
+ADAMS      DALLAS
+JAMES      CHICAGO
+FORD       DALLAS
+MILLER     NEW YORK
+
+
+24.
+25.
+26.
+27.
+28.
+29.
+30.
+31.
+32.
+33.

@@ -1,0 +1,18 @@
+class PrintMidEle 
+{
+	public static void main(String[] args) 
+	{
+		int [] a = {10, 20, 30, 40, 50};
+		System.out.println(printMidEle(a));
+	}
+	
+	public static int printMidEle(int num[])
+	{
+		if(num.length % 2 == 0)
+		{
+			return -1;
+		}
+		
+		return num[num.length/2];
+	}
+}

@@ -1,0 +1,174 @@
+1.
+SQL> SELECT ENAME
+  2  FROM EMP
+  3  WHERE SUBSTR(ENAME, 1, 1) = 'A';
+
+ENAME
+----------
+ALLEN
+ADAMS
+
+2.
+SQL> SELECT ENAME, JOB
+  2  FROM EMP
+  3  WHERE SUBSTR(ENAME, -1) = 'E';
+
+ENAME      JOB
+---------- ---------
+BLAKE      MANAGER
+
+
+3.
+SQL> SELECT ENAME
+  2  FROM EMP
+  3  WHERE LENGTH(ENAME) = 4;
+
+ENAME
+----------
+WARD
+KING
+FORD
+
+
+4.
+SQL> SELECT *
+  2  FROM EMP
+  3  WHERE SUBSTR(JOB, -1) = 'K';
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+
+
+5.
+SQL> SELECT ENAME
+  2  FROM EMP
+  3  WHERE SUBSTR(ENAME, 2, 1) = 'C';
+
+ENAME
+----------
+SCOTT
+
+
+6.
+SQL> SELECT ENAME
+  2  FROM EMP
+  3  WHERE SUBSTR(ENAME, 4, 1) = 'M';
+
+ENAME
+----------
+ADAMS
+
+
+7.
+SQL> SELECT LOWER(ENAME)
+  2  FROM EMP
+  3  WHERE SUBSTR(ENAME, -2, 2) = 'ER';
+
+LOWER(ENAM
+----------
+turner
+miller
+
+
+8.
+
+  1  SELECT UPPER(ENAME)
+  2  FROM EMP
+  3* WHERE SUBSTR(JOB, 6, 3) = 'DEN'
+SQL> /
+
+UPPER(ENAM
+----------
+KING
+
+9.
+SQL> SELECT INITCAP(ENAME)
+  2  FROM EMP
+  3  WHERE SUBSTR(ENAME, -5, 1) = 'I';
+
+INITCAP(EN
+----------
+Miller
+
+10.
+SQL> SELECT ENAME, SUBSTR(ENAME, -3)
+  2  FROM EMP
+  3  WHERE SUBSTR(ENAME, -1) = 'N' OR SUBSTR(JOB, -1) = 'R';
+
+ENAME      SUB
+---------- ---
+ALLEN      LEN
+JONES      NES
+MARTIN     TIN
+BLAKE      AKE
+CLARK      ARK
+
+
+11.
+SQL> SELECT ENAME, HIREDATE
+  2  FROM EMP
+  3  WHERE SUBSTR(HIREDATE, 4, 1) = 'J';
+
+ENAME      HIREDATE
+---------- ---------
+CLARK      09-JUN-81
+MILLER     23-JAN-82
+
+
+12.
+SQL> SELECT LOWER(ENAME), LENGTH(ENAME), HIREDATE
+  2  FROM EMP
+  3  WHERE SUBSTR(HIREDATE, -1) = '2';
+
+LOWER(ENAM LENGTH(ENAME) HIREDATE
+---------- ------------- ---------
+miller                 6 23-JAN-82
+
+
+13.
+SQL> SELECT REVERSE(ENAME)
+  2  FROM EMP
+  3  WHERE SUBSTR(JOB, -4, 3) = 'LYS';
+
+REVERSE(EN
+----------
+TTOCS
+DROF
+
+
+14.
+
+  1  SELECT LOWER(ENAME), INITCAP(JOB)
+  2  FROM EMP
+  3* WHERE LENGTH(ENAME) = 6
+SQL> /
+
+LOWER(ENAM INITCAP(J
+---------- ---------
+martin     Salesman
+turner     Salesman
+miller     Clerk
+
+
+15.
+SQL> SELECT REVERSE(ENAME)
+  2  FROM EMP
+  3  WHERE SUBSTR(ENAME, 2,1) = 'U' OR SUBSTR(SAL, 3,1) = 0;
+
+REVERSE(EN
+----------
+HTIMS
+NELLA
+TTOCS
+GNIK
+RENRUT
+SMADA
+SEMAJ
+DROF
+RELLIM
+
+9 rows selected.

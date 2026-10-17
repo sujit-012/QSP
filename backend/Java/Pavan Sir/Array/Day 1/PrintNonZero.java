@@ -1,0 +1,19 @@
+class PrintNonZero 
+{
+	public static void main(String[] args) 
+	{
+		int [] a = {0, 10, 20, 0, 30, 40, 0, 50};
+		printNonZero(a);
+	}
+	
+	public static void printNonZero(int [] num)
+	{
+		for(int i = 0; i < num.length; i++)
+		{
+			if(num[i] != 0)
+			{
+				System.out.println(num[i]);
+			}
+		}
+	}
+}

@@ -1,0 +1,394 @@
+1.
+SQL> SELECT *
+  2  FROM (SELECT ROWNUM SLNO, EMP.*
+  3        FROM EMP)
+  4  WHERE SLNO <= (SELECT COUNT(*) FROM EMP)/2;
+
+      SLNO      EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+         1       7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+         2       7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+         3       7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+         4       7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+         5       7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+         6       7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+         7       7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+
+7 rows selected.
+
+2.
+
+  1  SELECT *
+  2  FROM (SELECT ROWNUM SLNO, EMP.*
+  3        FROM EMP)
+  4* WHERE SLNO > (SELECT COUNT(*) FROM EMP)/2
+SQL> /
+
+      SLNO      EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+         8       7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+         9       7839 KING       PRESIDENT            17-NOV-81       5000                    10
+        10       7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+        11       7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20
+        12       7900 JAMES      CLERK           7698 03-DEC-81        950                    30
+        13       7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+        14       7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+
+7 rows selected.
+
+
+3.
+
+  1  SELECT *
+  2  FROM (SELECT ROWNUM SLNO, EMP.*
+  3        FROM EMP)
+  4* WHERE MOD(SLNO, 2) = 0
+SQL> /
+
+      SLNO      EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+         2       7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+         4       7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+         6       7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+         8       7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+        10       7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+        12       7900 JAMES      CLERK           7698 03-DEC-81        950                    30
+        14       7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+
+7 rows selected.
+
+
+4.
+  1  SELECT *
+  2  FROM (SELECT ROWNUM SLNO, EMP.* FROM EMP)
+  3* WHERE MOD(SLNO, 2) = 1
+SQL> /
+
+      SLNO      EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+         1       7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+         3       7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+         5       7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+         7       7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+         9       7839 KING       PRESIDENT            17-NOV-81       5000                    10
+        11       7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20
+        13       7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+
+7 rows selected.
+
+SQL> 
+
+5.
+  1  SELECT *
+  2  FROM (SELECT ROWNUM SLNO, EMP.* FROM EMP)
+  3* WHERE MOD(SLNO, 2) = 1 AND SLNO <= (SELECT COUNT(*) FROM EMP)/2
+SQL> /
+
+      SLNO      EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+         1       7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+         3       7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+         5       7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+         7       7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+
+
+6.
+SQL> SELECT *
+  2  FROM (SELECT ROWNUM SLNO, EMP.* FROM EMP)
+  3  WHERE MOD(SLNO, 2) = 0 AND SLNO > (SELECT COUNT(*) FROM EMP)/2;
+
+      SLNO      EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+         8       7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+        10       7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+        12       7900 JAMES      CLERK           7698 03-DEC-81        950                    30
+        14       7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+
+
+7.
+Wrote file afiedt.buf
+
+  1  SELECT *
+  2  FROM (SELECT ROWNUM SLNO, EMP.*
+  3         FROM EMP)
+  4* WHERE SLNO = (SELECT COUNT(*) FROM EMP)
+SQL> /
+
+      SLNO      EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+        14       7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+
+8.
+
+  1  SELECT *
+  2  FROM (SELECT ROWNUM SLNO, EMP.*
+  3         FROM EMP)
+  4* WHERE SLNO = (SELECT COUNT(*) FROM EMP) - 2 + 1
+SQL> /
+
+      SLNO      EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+        13       7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+
+9.
+
+  1  SELECT *
+  2  FROM (SELECT ROWNUM SLNO, EMP.*
+  3         FROM EMP)
+  4* WHERE SLNO = (SELECT COUNT(*) FROM EMP) - 5 + 1
+SQL> /
+
+      SLNO      EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+        10       7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+
+
+10.
+
+  1  SELECT *
+  2  FROM (SELECT ROWNUM SLNO, EMP.*
+  3         FROM EMP)
+  4* WHERE SLNO = (SELECT COUNT(*) FROM EMP) - 7 + 1
+SQL> /
+
+      SLNO      EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+         8       7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+
+11.
+SQL> SELECT *
+  2  FROM (SELECT ROWNUM SLNO, EMP.*
+  3         FROM EMP)
+  4  WHERE SLNO = 3 OR SLNO = (SELECT COUNT(*) FROM EMP) - 5 + 1;
+
+      SLNO      EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+         3       7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+        10       7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+
+12.
+  1  SELECT *
+  2  FROM (SELECT ROWNUM SLNO, EMP.*
+  3         FROM EMP)
+  4* WHERE SLNO = 4 OR SLNO = (SELECT COUNT(*) FROM EMP) - 6 + 1
+SQL> /
+
+      SLNO      EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+         4       7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+         9       7839 KING       PRESIDENT            17-NOV-81       5000                    10
+
+
+13.
+
+  1  SELECT ENAME
+  2  FROM EMP
+  3  WHERE EMPNO IN ( SELECT MGR
+  4                     FROM EMP
+  5                     WHERE EMPNO IN (SELECT EMPNO
+  6                             	FROM (SELECT ROWNUM SLNO, EMP.*
+  7                                             FROM EMP)
+  8*            WHERE SLNO = (SELECT COUNT(*) FROM EMP) - 7 + 1))
+SQL> /
+
+ENAME
+----------
+JONES
+
+14.
+SQL> SELECT *
+  2  FROM (SELECT ROWNUM SLNO, SAL
+  3        FROM (SELECT DISTINCT SAL
+  4              FROM EMP
+  5              ORDER BY SAL  DESC))
+  6  WHERE MOD(SLNO, 2) = 0;
+
+      SLNO        SAL
+---------- ----------
+         2       3000
+         4       2850
+         6       1600
+         8       1300
+        10       1100
+        12        800
+
+6 rows selected.
+
+15.
+ 1  SELECT *
+ 2  FROM (SELECT ROWNUM SLNO, SAL
+ 3        FROM (SELECT DISTINCT SAL
+ 4              FROM EMP
+ 5              ORDER BY SAL))
+ 6* WHERE MOD(SLNO, 2) = 1
+QL> /
+
+     SLNO        SAL
+--------- ----------
+        1        800
+        3       1100
+        5       1300
+        7       1600
+        9       2850
+       11       3000
+
+
+16.
+
+  1  SELECT *
+  2  FROM (SELECT ROWNUM SLNO, SAL
+  3        FROM (SELECT DISTINCT SAL
+  4              FROM EMP
+  5              ORDER BY SAL DESC))
+  6* WHERE MOD(SLNO, 2) = 1 AND SLNO <= (SELECT COUNT(DISTINCT SAL) FROM EMP)/2
+SQL> /
+
+      SLNO        SAL
+---------- ----------
+         1       5000
+         3       2975
+         5       2450
+
+
+17.
+  1  SELECT *
+  2  FROM (SELECT ROWNUM SLNO, SAL
+  3        FROM (SELECT DISTINCT SAL
+  4              FROM EMP
+  5              ORDER BY SAL))
+  6* WHERE MOD(SLNO, 2) = 0 AND SLNO > (SELECT COUNT(DISTINCT SAL) FROM EMP)/2
+SQL> /
+
+      SLNO        SAL
+---------- ----------
+         8       2450
+        10       2975
+        12       5000
+
+18.
+SQL> SELECT LOC
+  2  FROM DEPT
+  3  WHERE DEPTNO IN (SELECT DEPTNO
+  4                    FROM EMP
+  5                    WHERE SAL IN (SELECT SAL
+  6                                   FROM (SELECT ROWNUM SLNO, SAL
+  7                                         FROM (SELECT DISTINCT SAL
+  8                                               FROM EMP
+  9                                               ORDER BY SAL DESC))
+ 10                                  WHERE SLNO = 8));
+
+LOC
+-------------
+NEW YORK
+
+19.
+SQL> SELECT DNAME
+  2  FROM DEPT
+  3  WHERE DEPTNO IN (SELECT DEPTNO
+  4                   FROM EMP
+  5                   WHERE EMPNO IN (SELECT MGR
+  6                                   FROM EMP
+  7                                   WHERE EMPNO IN (SELECT MGR
+  8                                                   FROM EMP
+  9                                                   WHERE EMPNO IN (SELECT EMPNO
+ 10                                                                   FROM EMP
+ 11                                                                   WHERE SAL IN (SELECT SAL
+ 12                                                                                 FROM (SELECT ROW
+NUM SLNO, SAL
+ 13  FROM (SELECT DISTINCT SAL
+ 14         FROM EMP
+ 15          ORDER BY SAL))
+ 16  WHERE SLNO = 6)))));
+
+DNAME
+--------------
+ACCOUNTING
+
+
+20.
+21.
+  1   SELECT SAL, SLNO
+  2   FROM (SELECT ROWNUM SLNO, SAL
+  3         FROM (SELECT DISTINCT SAL
+  4               FROM EMP
+  5               ORDER BY SAL DESC))
+  6*  WHERE SLNO = 3 OR SLNO = (SELECT COUNT(DISTINCT SAL) FROM EMP ) - 4 + 1
+  7  /
+
+       SAL       SLNO
+---------- ----------
+      2975          3
+      1250          9
+
+
+22.
+SQL> SELECT SAL
+  2  FROM (SELECT ROWNUM SLNO, SAL
+  3        FROM (SELECT DISTINCT SAL 
+  4               FROM EMP
+  5               ORDER BY SAL))
+  6  WHERE SLNO = 5 OR SLNO = (SELECT COUNT(DISTINCT SAL) FROM EMP) - 3 + 1;
+
+       SAL
+----------
+      1300
+      2975
+
+23.
+SQL> SELECT AVG(SAL)
+  2  FROM EMP
+  3  WHERE JOB IN (SELECT JOB
+  4                FROM EMP
+  5                WHERE SAL IN (SELECT SAL
+  6                              FROM (SELECT ROWNUM SLNO, SAL
+  7                                    FROM (SELECT DISTINCT SAL
+  8                                           FROM EMP
+  9                                           ORDER BY SAL))
+ 10                              WHERE SLNO = (SELECT COUNT(DISTINCT SAL) FROM EMP) - 4 + 1));
+
+  AVG(SAL)
+----------
+2758.33333
+
+SQL> 
+
+
+24.
+SQL> SELECT SUM(SAL)
+  2  FROM EMP
+  3  WHERE DEPTNO IN (SELECT DEPTNO
+  4                    FROM EMP
+  5                    WHERE SAL IN (SELECT SAL
+  6                                  FROM (SELECT ROWNUM SLNO, SAL
+  7                                         FROM (SELECT DISTINCT SAL
+  8                                               FROM EMP
+  9                                               ORDER BY SAL DESC))
+ 10                                 WHERE SLNO = (SELECT COUNT(DISTINCT SAL) FROM EMP) - 10 + 1))
+ 11  /
+
+  SUM(SAL)
+----------
+     10875
+
+
+25.
+  1  SELECT E1.ENAME E_NAME, D1.LOC E_LOC, E2.ENAME M_NAME, D2.LOC M_LOC, E3.ENAME MM_NAME, D3.LOC M
+  2  FROM EMP E1 JOIN EMP E2
+  3  ON E1.MGR = E2.EMPNO JOIN EMP E3
+  4  ON E2.MGR = E3.EMPNO JOIN DEPT D1
+  5  ON E1.DEPTNO = D1.DEPTNO JOIN DEPT D2
+  6  ON E2.DEPTNO = D2.DEPTNO JOIN DEPT D3
+  7  ON E3.DEPTNO = D3.DEPTNO
+  8  WHERE E2.SAL IN (SELECT SAL
+  9             FROM (SELECT ROWNUM SLNO, SAL
+ 10                     FROM (SELECT DISTINCT SAL
+ 11                             FROM EMP
+ 12                             ORDER BY SAL DESC))
+ 13*            WHERE SLNO = 3)
+SQL> /
+
+E_NAME     E_LOC         M_NAME     M_LOC         MM_NAME    MM_LOC
+---------- ------------- ---------- ------------- ---------- -------------
+FORD       DALLAS        JONES      DALLAS        KING       NEW YORK
+SCOTT      DALLAS        JONES      DALLAS        KING       NEW YORK
+

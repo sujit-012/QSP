@@ -1,0 +1,297 @@
+1.
+  1  SELECT *
+  2  FROM EMP
+  3* WHERE SUBSTR(ENAME, 1, 4) = ENAME
+SQL> /
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+
+SQL> 
+
+2.
+  1  SELECT *
+  2  FROM EMP
+  3* WHERE LENGTH(JOB) = 7
+SQL> /
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+
+
+3.
+SQL> SELECT LENGTH('LANGUAGE') - LENGTH(REPLACE('LANGUAGE', 'L'))
+  2  FROM DUAL;
+
+LENGTH('LANGUAGE')-LENGTH(REPLACE('LANGUAGE','L'))
+--------------------------------------------------
+                                                 1
+
+4.
+SQL> SELECT ENAME, JOB
+  2  FROM EMP
+  3  WHERE SUBSTR(JOB, -3) = 'MAN';
+
+ENAME      JOB
+---------- ---------
+ALLEN      SALESMAN
+WARD       SALESMAN
+MARTIN     SALESMAN
+TURNER     SALESMAN
+
+5.
+SQL> SELECT COUNT(*)
+  2  FROM EMP
+  3  WHERE SUBSTR(JOB, 1, 3) = 'PRE';
+
+  COUNT(*)
+----------
+         1
+
+6.
+SQL> SELECT COUNT(*)
+  2  FROM EMP
+  3  WHERE SUBSTR(JOB, 1, 2) = 'CL';
+
+  COUNT(*)
+----------
+         4
+
+
+7.
+
+  1  SELECT *
+  2  FROM EMP
+  3  WHERE INSTR(ENAME, 'L', 1) > 0 AND
+  4*        INSTR(ENAME, 'L', 1, 2) = 0
+SQL> /
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+
+
+8.
+  1  SELECT DNAME
+  2  FROM DEPT
+  3* WHERE INSTR(DNAME, 'O', 1) > 0
+SQL> /
+
+DNAME
+--------------
+ACCOUNTING
+OPERATIONS
+
+
+9.
+
+  1  SELECT LENGTH('HELLO') - LENGTH(REPLACE('HELLO', 'L'))
+  2* FROM DUAL
+SQL> /
+
+LENGTH('HELLO')-LENGTH(REPLACE('HELLO','L'))
+--------------------------------------------
+                                           2
+
+
+10.
+SQL> SELECT *
+  2  FROM EMP
+  3  WHERE INSTR(JOB,'MAN', 1) > 0;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+
+7 rows selected.
+
+11.
+SQL> SELECT *
+  2  FROM EMP
+  3  WHERE SUBSTR(JOB, 1, 3) = 'MAN';
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+
+
+12.
+SQL> SELECT *
+  2  FROM EMP
+  3  WHERE SUBSTR(JOB, -3) = 'MAN';
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+
+SQL> 
+
+13.
+SQL> SELECT CONCAT(LOWER(SUBSTR(ENAME, 1, 3)), UPPER(SUBSTR(ENAME, 4)))
+  2  FROM EMP;
+
+CONCAT(LOW
+----------
+smiTH
+allEN
+warD
+jonES
+marTIN
+blaKE
+claRK
+scoTT
+kinG
+turNER
+adaMS
+jamES
+forD
+milLER
+
+14 rows selected.
+
+SQL> 
+
+14.
+SQL> SELECT ENAME || ' IS A ' || JOB || ' AND GETS A WAGES OF ' || SAL
+  2  FROM EMP
+  3  WHERE JOB IN ('CLERK') AND SAL > 1000;
+
+ENAME||'ISA'||JOB||'ANDGETSAWAGESOF'||SAL
+---------------------------------------------------------------------------------
+ADAMS IS A CLERK AND GETS A WAGES OF 1100
+MILLER IS A CLERK AND GETS A WAGES OF 1300
+
+
+15.
+
+  1  SELECT ENAME, HIREDATE, TO_CHAR(HIREDATE, 'DAY')
+  2  FROM EMP
+  3* WHERE TO_CHAR(HIREDATE, 'DY') IN ('WED')
+SQL> /
+
+ENAME      HIREDATE  TO_CHAR(H
+---------- --------- ---------
+SMITH      17-DEC-80 WEDNESDAY
+
+16.
+SQL> SELECT *
+  2  FROM EMP
+  3  WHERE MOD(TO_CHAR(HIREDATE, 'YYYY'), 4) = 0 AND MOD(TO_CHAR(HIREDATE, 'YYYY'), 100) != 0 OR MOD
+(TO_CHAR(HIREDATE, 'YYYY'), 400) = 0
+  4  /
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+
+SQL> 
+
+17.
+   1  SELECT *
+  2  FROM EMP
+  3* WHERE MOD(TO_CHAR(HIREDATE, 'YYYY'), 4) != 0 OR MOD(TO_CHAR(HIREDATE, 'YYYY'), 100) = 0 AND MOD
+SQL> /
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+
+13 rows selected.
+
+SQL> 
+SQL> /
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+
+13 rows selected.
+
+SQL> 
+
+18.
+SQL> SELECT ENAME
+  2  FROM EMP
+  3  WHERE TO_CHAR(HIREDATE, 'DY') = 'SUN' AND TO_CHAR(HIREDATE, 'MON') = 'MAY';
+
+no rows selected
+
+SQL> ED
+19.
+SQL> SELECT ENAME
+  2  FROM EMP
+  3  WHERE SUBSTR(ENAME, 1, 1) IN ('A', 'E', 'I', 'O', 'U');
+
+ENAME
+----------
+ALLEN
+ADAMS
+
+
+20.
+SQL> SELECT ENAME
+  2  FROM EMP
+  3  WHERE SUBSTR(ENAME, 1, 1) NOT IN ('A', 'E', 'I', 'O', 'U');
+
+ENAME
+----------
+SMITH
+WARD
+JONES
+MARTIN
+BLAKE
+CLARK
+SCOTT
+KING
+TURNER
+JAMES
+FORD
+MILLER
+
+12 rows selected.
+
+SQL> 

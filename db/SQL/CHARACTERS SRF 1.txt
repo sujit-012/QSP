@@ -1,0 +1,192 @@
+1.
+
+  1  SELECT ENAME
+  2  FROM EMP
+  3* WHERE INSTR(ENAME, 'S', 1) > 0
+SQL> /
+
+ENAME
+----------
+SMITH
+JONES
+SCOTT
+ADAMS
+JAMES
+
+
+2.
+
+  1  SELECT REVERSE(ENAME)
+  2  FROM EMP
+  3* WHERE INSTR(ENAME, 'M', 1) > 0
+SQL> /
+
+REVERSE(EN
+----------
+HTIMS
+NITRAM
+SMADA
+SEMAJ
+RELLIM
+
+
+3.
+SQL> SELECT ENAME, JOB
+  2  FROM EMP
+  3  WHERE INSTR(ENAME, 'A', 1, 2) > 0;
+
+ENAME      JOB
+---------- ---------
+ADAMS      CLERK
+
+
+4.
+  1  SELECT *
+  2  FROM EMP
+  3* WHERE INSTR(ENAME, 'T', 1) > 0 AND INSTR(ENAME, 'T', 1, 2) = 0
+SQL> /
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+
+
+5.
+6.
+
+  1  SELECT LOWER(ENAME)
+  2  FROM EMP
+  3* WHERE INSTR(ENAME, 'A', 1) = 0 AND INSTR(ENAME, 'E', 1) =  0
+SQL> /
+
+LOWER(ENAM
+----------
+smith
+scott
+king
+ford
+
+
+7.
+  1  SELECT ENAME, HIREDATE
+  2  FROM EMP
+  3* WHERE INSTR(HIREDATE, 'PR', 1) > 0
+SQL> /
+
+ENAME      HIREDATE
+---------- ---------
+JONES      02-APR-81
+SCOTT      19-APR-87
+
+SQL> 
+
+8.
+  1  SELECT SUBSTR(ENAME, 1, 3), JOB
+  2  FROM EMP
+  3* WHERE INSTR(JOB, 'MAN', 1) > 0
+SQL> /
+
+SUB JOB
+--- ---------
+ALL SALESMAN
+WAR SALESMAN
+JON MANAGER
+MAR SALESMAN
+BLA MANAGER
+CLA MANAGER
+TUR SALESMAN
+
+
+9.
+
+  1  SELECT REPLACE(ENAME, 'E','F')
+  2  FROM EMP
+  3* WHERE INSTR(ENAME, 'E', 1) > 0
+SQL> /
+
+REPLACE(EN
+----------
+ALLFN
+JONFS
+BLAKF
+TURNFR
+JAMFS
+MILLFR
+
+6 rows selected.
+
+
+10.
+
+  1  SELECT ENAME, LENGTH(ENAME) - LENGTH(REPLACE(ENAME, 'O'))
+  2  FROM EMP
+  3* WHERE INSTR(ENAME, 'E', 1) = 0 AND INSTR(ENAME, 'A', 1) = 0
+SQL> /
+
+ENAME      LENGTH(ENAME)-LENGTH(REPLACE(ENAME,'O'))
+---------- ----------------------------------------
+SMITH                                             0
+SCOTT                                             1
+KING                                              0
+FORD                                              1
+
+11.
+
+  1  SELECT TRIM(LEADING SUBSTR(ENAME, 1, 1) FROM ENAME)
+  2  FROM EMP
+  3* WHERE SUBSTR(ENAME, 1, 1) = 'J'
+SQL> /
+
+TRIM(LEADI
+----------
+ONES
+AMES
+
+12.
+
+  1  SELECT TRIM(TRAILING SUBSTR(ENAME, -1) FROM ENAME)
+  2  FROM EMP
+  3* WHERE SUBSTR(ENAME, -1) = 'S'
+SQL> /
+
+TRIM(TRAIL
+----------
+JONE
+ADAM
+JAME
+
+13.
+
+  SQL> SELECT SUBSTR(ENAME, 2, 4)
+  2  FROM EMP
+  3  WHERE LENGTH(ENAME) = 6 AND SUBSTR(ENAME, 1, 1) = 'M';
+
+SUBS
+----
+ARTI
+ILLE
+
+14.
+  1  SELECT LPAD(ENAME, LENGTH(ENAME) + 3, '*')
+  2  FROM EMP
+  3* WHERE INSTR(ENAME, 'MI', 1) > 0
+SQL> /
+
+LPAD(ENAME,LENGTH(ENAME)+3,'*')
+-------------------------------------------------------------
+***SMITH
+***MILLER
+
+15.
+  1  SELECT RPAD(ENAME, LENGTH(ENAME) + 4, '#')
+  2  FROM EMP
+  3* WHERE INSTR(JOB, 'NAG', 1) > 0
+SQL> /
+
+RPAD(ENAME,LENGTH(ENAME)+4,'#')
+-------------------------------------------------------------------
+JONES####
+BLAKE####
+CLARK####

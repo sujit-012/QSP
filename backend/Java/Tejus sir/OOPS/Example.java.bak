@@ -1,0 +1,15 @@
+class Example 
+{
+	Exp()
+	{
+		System.out.println("from exp");
+	}
+}
+
+class DriverEx
+{
+	public static void main(String [] args)
+	{
+		Example e1 = new Example();
+	}
+}

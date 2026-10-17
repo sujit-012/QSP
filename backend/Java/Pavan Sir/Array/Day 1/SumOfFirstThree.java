@@ -1,0 +1,18 @@
+class SumOfFirstThree 
+{
+	public static void main(String[] args) 
+	{
+		int [] a = {10, 20, 30, 40, 50};
+		System.out.println(sumOfFirstThree(a));
+	}
+	
+	public static int sumOfFirstThree(int [] num)
+	{
+		int sum = 0;
+		for(int i = 0; i <= 2; i++)
+		{
+			sum += num[i];
+		}
+		return sum;
+	}
+}

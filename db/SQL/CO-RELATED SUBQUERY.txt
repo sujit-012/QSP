@@ -1,0 +1,289 @@
+1.
+SQL> SELECT DNAME
+  2  FROM DEPT D
+  3  WHERE EXISTS (SELECT DEPTNO
+  4                FROM EMP E
+  5                WHERE D.DEPTNO = E.DEPTNO);
+
+DNAME
+--------------
+ACCOUNTING
+RESEARCH
+SALES
+
+
+2.
+SQL> SELECT LOC
+  2  FROM DEPT D
+  3  WHERE EXISTS (SELECT DEPTNO
+  4                FROM EMP E
+  5                WHERE E.DEPTNO = D.DEPTNO);
+
+LOC
+-------------
+NEW YORK
+DALLAS
+CHICAGO
+
+
+3.
+  1  SELECT DNAME
+  2  FROM DEPT D
+  3  WHERE NOT EXISTS (SELECT DEPTNO
+  4                FROM EMP E
+  5*               WHERE E.DEPTNO = D.DEPTNO)
+SQL> /
+
+DNAME
+--------------
+OPERATIONS
+
+4.
+
+  1  SELECT DISTINCT JOB
+  2  FROM EMP E
+  3  WHERE EXISTS (SELECT DEPTNO
+  4               FROM DEPT D
+  5*              WHERE E.DEPTNO = D.DEPTNO)
+SQL> /
+
+JOB
+---------
+CLERK
+SALESMAN
+PRESIDENT
+MANAGER
+ANALYST
+
+
+5.
+SQL> SELECT COUNT(*)
+  2  FROM EMP E
+  3  WHERE EXISTS (SELECT LOC
+  4                FROM DEPT D
+  5                WHERE E.DEPTNO = D.DEPTNO);
+
+  COUNT(*)
+----------
+        14
+
+
+6.
+SQL> SELECT SAL
+  2  FROM EMP E1
+  3  WHERE (SELECT COUNT(DISTINCT SAL)
+  4          FROM EMP E2
+  5          WHERE E1.SAL < E2.SAL) = 3;
+
+       SAL
+----------
+      2850
+
+
+7.
+SQL> SELECT SAL
+  2  FROM EMP E1
+  3  WHERE (SELECT COUNT(DISTINCT SAL)
+  4         FROM EMP E2
+  5         WHERE E1.SAL > E2.SAL) = 7;
+
+       SAL
+----------
+      2450
+
+
+8.
+  1  SELECT SAL
+  2  FROM EMP E1
+  3  WHERE (SELECT COUNT(DISTINCT SAL)
+  4         FROM EMP E2
+  5*        WHERE E1.SAL < E2.SAL) IN (0, 2, 4)
+SQL> /
+
+       SAL
+----------
+      2975
+      2450
+      5000
+
+9.
+SQL> SELECT SAL
+  2  FROM EMP E1
+  3  WHERE (SELECT COUNT(DISTINCT SAL)
+  4         FROM EMP E2
+  5         WHERE E1.SAL > E2.SAL) IN (1, 3, 5);
+
+       SAL
+----------
+      1250
+      1250
+      1500
+       950
+
+
+10.
+SQL> SELECT ENAME
+  2  FROM EMP E1
+  3  WHERE (SELECT COUNT(DISTINCT SAL)
+  4         FROM EMP E2
+  5         WHERE E1.SAL < E2.SAL) = 5;
+
+ENAME
+----------
+ALLEN
+
+
+11.
+SQL> SELECT DNAME
+  2  FROM DEPT D1
+  3  WHERE EXISTS (SELECT DEPTNO
+  4                FROM EMP E1
+  5                WHERE E1.DEPTNO = D1.DEPTNO AND (SELECT COUNT(DISTINCT SAL)
+  6                                                 FROM EMP E2
+  7                                                 WHERE E1.SAL < E2.SAL) = 6);
+
+DNAME
+--------------
+SALES
+
+
+12.
+SQL> SELECT LOC
+  2  FROM DEPT D1
+  3  WHERE EXISTS (SELECT DEPTNO
+  4                FROM EMP E1
+  5                WHERE E1.DEPTNO = D1.DEPTNO AND (SELECT COUNT(DISTINCT SAL)
+  6                                                 FROM EMP E2
+  7                                                 WHERE E1.SAL > E2.SAL) = 8);
+
+LOC
+-------------
+CHICAGO
+
+
+13.
+  1  SELECT ENAME
+  2  FROM EMP E1
+  3  WHERE EXISTS (SELECT MGR
+  4                FROM EMP E2
+  5                WHERE E2.MGR = E1.EMPNO AND (SELECT COUNT(DISTINCT SAL)
+  6                                             FROM EMP E3
+  7*                                            WHERE E2.SAL > E3.SAL) = 1)
+SQL> /
+
+ENAME
+----------
+BLAKE
+
+
+14.
+SQL> SELECT COUNT(*)
+  2  FROM EMP E1
+  3  WHERE EXISTS (SELECT EMPNO
+  4                FROM EMP E2
+  5                WHERE E1.MGR = E2.EMPNO AND (SELECT COUNT(DISTINCT SAL)
+  6                                              FROM EMP E3
+  7                                              WHERE E2.SAL < E3.SAL) = 7);
+
+  COUNT(*)
+----------
+         0
+
+
+15.
+SQL> SELECT DNAME
+  2  FROM DEPT D1
+  3  WHERE EXISTS (SELECT EMPNO
+  4                FROM EMP E1
+  5                WHERE E1.DEPTNO = D1.DEPTNO
+  6                AND E1.EMPNO IN (SELECT MGR
+  7                                 FROM EMP
+  8                                 WHERE EMPNO IN (SELECT EMPNO
+  9                                                 FROM EMP E2
+ 10                                                 WHERE (SELECT COUNT(DISTINCT SAL)
+ 11                                                        FROM EMP E3
+ 12                                                        WHERE E2.SAL < E3.SAL) = 11)));
+
+DNAME
+--------------
+RESEARCH
+
+SQL> /EMP
+16.
+SQL> SELECT LOC
+  2  FROM DEPT D1
+  3  WHERE EXISTS (SELECT DEPTNO
+  4                FROM EMP E1
+  5                WHERE D1.DEPTNO = E1.DEPTNO AND EXISTS (SELECT MGR
+  6                                                         FROM EMP E2
+  7                                                         WHERE E1.EMPNO = E2.MGR AND 
+  8                                  (SELECT COUNT(DISTINCT SAL)
+  9                                    FROM EMP E3
+ 10                                    WHERE E2.SAL > E3.SAL) = 7));
+
+LOC
+-------------
+NEW YORK
+
+SQL> 
+
+17.
+SQL> SELECT ENAME
+  2  FROM EMP E1
+  3  WHERE EXISTS (SELECT EMPNO
+  4                FROM EMP E2
+  5                WHERE E1.EMPNO = E2.MGR
+  6                AND EXISTS (SELECT EMPNO
+  7                            FROM EMP E3
+  8                            WHERE E2.EMPNO = E3.MGR
+  9                            AND (SELECT COUNT(DISTINCT SAL)
+ 10                                 FROM EMP E4
+ 11                                 WHERE E3.SAL < E4.SAL) = 11));
+
+ENAME
+----------
+JONES
+
+
+18.
+  1  SELECT DNAME
+  2  FROM DEPT D1
+  3  WHERE EXISTS (SELECT DEPTNO
+  4                FROM EMP E1
+  5                WHERE E1.DEPTNO = D1.DEPTNO AND EXISTS (SELECT MGR
+  6                                              FROM EMP E2
+  7                                              WHERE E1.MGR = E2.EMPNO AND
+  8  (SELECT COUNT(DISTINCT SAL)
+  9  FROM EMP E3
+ 10* WHERE E2.SAL > E3.SAL) = 9))
+SQL> /
+
+DNAME
+--------------
+RESEARCH
+
+19.
+SQL> SELECT COUNT(*)
+  2  FROM EMP
+  3  WHERE DEPTNO IN (SELECT DEPTNO
+  			FROM EMP E1
+  			WHERE (SELECT COUNT(DISTINCT SAL)
+  			          FROM EMP E2
+  			          WHERE E1.SAL > E2.SAL) = 10);
+
+  COUNT(*)
+----------
+         5
+
+20.
+SQL> SELECT SUM(SAL)
+  2  FROM EMP
+  3  WHERE JOB IN (SELECT JOB
+  4                FROM EMP E1
+  5                WHERE (SELECT COUNT(DISTINCT SAL)
+  6                       FROM EMP E2
+  7                       WHERE E1.SAL > E2.SAL) = 0);
+
+  SUM(SAL)
+----------
+      4150
