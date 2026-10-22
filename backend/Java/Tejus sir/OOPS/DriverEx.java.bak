@@ -80,7 +80,7 @@ class DriverEx
 	public static int proOfBuzz(int [] num)
 	{
 		int pro = 1;
-		for(int i = 0; i <= num.length; i++)
+		for(int i = 0; i < num.length; i++)
 		{
 			if(isBuzz(num[i]))
 			{

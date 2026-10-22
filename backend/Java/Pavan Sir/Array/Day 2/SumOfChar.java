@@ -1,0 +1,18 @@
+class SumOfChar 
+{
+	public static void main(String[] args) 
+	{
+		char[] ch = {'J', 'a', 'v', 'a'};
+		System.out.println(sumOfChar(ch));
+	}
+	
+	public static int sumOfChar(char [] c)
+	{
+		int sum = 0;
+		for(int i = 0; i < c.length; i++)
+		{
+			sum += c[i];
+		}
+		return sum;
+	}
+}

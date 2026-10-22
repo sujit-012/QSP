@@ -1,0 +1,59 @@
+class StoreAutomorphicNum 
+{
+	public static void main(String[] args) 
+	{
+		int [] a = {3, 25, 91, 376, 76};
+		int [] n = storeAutomorphicNum(a);
+	}
+	
+	public static int[] storeAutomorphicNum(int [] n)
+	{
+		int size = countOfAutomorphicNum(n);
+		int [] automorphic = new int[size];
+		int index = 0;
+		
+		for(int i = 0; i < n.length; i++)
+		{
+			if(isAutomorphicNum(n[i]))
+			{
+				automorphic[index] = n[i];
+				index++;
+			}
+		}
+		
+		return automorphic;
+	}
+	
+	public static int countOfAutomorphicNum(int [] n)
+	{
+		int count = 0;
+		for(int i = 0; i < n.length; i++)
+		{
+			if(isAutomorphicNum(n[i]))
+			{
+				System.out.println(n[i]);
+				count++;
+			}
+		}
+		return count;
+	}
+	
+	public static boolean isAutomorphicNum(int num)
+	{
+		int div = div(num);
+		int sq = num * num;
+		
+		return sq % div == num;
+	}
+	
+	public static int div(int num)
+	{
+		int ans = 1;
+		while(num > 0)
+		{
+			ans *= 10;
+			num /= 10;
+		}
+		return ans;
+	}
+}

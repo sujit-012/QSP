@@ -11,7 +11,7 @@ class DriverEx
 		System.out.println(proOfBuzz(a));
     }
 	
-	public static int sum(int [] num)
+	public static int sumofEven(int []	num)
 	{
 		int sum = 0;
 		for(int i = 0 ; i < num.length; i++)

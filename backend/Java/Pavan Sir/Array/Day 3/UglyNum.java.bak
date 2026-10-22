@@ -1,0 +1,43 @@
+class UglyNum 
+{
+	public static void main(String[] args) 
+	{
+		int []  n = {4, 6, 30, 67, 23, 15, 17};
+		System.out.println(countOfUglyNum(n));
+	}
+	
+	public static int countOfUglyNum(int [] n)
+	{
+		int count = 0;
+		for(int i = 0; i < n.length; i++)
+		{
+			if(isUglyNum(n[i]))
+			{
+				System.out.println(n[i]);
+				count++;
+			}
+		}
+		
+		return count;
+	}
+	
+	public static boolean isUglyNum(int num)
+	{
+		while(num % 2 == 0)
+		{
+			num /= 2;
+		}
+		
+		while(num % 3 == 0)
+		{
+			num /= 3;
+		}
+		
+		while(num % 5 == 0)
+		{
+			num /= 5;
+		}
+		
+		return num == 0;
+	}
+}

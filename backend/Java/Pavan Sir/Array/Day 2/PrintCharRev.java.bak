@@ -1,0 +1,16 @@
+class PrintCharRev 
+{
+	public static void main(String[] args) 
+	{
+		char[] ch = {'A', '7', '@', 'b', '#', '9', '$', '3', 'M'};
+		printCharRev(ch);
+	}
+	
+	public static void printCharRev(char [] c)
+	{
+		for(int i = c.length - 1; i >= 0; i--)
+		{
+			System.out.println(c[i])
+		}
+	}
+}

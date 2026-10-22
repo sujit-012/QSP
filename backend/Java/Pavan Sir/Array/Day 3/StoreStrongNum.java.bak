@@ -1,0 +1,69 @@
+class StoreStrongNum 
+{
+	public static void main(String[] args) 
+	{
+		int [] a = {145, 86, 2, 897, 40585, 78};
+		int [] n = storeStrong(a);
+		
+		for(int i = 0; i < n.length; i++)
+		{
+			System.out.println(n[i]);
+		}
+	}
+	
+	public static int[] storeStrong(int [] n)
+	{
+		int size = countOfStrongNum(n);
+		int [] strong = new int[size];
+		int index = 0;
+		
+		for(int i = 0; i < n.length; i++)
+		{
+			if(isStrong(n[i]))
+			{
+				strong[index] = n[i];
+				index++;
+			}
+		}
+		
+		return strong;
+	}
+	
+	public static int countOfStrongNum(int [] n)
+	{
+		int count = 0;
+		for(int i = 0; i < n.length; i++)
+		{
+			if(isStrong(n[i]))
+			{
+				System.out.println(n[i]);
+				count++;
+			}
+		}
+		return count;
+	}
+	
+	public static boolean isStrong(int num)
+	{
+		int sum = 0;
+		int temp = num;
+		
+		while(num > 0)
+		{
+			sum += fact(num%10);
+			num /= 10;
+		}
+		
+		return sum == temp;
+	}
+	
+	public static int fact(int num)
+	{
+		int ans = 1;
+		for(int i = 1; i <= num; i++)
+		{
+			ans *= i;
+		}
+		return ans;
+	}
+}
