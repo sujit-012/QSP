@@ -1,0 +1,34 @@
+class BinarySearch 
+{
+	public static void main(String[] args) 
+	{
+		int [] a = {10, 12, 20, 40, 50, 60};
+		System.out.println(binSearch(a, 12));
+	}
+	
+	public static int binSearch(int [] n, int search)
+	{
+		int i = 0;
+		int j = n.length - 1;
+		
+		while(i <= j)
+		{
+			int mid = (i + j)/2;
+			
+			if(n[mid] == search)
+			{
+				return mid;
+			}
+			else if (search > n[mid])
+			{
+				i = mid + 1;
+			}
+			else
+			{
+				j = mid - 1;
+			}
+		}
+		
+		return -1;
+	}
+}
