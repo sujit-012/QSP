@@ -108,7 +108,7 @@
 // let userName = prompt("Enter username");
 // let password = prompt("Enter password");
 
-// if (userName && password) {
+// if (userName && password) {      //   //truthy and falsy values are used here
 //   console.log("Login Successfull");
 // } else {
 //   alert("Enter a both the field");
@@ -128,10 +128,83 @@
 //   console.log("odd");
 // }
 
-let x = Number(prompt("Enter a number1 :"));
-let y = Number(prompt("Enter a number2 :"));
-console.log(x + y);
-console.log(x - y);
-console.log(x * y);
-console.log(x / y);
-console.log(x % y);
+// let x = Number(prompt("Enter a number1 :"));
+// let y = Number(prompt("Enter a number2 :"));
+// console.log(x + y);
+// console.log(x - y);
+// console.log(x * y);
+// console.log(x / y);
+// console.log(x % y);
+
+// let a = 10;
+// let b = 20;
+
+// console.log("The sum of " + a + " and " + b + " is " + (a + b));
+// console.log(`The sum of ${a} and ${b} is ${a + b}`);
+
+// let c = "Hello \njavaScript";
+// console.log(c);
+
+// let d = `
+// Hello
+// JavaScript`; //Backtick is used to create the template literals
+
+// console.log(d);
+
+// console.log(10 - "10"); //0 built - in it 10 - Number("10") => 10 - 10 = 0 autmoatically this will happen it is known as type coercion
+// console.log(10 * "10"); //1000 built - in it 10 * Number("10") => 10 * 10 = 100 autmoatically this will happen it is known as type coercion
+// console.log("10" - "10"); //0 => number(10) - number(10) => 10 - 10;
+// console.log("10" - "js"); //NaN => js in not a number => Number(10) - NUmber("js") => js is not a number
+
+//truthy and falsy value
+
+// let x = " ";
+// if (x) {
+//   console.log("truthy");
+// } else {
+//   console.log("falsy");
+// }
+
+// console.log(Boolean(0)); //FALSE
+// console.log(Boolean(1)); //TRUE
+//falsy values => 0, -0, 0n, "", NaN, false, null, undefined => insted of false we can use these values in conditions
+//truthy Values => rest all are truthy values
+
+// for (let i = 0; i <= 5; i++) {
+//   console.log(i);
+// }
+
+// let i = 0;
+// while (i <= 5) {
+//   console.log(i);
+//   i++;
+// }
+
+// for (let i = 1; i <= 100; i++) {
+//   if (i % 2 == 0) {
+//     console.log(i);
+//   }
+// }
+
+// for (let i = 2; i <= 100; i++) {
+//   let isPrime = true;
+//   for (let j = 2; j <= i / 2; j++) {
+//     if (i % 2 == 0) {
+//       isPrime = false;
+//     }
+//   }
+
+//   if (isPrime) {
+//     console.log(i);
+//   }
+// }
+
+let count = 0;
+let num = Number(prompt("Enter a number : "));
+
+while (num > 0) {
+  count++;
+  num = Math.trunc(num / 10);
+}
+
+console.log(count);
