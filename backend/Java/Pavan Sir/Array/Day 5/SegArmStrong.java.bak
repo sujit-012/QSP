@@ -1,0 +1,76 @@
+import java.util.Arrays;
+
+class SegArmStrong 
+{
+	public static void main(String[] args) 
+	{
+		int[] a = {153, 25, 370, 42, 371, 123, 407, 56, 1634, 100};
+		System.out.println(Arrays.toString(a));
+		segArmStrong(a);
+		System.out.println(Arrays.toString(a));
+	}
+	
+	public static void segArmStrong(int [] n)
+	{
+		int i = 0;
+		int j = n.length - 1;
+		
+		while(i < j)
+		{
+			if(isArmstrong(n[i]))
+			{
+				i++;
+			}
+			else if(!isArmstrong(n[j]))
+			{
+				j--;
+			}
+			else
+			{
+				int temp = n[i];
+				n[i] = n[j];
+				n[j] = temp;
+			}
+		}
+	}
+	
+	public static boolean isArmstrong(int num)
+	{
+		int count = count(num);
+		int temp = num;
+		int sum = 0;
+		
+		while(num > 0)
+		{
+			sum += power(num % 10, count);
+			num /= 10;
+		}
+		
+		return temp == sum;
+	}
+	
+	public static int count(int num)
+	{
+		int count = 0;
+		
+		while(num > 0)
+		{
+			count++;
+			num /= 10;
+		}
+		
+		return count;
+	}
+	
+	public static int power(int base, int pow)
+	{
+		int ans = 1;
+		
+		for(int i = 1; i <= pow; i++)
+		{
+			ans *= pow;
+		}
+		
+		return ans;
+	}
+}

@@ -1,0 +1,11 @@
+import java.util.Arrays;
+class SegPosNeg 
+{
+	public static void main(String[] args) 
+	{
+		int [] a = {10, -9, 98, -23, -34, 87};
+		System.out.println(Arrays.toString(a));
+		segPosNeg(a);
+		System.out.println(Arrays.toString(a));
+	}
+}

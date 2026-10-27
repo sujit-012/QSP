@@ -1,0 +1,36 @@
+import java.util.Arrays;
+
+class SegEvenOdd 
+{
+	public static void main(String[] args) 
+	{
+		int [] a = {99, 108, 989, 47, 68, 8};
+		System.out.println(Arrays.toString(a));
+		segEvenOdd(a);
+		System.out.println(Arrays.toString(a));
+	}
+	
+	public static void segEvenOdd(int [] n)
+	{
+		int i = 0;
+		int j = n.length - 1;
+		
+		while(i < j)
+		{
+			if(n[i] % 2 == 0)
+			{
+				i++;
+			}
+			else if(n[j] % 2 != 0)
+			{
+				j--;
+			}
+			else
+			{
+				int temp = n[i];
+				n[i] = n[j];
+				n[j] - temp;
+			}
+		}
+	}
+}

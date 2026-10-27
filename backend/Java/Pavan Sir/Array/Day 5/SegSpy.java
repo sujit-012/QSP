@@ -1,0 +1,51 @@
+import java.util.Arrays;
+
+class SegSpy 
+{
+	public static void main(String[] args) 
+	{
+		int[] a = {123, 25, 1124, 42, 132, 56, 141, 19, 22, 234};
+		System.out.println(Arrays.toString(a));
+		segSpy(a);
+		System.out.println(Arrays.toString(a));
+	}
+	
+	public static void segSpy(int [] n)
+	{
+		int i = 0;
+		int j = n.length - 1;
+		
+		while(i < j)
+		{
+			if(isSpy(n[i]))
+			{
+				i++;
+			}
+			else if (!isSpy(n[j]))
+			{
+				j--;
+			}
+			else
+			{
+				int temp = n[i];
+				n[i] = n[j];
+				n[j] = temp;
+			}
+		}
+	}
+	
+	public static boolean isSpy(int num)
+	{
+		int sum = 0;
+		int pro = 1;
+		
+		while(num > 0)
+		{
+			sum += num % 10;
+			pro *= num % 10;
+			num /= 10;
+		}
+		
+		return sum == pro;
+	}
+}

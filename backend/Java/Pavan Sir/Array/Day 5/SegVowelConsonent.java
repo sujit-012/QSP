@@ -1,0 +1,41 @@
+import java.util.Arrays;
+
+class SegVowelConsonent 
+{
+	public static void main(String[] args) 
+	{
+		char [] a = {'A', 'i', 'G', 'U', 'K', 'S'};
+		System.out.println(Arrays.toString(a));
+		segVowelConsonent(a);
+		System.out.println(Arrays.toString(a));
+	}
+	
+	public static void segVowelConsonent(char [] c)
+	{
+		int i = 0;
+		int j = c.length - 1;
+		
+		while(i < j)
+		{
+			if(c[i] == 'A' || c[i] == 'a' || c[i] == 'I' || c[i] == 'i' ||
+			   c[i] == 'O' || c[i] == 'o' || c[i] == 'U' || c[i] == 'u' ||
+			   c[i] == 'E' || c[i] == 'e')
+			{
+				i++;
+			}
+			else if(((c[j] >= 'A' && c[j] <= 'Z') || (c[j] >= 'a' && c[j] <= 'z')) && 
+				!(c[j] == 'A' || c[j] == 'a' || c[j] == 'I' || c[j] == 'i' ||
+			   c[j] == 'O' || c[j] == 'o' || c[j] == 'U' || c[j] == 'u' ||
+			   c[j] == 'E' || c[j] == 'e'))
+			{
+				j--;
+			}
+			else
+			{
+				char temp = c[i];
+				c[i] = c[j];
+				c[j] = temp;
+			}
+		}
+	}
+}

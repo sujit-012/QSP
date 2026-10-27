@@ -199,12 +199,12 @@
 //   }
 // }
 
-let count = 0;
-let num = Number(prompt("Enter a number : "));
+// let count = 0;
+// let num = Number(prompt("Enter a number : "));
 
-while (num > 0) {
-  count++;
-  num = Math.trunc(num / 10);
-}
+// while (num > 0) {
+//   count++;
+//   num = Math.trunc(num / 10);
+// }
 
-console.log(count);
+// console.log(count);
