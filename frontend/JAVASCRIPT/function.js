@@ -60,3 +60,9 @@
 // };
 
 // a(10, 20);
+
+function btn() {
+  console.log("Button Clicked");
+}
+
+let button = document.getElementsByTagName("button");
