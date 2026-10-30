@@ -61,8 +61,68 @@
 
 // a(10, 20);
 
-function btn() {
-  console.log("Button Clicked");
-}
+// function btn() {
+//   console.log("Button Clicked");
+// }
 
-let button = document.getElementsByTagName("button");
+// let button = document.getElementsByTagName("button")
+
+//! ANONYMOUS FUNCTION
+//? Function which doesn't have any name or identifier and store inside the variable
+
+// let a = function () {
+//   console.log("Anonymous Function");
+// };
+
+// let a = function (a, b) {
+//   console.log(a, b);
+//   console.log("Anonymous Function");
+// };
+
+// a(10, 20);
+
+//! Immediate Invoke Function
+// (function demo() {
+//   console.log("Immediate Invoke Function");
+// })();
+
+// (function demo(a, b) {
+//   return a + b;
+//   console.log("Immediate Invoke Function");
+// })(10, 20);
+
+//! return
+
+//? void funnction will not return a undefined value
+
+//! Arrow Function
+
+// let a = () => {
+//   console.log("Arrow Functions");
+// };
+
+// a();
+
+// let a = (a, b) => {
+//   console.log("Arrow Functions");
+// };
+
+// a(10, 20);
+
+// let a = (a) => {
+//   console.log(a);
+// };
+
+// a(10);  //? If We pass only single argument them we can nremove the parenthesis in arrow funtion
+
+//? No function key word is present
+
+// let a = (a) => a + a;
+
+// console.log(a(10)); //? when returning single line we can ignore return key word and curly braces
+
+let a = () => {
+  console.log(arguments[0]); //? arguments array are not present for the arrow function
+};
+
+a(10, 20, 30);

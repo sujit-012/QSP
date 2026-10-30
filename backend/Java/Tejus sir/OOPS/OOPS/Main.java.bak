@@ -1,20 +1,21 @@
 class Parent {
-	static int a = 10;
 
+    static void show() {
+        System.out.println("Parent static method");
+    }
 }
 
 class Child extends Parent {
 
-     int a = 20;
-
-    Child() {
+    static void display() {
+        show();
     }
+
 }
 
-public class Main {
-
-    public static void main(String[] args) {
-        Parent c = new Child();
-		System.out.println(c.a);
+class Driver
+{
+	 public static void main(String[] args) {
+        Child.display();
     }
 }
