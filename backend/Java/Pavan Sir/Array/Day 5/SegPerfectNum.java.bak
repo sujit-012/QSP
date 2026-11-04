@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-class SegPerfect 
+class SegPerfectNum 
 {
 	public static void main(String[] args) 
 	{

@@ -1,0 +1,36 @@
+class ThirdMinValue 
+{
+	public static void main(String[] args) 
+	{
+		int [] a = {10, 20, 30, 20, 10, 10, 5, 15, 11};
+		System.out.println(thirdMin(a));
+	}
+	
+	public static int thirdMin(int [] n)
+	{
+		int min1 = Integer.MAX_VALUE;
+		int min2 = Integer.MAX_VALUE;
+		int min3 = Integer.MAX_VALUE;
+		
+		for(int i = 0; i < n.length; i++)
+		{
+			if(n[i] < min1)
+			{
+				min3 = min2;
+				min2 = min1;
+				min1 = n[i];
+			}
+			else if(n[i] < min2 && n[i] != min1)
+			{
+				min3 = min2;
+				min2 = n[i];
+			}
+			else if(n[i] < min3 && n[i] != min2 && n[i] != min3)
+			{
+				min3 = n[i];
+			}
+		}
+		
+		return min3;
+	}
+}

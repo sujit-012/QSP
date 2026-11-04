@@ -121,8 +121,192 @@
 
 // console.log(a(10)); //? when returning single line we can ignore return key word and curly braces
 
-let a = () => {
-  console.log(arguments[0]); //? arguments array are not present for the arrow function
-};
+// let a = () => {
+//   console.log(arguments[0]); //? arguments array are not present for the arrow function
+// };
 
-a(10, 20, 30);
+// a(10, 20, 30);
+
+//! Nested function
+//? Writing a function inside the function
+//? function creates inside the another function and need to call ins
+
+// function parent() {
+//   console.log("Parent function");
+
+//   function child() {
+//     console.log("child function");
+//   }
+
+//   child(); //? Child fuction needs to call in the parent function only
+// }
+
+// parent();
+// //child(); error
+
+// let parent = () => {
+//   console.log("Parent functio");
+
+//   let child = () => {
+//     console.log("Child function");
+//   };
+
+//   child();
+// };
+
+// parent();
+
+//! Higher Order and CallBack Function
+
+//* Approach 1
+// function demo(a, b, c) { //? c -> is the call back function ==> an parameter ic call to another function is called as callback function
+//   console.log(a);
+//   console.log(b);
+//   c();
+// }
+
+// demo(100, true, function () {  //? A fucntion which contain function in argument is calles as higher order function
+//   console.log("function excuted");
+// });
+
+// let demo = (a, b, c) => {
+//   console.log(a);
+//   console.log(b);
+//   c();
+// };
+
+// demo(89, false, () => {
+//   console.log("function excuted");
+// });
+
+//*Approach 2
+// let demo1 = (a, b) => {
+//   console.log("demo1 is excuted", a);
+//   b();
+// };
+
+// let demo2 = () => {
+//   console.log("demo2 is excuted");
+// };
+
+// demo1(200, demo2);
+
+//! task 2
+// let demo = (a, b, c) => {
+//   console.log(c(a, b));
+// };
+
+// demo(5, 10, (x, y) => {
+//   return x + y;
+// });
+
+//! task 3
+// let demo = (a) => {
+//   a();
+//   a();
+//   a();
+// };
+
+// demo(() => {
+//   console.log("Excuted");
+// });
+
+//! task 4
+// let demo = (a, b) => {
+//   if (a > 50) {
+//     b();
+//   }
+// };
+
+// demo(51, () => {
+//   console.log("Number is greater than 50 ");
+// });
+
+//! task 5
+
+// let demo = (a, b) => {
+//   a();
+//   b();
+// };
+
+// demo(
+//   () => {
+//     console.log("Callback 1");
+//   },
+//   () => {
+//     console.log("callback 2");
+//   },
+// );
+
+//! task 6
+// let demo = (a, b) => {
+//   b(a);
+// };
+
+// demo(50, (x) => {
+//   console.log(x);
+// });
+
+//! task 7
+
+// let demo = (a, b, c) => {
+//   return c(a, b);
+// };
+
+// console.log(
+//   demo(100, 200, (x, y) => {
+//     return x + y;
+//   }),
+// );
+
+//! task 8
+
+//! task 9
+
+// let demo = (a, b, c) => {
+//   if (a % 2 == 0 && b % 2 == 0) {
+//     c();
+//   } else {
+//     console.log("Both numbers are not even");
+//   }
+// };
+
+// demo(100, 198, () => {
+//   console.log("Both the numbers are even");
+// });
+
+//! task 10
+
+//! Pure & Improve function
+//? funnction which should not modify the oustide variables
+
+// //* Impure
+// let x = 10;
+// function demo1(a, b) {
+//   x++;
+//   return a + b;
+// }
+
+// demo1(10, 890);
+
+// //* pure
+// function demo2(a, b) {
+//   return a + b;
+// }
+
+// demo2(100, 200);
+// demo2(10, 20);
+
+//! Generator function
+
+function* demo() {
+  yield 100;
+  yield 200;
+  return 300;
+}
+
+let result = demo();
+
+let a = console.log(result.next().value);
+console.log(result.next().value);
+console.log(result.next().value);
