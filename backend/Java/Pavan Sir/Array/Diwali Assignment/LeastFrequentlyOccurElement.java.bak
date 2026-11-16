@@ -1,0 +1,42 @@
+class LeastFrequentlyOccurElement 
+{
+	public static void main(String[] args) 
+	{
+		int[] a = {1, 2, 72, 2, 67, 3, 2, 4, 1098, 3, 1098, 3289, 38, 438};
+		System.out.println(leastFrequentlyOccur(a));
+	}
+	
+	public static int leastFrequentlyOccur(int [] n)
+	{
+		boolean[] visited = new boolean[n.length];
+		int minCount = Integer.MAX_VALUE;
+		int minValue = 0;
+		
+		for(int i = 0; i < n.length; i++)
+		{
+			if(visited[i])
+			{
+				continue;
+			}
+			
+			int count = 1;
+			
+			for(int j = i + 1; j < n.length; j++)
+			{
+				if(n[i] == n[j])
+				{
+					count++;
+					visited[j] = true;
+				}
+			}
+			
+			if(count < minCount)
+			{
+				minCount = count;
+				minValue = n[i];
+			}
+		}
+		
+		return minValue;
+	}
+}

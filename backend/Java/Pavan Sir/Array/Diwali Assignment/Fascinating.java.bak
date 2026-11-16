@@ -1,0 +1,9 @@
+class Fascinating 
+{
+	public static void main(String[] args) 
+	{
+		int a = 192;
+		int num = (a*1000 +  a*2) *1000 + a*3;
+		System.out.println(num);
+	}
+}

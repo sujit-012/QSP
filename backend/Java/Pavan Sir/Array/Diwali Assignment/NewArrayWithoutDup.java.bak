@@ -1,0 +1,55 @@
+import java.util.Arrays;
+
+class NewArrayWithoutDup 
+{
+	public static void main(String[] args) 
+	{
+		int[] a = {1, 2, 2, 3, 1, 4, 1098, 3, 1098};
+		int [] nums = newArray(a);
+		System.out.println(Arrays.toString(nums));
+	}
+	
+	public static int[] newArray(int [] n)
+	{
+		boolean [] visited = new boolean[n.length];
+		int count = countUnique(n, visited);
+		int [] ans = new int[count];
+		
+		int index = 0;
+		
+		for(int i = 0; i < n.length; i++)
+		{
+			if(!visited[i])
+			{
+				ans[index++] = n[i];
+			}
+		}
+		
+		return ans;
+	}
+	
+	public static int countUnique(int [] n, boolean[] visited)
+	{
+		int count = 0;
+		
+		for(int i = 0; i < n.length; i++)
+		{
+			if(visited[i])
+			{
+				continue;
+			}
+			
+			for(int j = i + 1; j < n.length; j++)
+			{
+				if(n[i] == n[j])
+				{
+					visited[j] = true;
+				}
+			}
+			
+			count++;
+		}
+		
+		return count;
+	}
+}

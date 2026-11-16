@@ -1,0 +1,38 @@
+import java.util.Arrays;
+class ReplaceDuplicate 
+{
+	public static void main(String[] args) 
+	{
+		int[] a = {1, 2, 72, 2, 67, 3, 1, 4, 1098, 3, 1098, 3289, 38, 438};
+		System.out.println(Arrays.toString(a));
+		replaceDup(a);
+		System.out.println(Arrays.toString(a));
+	}
+	
+	public static void replaceDup(int [] n)
+	{
+		boolean [] visited = new boolean[n.length];
+		
+		for(int i = 0; i < n.length; i++)
+		{
+			if(visited[i])
+			{
+				continue;
+			}
+			
+			for(int j = i + 1; j < n.length; j++)
+			{
+				if(n[i] == n[j])
+				{
+					n[j] = -1;
+					visited[j] = true;
+				}
+			}
+			
+			if(count > 1)
+			{
+				n[i] = -1;
+			}
+		}
+	}
+}

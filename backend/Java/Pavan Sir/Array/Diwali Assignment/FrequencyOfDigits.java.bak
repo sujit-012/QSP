@@ -1,0 +1,23 @@
+class FrequencyOfDigits
+{
+	public static void main(String[] args) 
+	{
+		char[] ch = {'a', '0', 'b', 'E', 'A', '8' , 'i', 'o', 'b', '5', 'U'};
+		System.out.println("Hello World!");
+	}
+	
+	public static int frequencyOfDigits(char [] c)
+	{
+		int count = 0;
+		
+		for(int i = 0; i < c.length; i++)
+		{
+			if(c[i] >= '0' && c[i] <= '9')
+			{
+				count++;
+			}
+		}
+		
+		return count;
+	}
+}

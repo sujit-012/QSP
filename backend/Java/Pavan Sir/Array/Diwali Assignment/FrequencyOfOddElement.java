@@ -1,0 +1,23 @@
+class FrequencyOfOddElement 
+{
+	public static void main(String[] args) 
+	{
+		int[] a = {18, 36, 11, 27, 38, 47, 117, 89867};
+		System.out.println(freqOfOdd(a));
+	}
+	
+	public static int freqOfOdd(int [] n)
+	{
+		int count = 0;
+		
+		for(int i = 0; i < n.length; i++)
+		{
+			if(n[i] % 2 != 0)
+			{
+				count++;
+			}
+		}
+		
+		return count;
+	}
+}

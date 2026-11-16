@@ -1,0 +1,48 @@
+class MinimumFrequencyElement 
+{
+	public static void main(String[] args) 
+	{
+		int[] a = {2, 72, 2, 67, 3, 2, 4, 1098, 3, 1098, 3289, 38, 438, 3};
+		printMinEle(a);
+	}
+	
+	public static void printMinEle(int [] n)
+	{
+		boolean[] visited = new boolean[n.length];
+		int[] freq = new int[n.length];
+		int minCount = Integer.MAX_VALUE;
+		
+		for(int i = 0; i < n.length; i++)
+		{
+			if(visited[i])
+			{
+				continue;
+			}
+			
+			int count = 1;
+			
+			for(int j = i + 1; j < n.length; j++)
+			{
+				if(n[i] == n[j])
+				{
+					count++;
+					visited[j] = true;
+				}
+			}
+			
+			freq[i] = count;
+			if(count < minCount)
+			{
+				minCount = count;
+			}
+		}
+		
+		for(int i = 0; i < n.length; i++)
+		{
+			if(freq[i] == minCount)
+			{
+				System.out.println(n[i]);
+			}
+		}
+	}
+}
