@@ -41,24 +41,77 @@
 // console.log(str.includes("e"));
 // console.log(str.includes("e", 2)); //? second parameter tell from where we have to search
 
-//! Replace
-let str = "Hello java and java script";
+// //! Replace
+// let str = "Hello java and java script";
 
-// console.log(str.replace("java", "html")); //! Hello html and java script
-//? first is search string and second is replace string
-//? it will replave only first string
+// // console.log(str.replace("java", "html")); //! Hello html and java script
+// //? first is search string and second is replace string
+// //? it will replave only first string
 
-// console.log(str.replace("java")); //! Hello undefined and java script
+// // console.log(str.replace("java")); //! Hello undefined and java script
 
-//console.log(str.replace("java", "")); //! Hello  and java script
+// //console.log(str.replace("java", "")); //! Hello  and java script
 
-//! ReplaceAll
-console.log(str.replaceAll("java", "html")); //! Hello html and html script
+// //! ReplaceAll
+// console.log(str.replaceAll("java", "html")); //! Hello html and html script
 
-console.log(str.replaceAll("java")); //! Hello undefined and undefined script
+// console.log(str.replaceAll("java")); //! Hello undefined and undefined script
 
-console.log(str.replaceAll("java", "")); //! Hello  and  script
+// console.log(str.replaceAll("java", "")); //! Hello  and  script
 
-console.log(str.replaceAll(" ", "")); //! Hellojavaandjavascript
+// console.log(str.replaceAll(" ", "")); //! Hellojavaandjavascript
 
-console.log(str.replaceAll("java", (e) => e.toUpperCase()));
+// console.log(str.replaceAll("java", (e) => e.toUpperCase())); //? e = java
+
+// //!trim or trimStart or trimEnd
+// let str = "      hello         ";
+
+// console.log(str.length);
+// console.log(str.trimStart().length); //? remove from start
+// console.log(str.trimEnd().length); //?remove from end
+// console.log(str.trim()); //? only remove the space in start and end
+
+//! repeat
+// let str = "Hello sujit";
+
+// console.log(str.repeat(1)); //! Hello sujit
+
+// console.log(str.repeat(4)); //! Hello sujitHello sujitHello sujitHello sujit
+
+// console.log(str.repeat(2.5)); //! Hello sujitHello sujit
+
+// console.log(str.repeat(-3)); //! Error
+
+//! padStart or padEnd
+
+// let str1 = "hello";
+
+// let str2 = str1.padStart(8);
+
+// console.log(str1); //!hello
+// console.log(str2); //!    hello ==> 8 - str1.length = 8 - 3 = 3 spaces in the starting
+// console.log(str1.length);
+// console.log(str2.length);
+
+// let str1 = "hello";
+
+// let str2 = str1.padStart(9, "hii ");
+
+// console.log(str1); //!hello
+// console.log(str2); //!hii hello
+// console.log(str1.length);
+// console.log(str2.length);
+
+// let str1 = "hello";
+
+// let str2 = str1.padStart(7, "hii ");
+
+// console.log(str1); //!hello
+// console.log(str2); //!hihello ==> 7 - str1.length = 7 - 5 = 2 only two characters can be add from pass string
+// console.log(str1.length);
+// console.log(str2.length);
+
+//! same for the padEnd but it will add in the end
+
+let str = new String("Sujit");
+console.log(typeof str);

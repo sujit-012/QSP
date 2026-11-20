@@ -1,0 +1,121 @@
+import java.util.Arrays;
+
+abstract class UserString 
+{
+	protected char [] value;
+
+	public abstract int length();
+	
+	public abstract char[] toCharArray();
+	
+	public abstract boolean isEmpty();
+	
+	public abstract char charAt(int index);
+	
+	public abstract String toString();
+}
+
+class UserCustomString extends UserString
+{
+	public UserCustomString()
+	{
+		value = new char[0];
+	}
+	
+	public UserCustomString(String str)
+	{
+		value = new char[str.length()];
+		
+		for(int i = 0; i < value.length; i++)
+		{
+			value[i] = str.charAt(i);
+		}
+		
+	}
+	
+	public UserCustomString(char [] ch)
+	{
+		value = new char[ch.length];
+		
+		for(int i = 0; i < value.length; i++)
+		{
+			value[i] = ch[i];
+		}
+	}
+	
+	public int length()
+	{
+		return value.length;
+	}
+	
+	public char[] toCharArray()
+	{
+		return value;
+	}
+	
+	public boolean isEmpty()
+	{
+		return value.length == 0;
+	}
+	
+	public char charAt(int index)
+	{
+		if(index < 0 || index >= value.length)
+		{
+			throw new StringIndexOutOfBoundsException();
+		}
+		
+		return value[index];
+	}
+	
+	public String toString()
+	{
+		if(isEmpty())
+		{
+			return "";
+		}
+		return new String(value);
+	}
+}
+
+public class UserCustomStringDriver
+{
+	public static void main(String [] args)
+	{
+		//String str = new String();
+		//System.out.println(str.length());
+		//System.out.println(str);
+		//
+		//System.out.println("======================================================");
+		//
+		//UserCustomString usString = new UserCustomString();
+		//System.out.println(usString.length());
+		//System.out.println(usString);
+		
+		//String str = new String("Sujit");
+		//System.out.println(str.length());
+		//System.out.println(str);
+		//char [] c1 = str.toCharArray();
+		//System.out.println(Arrays.toString(c1));
+		//
+		//System.out.println("======================================================");
+		//
+		//UserCustomString usStr = new UserCustomString("Sujit");
+		//System.out.println(usStr.length());
+		//System.out.println(usStr);
+		//char [] c2 = usStr.toCharArray();
+		//System.out.println(Arrays.toString(c2));
+		
+		char [] c = {'S', 'u', 'j', 'i', 't'};
+		
+		String str = new String(c);
+		System.out.println(str.length());
+		System.out.println(str);
+		
+		System.out.println("=============================================================");
+		
+		UserCustomString usStr = new UserCustomString(c);
+		System.out.println(usStr.length());
+		System.out.println(usStr);
+	}
+}
