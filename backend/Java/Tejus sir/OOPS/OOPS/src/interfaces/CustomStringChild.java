@@ -2,8 +2,7 @@ package interfaces;
 
 public class CustomStringChild extends CustomString{
 	
-	public CustomStringChild()
-	{
+	public CustomStringChild() {
 		value = new char[0];
 	}
 	
@@ -11,7 +10,7 @@ public class CustomStringChild extends CustomString{
 	{
 		value = new char[str.length()];
 		
-		for(int i = 0; i < value.length; i++)
+		for(int i = 0; i < str.length(); i++)
 		{
 			value[i] = str.charAt(i);
 		}
@@ -21,11 +20,32 @@ public class CustomStringChild extends CustomString{
 	{
 		value = new char[ch.length];
 		
-		for(int i = 0; i < value.length; i++)
+		for(int i = 0; i < ch.length; i++)
 		{
 			value[i] = ch[i];
 		}
 	}
+	
+	public CustomStringChild(StringBuffer sb)
+	{
+		value = new char[sb.length()];
+		
+		for(int i = 0; i < sb.length(); i++)
+		{
+			value[i] = sb.charAt(i);
+		}
+	}
+	
+	public CustomStringChild(StringBuilder sb)
+	{
+		value = new char[sb.length()];
+		
+		for(int i = 0; i < sb.length(); i++)
+		{
+			value[i] = sb.charAt(i);
+		}
+	}
+	
 	
 	public int length()
 	{
@@ -42,15 +62,6 @@ public class CustomStringChild extends CustomString{
 		return value;
 	}
 	
-	public String toString()
-	{
-		if(isEmpty()) {
-			return "";
-		}
-		
-		return new String(value);
-	}
-	
 	public char charAt(int index)
 	{
 		if(index < 0 || index >= value.length)
@@ -59,5 +70,47 @@ public class CustomStringChild extends CustomString{
 		}
 		
 		return value[index];
+	}
+	
+	public String toString()
+	{
+		
+		return new String(value);
+	}
+	
+	public int indexOf(int ch, int fromIndex)
+	{
+		for(int i = fromIndex; i < value.length; i++)
+		{
+			if(value[i] == ch)
+			{
+				return i;
+			}
+		}
+		
+		return -1;
+	}
+	
+	public int indexOf(int ch)
+	{
+		return indexOf(ch, 0);
+	}
+	
+	public int lastIndexOf(int ch, int fromIndex)
+	{
+		for(int i = fromIndex; i >= 0; i--)
+		{
+			if(value[i] == ch)
+			{
+				return i;
+			}
+		}
+		
+		return -1;
+	}
+	
+	public int lastIndexOf(int ch)
+	{
+		return lastIndexOf(ch, value.length - 1);
 	}
 }
