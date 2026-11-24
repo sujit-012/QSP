@@ -5,9 +5,9 @@ public class CustomStringDriver {
     public static void main(String[] args) {
     	
     		String str = new String("Hello");
-    		System.out.println(str.indexOf('l', 1));
+    		System.out.println(str.contains("loo"));
 
-        CustomString cstr = new CustomStringChild("hello");
-        System.out.println(cstr.indexOf('l', 1));
+        CustomString cstr = new CustomStringChild("Hello");
+        System.out.println(cstr.contains("loo"));
     }
 }

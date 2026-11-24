@@ -20,4 +20,8 @@ abstract class CustomString {
 	public abstract int lastIndexOf(int ch, int fromIndex);
 	
 	public abstract int lastIndexOf(int ch);
+	
+	public abstract boolean contains(String str);
+	
+	public abstract CustomString replace(char oldChar, char newChar);
 }

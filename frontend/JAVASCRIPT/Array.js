@@ -54,22 +54,22 @@
 // console.log(animals);
 
 // //! task
-// let cart = [];
+let cart = [];
 
-// let showCart = () => console.log(cart);
+let showCart = () => console.log(cart);
 
-// let addProduct = () => {
-//   let pro = document.getElementById("product").value;
+let addProduct = () => {
+  let pro = document.getElementById("product").value;
 
-//   if (pro) {
-//     cart.push(pro);
-//     console.log("Product added");
-//   } else {
-//     alert("Enter a product first");
-//   }
-// };
+  if (pro) {
+    cart.push(pro);
+    alert("Product added");
+  } else {
+    alert("Enter a product first");
+  }
+};
 
-let fruits = ["Mango", "Apple", "Banana", "Graph", "Orange"];
+// let fruits = ["Mango", "Apple", "Banana", "Graph", "Orange"];
 
 // let subar = fruits.slice(1, 3);
 
@@ -86,7 +86,7 @@ let fruits = ["Mango", "Apple", "Banana", "Graph", "Orange"];
 //   console.log(ele, idx);
 // });
 
-let arr = [10, 20, 30, 40, 50, 60, 70, 80];
+//let arr = [10, 20, 30, 40, 50, 60, 70, 80];
 
 // for (let i = 0; i < arr.length; i++) {
 //   console.log(arr[i], i);
@@ -100,6 +100,180 @@ let arr = [10, 20, 30, 40, 50, 60, 70, 80];
 // for (let i = 0; i < arr.length; i++) {
 //   printElements(arr[i], i);
 // }
-arr.forEach((ele, idx) => {
-  console.log(ele, idx, arr);
+// arr.forEach((ele, idx) => {
+//   console.log(ele, idx, arr);
+// });
+
+// function demo(cb) {
+//   cb(10);
+// }
+
+// demo((a) => {
+//   console.log(a);
+// });
+
+// function demo() {
+//   let a = 10 + 20;
+// }
+
+// let y = demo();
+// console.log(y);
+
+// function demo(cb) {
+//   let x = cb(10);
+//   return x;
+// }
+
+// let y = demo((a) => {
+//   return a;
+// });
+
+// console.log(y);
+
+// //? Internal implementation of forEcah functio
+// function forEcah(cb) {
+//   for (let i = 0; i < arr.length; i++) {
+//     cb(arr[i], i);
+//   }
+// }
+
+// forEcah((ele, idx) => {
+//   console.log(ele, idx);
+//});
+
+// let x = arr.map((ele, idx, arr) => {
+//   return ele * 2;
+// });
+
+// console.log(x);
+// console.log(arr);
+
+//! Internal implementation of map method
+// function demo(cb) {
+//   let arr2 = [];
+
+//   for (let i = 0; i < arr.length; i++) {
+//     let x = cb(arr[i], i, arr);
+//     arr2.push(x);
+//   }
+
+//   return arr2;
+// }
+
+// let y = demo((ele, idx, arr) => {
+//   return ele * 2;
+// });
+
+// console.log(y);
+// console.log(arr);
+
+// let fruits = ["Mango", "Apple", "Banana", "Graph", "Orange"];
+
+// fruits.map((ele) => {});
+
+// let arr = [10, 100, 50, 200, 300, 90];
+// let newArr = [];
+
+// for (let i = 0; i < arr.length; i++) {
+//   if (arr[i] > 100) {
+//     newArr.push(arr[i]);
+//   }
+// }
+
+// console.log(newArr);
+
+// function filter(cb) {
+//   let ans = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     if (cb(arr[i])) {
+//       ans.push(arr[i]);
+//     }
+//   }
+//   return ans;
+// }
+
+// let newArr = arr.filter((ele) => {
+//   return ele > 100;
+// });
+
+// let newArr = filter((ele) => {
+//   return ele > 100;
+// });
+
+// let ans = filter((ele) => {
+//   return ele % 3 === 0;
+// });
+
+let fruits = ["Mango", "Apple", "Banana", "Grapes", "Orange"];
+
+// let ans = fruits.filter((ele) => {
+//   return ele.length > 5;
+// });
+
+// let ans = fruits.filter((ele) => {
+//   return ele.startsWith("A") || ele.startsWith("a");
+// });
+
+// let flowers = [
+//   "Lilly",
+//   "Rose",
+//   "Lotus",
+//   "SunFlower",
+//   "MariGold",
+//   "RedRose",
+//   "Lavendor",
+// ];
+
+// let ans = flowers.filter((ele) => {
+//   return ele.length > 5 && (ele.startsWith("L") || ele.startsWith("l"));
+// });
+
+// let str = flowers.join(" ");
+
+// let str = "Hello";
+
+// // let strArr = str.split("");
+// // strArr.reverse();
+// // let str2 = strArr.join("");
+
+// let str2 = str.split("").reverse().join("");
+
+//?===========================================================================================================================================
+// console.log(str2);
+// console.log(str);
+
+// let flowers = [
+//   "Lilly",
+//   "Rose",
+//   "Lotus",
+//   "SunFlower",
+//   "MariGold",
+//   "RedRose",
+//   "Lavendor",
+// ];
+
+// flowers.sort();
+// console.log(flowers);
+
+let arr = [10, 100, 50, 200, 300, 90];
+
+// arr.sort();
+// console.log(arr);
+
+// arr.sort((a, b) => {
+//   return a - b;
+// });
+
+let x = arr.every((ele) => {
+  return ele > 50;
 });
+
+console.log(x);
+
+let y = arr.some((ele) => {
+  return ele > 5;
+});
+
+console.log(y);
+
+console.log(arr);

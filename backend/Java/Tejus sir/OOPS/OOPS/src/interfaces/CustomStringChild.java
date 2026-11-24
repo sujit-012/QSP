@@ -74,6 +74,10 @@ public class CustomStringChild extends CustomString{
 	
 	public String toString()
 	{
+		if(isEmpty())
+		{
+			return "";
+		}
 		
 		return new String(value);
 	}
@@ -112,5 +116,119 @@ public class CustomStringChild extends CustomString{
 	public int lastIndexOf(int ch)
 	{
 		return lastIndexOf(ch, value.length - 1);
+	}
+	
+	public boolean contains(String str)
+	{
+		if(str.length() > value.length)
+		{
+			return false;
+		}
+		
+		for(int i = 0; i < value.length; i++)
+		{
+			int count = 0;
+			
+			for(int j = 0; j < str.length() && i+j < value.length; j++)
+			{
+				
+				if(value[i + j] == str.charAt(j))
+				{
+					count++;
+				}
+				else
+				{
+					break;
+				}
+			}
+			
+			
+			if(count == str.length())
+			{
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
+	public CustomStringChild replace(char oldChar, char newChar)
+	{
+		char[] modified = new char[value.length];
+		
+		for(int i = 0; i < modified.length; i++)
+		{
+			if(value[i] == oldChar)
+			{
+				modified[i] = newChar;
+			}
+			else
+			{
+				modified[i] = value[i];
+			}
+		}
+		
+		return new CustomStringChild(modified);
+	}
+	
+	public CustomStringChild concat(String str)
+	{
+		if(str.isEmpty())
+		{
+			return this;
+		}
+		
+		char [] res = new char[value.length + str.length()];
+		int index = 0;
+		
+		for(int i = 0; i < value.length; i++)
+		{
+			res[index++] = value[i];
+		}
+		
+		for(int j = 0; j < str.length(); j++)
+		{
+			res[index++] = str.charAt(j);
+		}
+			
+		return new CustomStringChild(res);
+	}
+	
+	public CustomStringChild toUpperCase()
+	{
+		char [] res = new char[value.length];
+		
+		for(int i = 0; i < value.length; i++)
+		{
+			if(value[i] >= 'a' && value[i] <= 'z')
+			{
+				res[i] = (char) (value[i] - 32);
+			}
+			else
+			{
+				res[i] = value[i];
+			}
+		}
+		
+		return new CustomStringChild(res);
+	}
+	
+	public CustomStringChild toLowerCase()
+	{
+		char [] res = new char[value.length];
+		
+		for(int i = 0; i < value.length; i++)
+		{
+			if(value[i] >= 'A' && value[i] <= 'Z')
+			{
+				res[i] = (char) (value[i] + 32);
+			}
+			else
+			{
+				res[i] = value[i];
+			}
+		}
+		
+		return new CustomStringChild(res);
 	}
 }
