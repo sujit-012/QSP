@@ -255,25 +255,101 @@ let fruits = ["Mango", "Apple", "Banana", "Grapes", "Orange"];
 // flowers.sort();
 // console.log(flowers);
 
-let arr = [10, 100, 50, 200, 300, 90];
+// let arr = [10, 100, 50, 200, 300, 90];
 
-// arr.sort();
-// console.log(arr);
+// // arr.sort();
+// // console.log(arr);
 
-// arr.sort((a, b) => {
-//   return a - b;
+// // arr.sort((a, b) => {
+// //   return a - b;
+// // });
+
+// let x = arr.every((ele) => {
+//   return ele > 50;
 // });
 
-let x = arr.every((ele) => {
-  return ele > 50;
-});
+// console.log(x);
 
+// let y = arr.some((ele) => {
+//   return ele > 5;
+// });
+
+// console.log(y);
+
+// console.log(arr);
+
+// let arr = [10, 20, 30, 40];
+
+// let x = arr.reduce((acc, cu) => {
+//   return (acc = acc + cu);
+// }, 0);
+
+// console.log(x);
+
+// let flowers = [
+//   "Lilly",
+//   "Rose",
+//   "Lotus",
+//   "SunFlower",
+//   "MariGold",
+//   "RedRose",
+//   "Lavendor",
+// ];
+
+// let x = flowers.reduce((acc, cu) => {
+//   return (acc = acc + cu);
+// });
+
+// console.log(x);
+
+// let arr = [10, 20, 30, 40];
+
+// let x = arr.reduce((acc, cu) => {
+//   return acc;
+// }, 0);
+
+// console.log(x);
+
+// let arr = [10, 20, [30, 40]];
+
+// console.log(arr);
+
+// let arr = [10, 20, [30, 40, [50, [60, [70]]]]];
+// console.log(arr);
+
+// let x = arr.flat(Infinity);
+// console.log(x);
+
+// let arr = [10, 20, 30, 40, 30];
+
+// let ans = (arr) => {
+//   let arr2 = [];
+//   let v = new Array(arr.length).fill(false);
+
+//   for (let i = 0; i < arr.length; i++) {
+//     if (v[i]) {
+//       continue;
+//     }
+
+//     for (let j = i + 1; j < arr.length; j++) {
+//       if (arr[i] === arr[j])
+//         v[j] = true;
+//       }
+//     }
+
+//     arr2.push(arr[i]);
+//   }
+
+//   return arr2;
+// };
+
+// console.log(ans(arr));
+
+let arr = [10, 20, 30, 40, 30];
+
+let x = arr.includes(30);
 console.log(x);
 
-let y = arr.some((ele) => {
-  return ele > 5;
-});
-
-console.log(y);
-
+delete arr[2];
 console.log(arr);
+console.log(arr.length);

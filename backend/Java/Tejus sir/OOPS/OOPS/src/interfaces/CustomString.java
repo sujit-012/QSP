@@ -24,4 +24,18 @@ abstract class CustomString {
 	public abstract boolean contains(String str);
 	
 	public abstract CustomString replace(char oldChar, char newChar);
+	
+	public abstract CustomString concat(String str);
+	
+	public abstract CustomString toUpperCase();
+	
+	public abstract CustomString toLowerCase();
+	
+	public abstract CustomString substring(int beginIndex, int endIndex);
+	
+	public abstract CustomString substring(int beginIndex);
+	
+	public abstract boolean equals(Object obj);
+	
+	public abstract boolean equalIgnoreCase(CustomString str);
 }
