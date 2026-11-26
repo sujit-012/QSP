@@ -38,4 +38,8 @@ abstract class CustomString {
 	public abstract boolean equals(Object obj);
 	
 	public abstract boolean equalIgnoreCase(CustomString str);
+	
+	public abstract boolean startsWith(String str);
+	
+	public abstract boolean endsWith(String str);
 }

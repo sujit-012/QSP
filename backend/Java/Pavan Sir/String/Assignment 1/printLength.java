@@ -1,0 +1,22 @@
+class printLength 
+{
+	public static void main(String[] args) 
+	{
+		String str = "Sujit";
+		System.out.println(length(str));
+	}
+	
+	public static int length(String str)
+	{
+		String rev = "";
+		int count = 0;
+		
+		for(int i = 0; !rev.equals(str) ; i++)
+		{
+			rev = rev + str.charAt(i);
+			count++;
+		}
+		
+		return count;
+	}
+}

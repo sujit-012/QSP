@@ -24,18 +24,29 @@ class Student
 		this.age = age;
 	}
 	
-	public String toString()
-	{
-		return "Name : " + name + ", Roll Number : " + roll + ", age : " + age;
-	}
+//	public String toString()
+//	{
+//		return "Name : " + name + ", Roll Number : " + roll + ", age : " + age;
+//	}
 	
 	public boolean equals(Object ref)
 	{
 		if(ref != null)
 		{
-			
+			if(ref instanceof Student)
+			{
+				Student s1 = (Student) ref;
+				
+				return this.name == s1.name && this.roll == s1.roll;
+			}
 		}
 		
 		return false;
+	}
+	
+	@Override
+	public int hashCode()
+	{
+	    return Objects.hash(name, roll);
 	}
 }

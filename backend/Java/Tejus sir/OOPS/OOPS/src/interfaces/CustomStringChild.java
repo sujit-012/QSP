@@ -324,4 +324,42 @@ public class CustomStringChild extends CustomString{
 		
 		return true;
 	}
+	
+	public boolean startsWith(String str)
+	{
+		if(str.length() > value.length)
+		{
+			return false;
+		}
+		
+		for(int i = 0; i < str.length(); i++)
+		{
+			if(value[i] != str.charAt(i))
+			{
+				return false;
+			}
+		}
+		
+		return true;
+	}
+	
+	public boolean endsWith(String str)
+	{
+		if(str.length() > value.length)
+		{
+			return false;
+		}
+		
+		int start = value.length - str.length();
+		
+		for(int i = 0; i < str.length(); i++)
+		{
+			if(value[start++] != str.charAt(i))
+			{
+				return false;
+			}
+		}
+		
+		return true;
+	}
 }

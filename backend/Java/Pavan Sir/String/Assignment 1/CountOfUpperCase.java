@@ -1,0 +1,23 @@
+class CountOfUpperCase 
+{
+	public static void main(String[] args) 
+	{
+		String str = "Hello Java 21 @ Pune# AEIOU xyz 123!";
+		System.out.println(countOfUpperCase(str));
+	}
+	
+	public static int countOfUpperCase(String str)
+	{
+		int count = 0;
+		
+		for(int i = 0; i < str.length(); i++)
+		{
+			if(str.charAt(i) >= 'A' && str.charAt(i) <= 'Z')
+			{
+				count++;
+			}
+		}
+		
+		return count;
+	}
+}
