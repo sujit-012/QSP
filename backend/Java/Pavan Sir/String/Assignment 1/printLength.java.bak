@@ -2,7 +2,7 @@ class printLength
 {
 	public static void main(String[] args) 
 	{
-		String str = "Banafar";
+		String str = "Sujit";
 		System.out.println(length(str));
 	}
 	

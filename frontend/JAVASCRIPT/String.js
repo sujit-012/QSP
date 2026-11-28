@@ -113,5 +113,5 @@
 
 //! same for the padEnd but it will add in the end
 
-let str = new String("Sujit");
-console.log(typeof str);
+// let str = new String("Sujit");
+// console.log(typeof str);

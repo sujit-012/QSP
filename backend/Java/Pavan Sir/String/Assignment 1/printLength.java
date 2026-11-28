@@ -8,12 +8,12 @@ class printLength
 	
 	public static int length(String str)
 	{
-		String rev = "";
+		String str1 = "";
 		int count = 0;
 		
-		for(int i = 0; !rev.equals(str) ; i++)
+		for(int i = 0; !str1.equals(str) ; i++)
 		{
-			rev = rev + str.charAt(i);
+			str1 = str1 + str.charAt(i);
 			count++;
 		}
 		

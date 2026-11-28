@@ -345,11 +345,23 @@ let fruits = ["Mango", "Apple", "Banana", "Grapes", "Orange"];
 
 // console.log(ans(arr));
 
-let arr = [10, 20, 30, 40, 30];
+// let arr = [10, 20, 30, 40, 30];
 
-let x = arr.includes(30);
-console.log(x);
+// let x = arr.includes(30);
+// console.log(x);
 
-delete arr[2];
-console.log(arr);
-console.log(arr.length);
+// delete arr[2];
+// console.log(arr);
+// console.log(arr.length);
+
+// console.log(true + 1); //2
+// console.log(false + 1); //1
+// console.log(null + 1); // 1
+// console.log(Number(null)); //0
+// console.log([] + 1); //1
+// console.log(typeof ([] + 1)); //string
+console.log([10, 20] + 1); //10, 201 ==> "10, 20" + 1
+
+console.log([10, 20] + [30, 40]); //10, 2030, 40 ==> "10, 20" + "30, 40"
+
+console.log("10" - 1);

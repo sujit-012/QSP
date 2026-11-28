@@ -96,3 +96,72 @@
 // XYZ.skills.forEach((ele) => {
 //   console.log(ele);
 // });
+
+// let laptop = {
+//   brand: "LENOVO",
+//   price: 55000,
+// };
+
+// // console.log(Object.keys(laptop)); //! Is is used to return the keys of the object in the form of array
+
+// // console.log(Object.values(laptop)); //! It is used tp return the values of object in the form of array
+
+// // console.log(Object.entries(laptop)); //! Is it used to return the kays and value in the form of array where each key value pair is one array
+// // //  ?(2) [Array(2), Array(2)]
+// // //  ?0 : (2) ['brand', 'LENOVO']
+// // //  ?1 : (2) ['price', 55000]
+
+// //? Freeze
+// // Object.freeze(laptop); //! when we freeze the then we can not add, update, delete we can only do is read
+
+// // laptop.color = "black";
+
+// // laptop.brand = "HP";
+
+// // delete laptop.brand;
+
+// // console.log(laptop);
+
+// // console.log(Object.isFrozen(laptop)); //! It is used to check the whether obbject is frozen or not
+
+// //? Seal
+// Object.seal(laptop); //! when we seal the object then we can not add, delete we can do update, read
+
+// laptop.color = "black";
+
+// laptop.brand = "HP";
+
+// delete laptop.brand;
+
+// console.log(laptop);
+
+// console.log(Object.isSealed(laptop)); //! It is used to check the whether object is sealed or not
+
+//! 2. second way to create the object
+
+// let laptop = new Object();
+// console.log(laptop);
+// ((laptop.brand = "LENOVO"), (laptop.price = 87699));
+
+// console.log(laptop);
+
+//! 3.Function Constructor
+// function laptop() {
+//   console.log(this);
+// }
+
+// new laptop();.
+
+function laptop(brand, price) {
+  this.brand = brand; //Its like //* laptop.brand = "brand"
+  this.price = price;
+  console.log(this);
+}
+
+new laptop("Hp", 82698);
+
+let a = () => {
+  console.log(this);
+};
+
+new a();
